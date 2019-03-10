@@ -1,10 +1,8 @@
-# Nutrition🍑 - Team13 - PART A
+# Nutrition🍑 - Team13
 Project for nutrition center 
+## PART A
 
-
-
-
-## Goals ⚽
+### Goals ⚽
 
 * [ ] Εισαγωγή χαρακτηρηστηκών. Όπως:
     * [ ] Βάρος.
