@@ -4,12 +4,15 @@ Project for nutrition center
 
 
 
-
 ## Goals ⚽
 
-* [ ] Εμφανιση προβλεπομενων θερμιδων προς καταναλωση.
-* [ ] Add permissions to certain commands.
-    * [ ] Make permissions a little more advanced.
-* [ ] Test and debug the new features.
+* [ ] Εμφάνιση προβλεπόμενων θερμιδών προς κατανάλωση.
+* [ ] Δυνατότητα εισαγωγής διατροφικών στόχων. 
+- Οπως
+    * [ ] Διατήρηση βάρους.
+    * [ ] Απώλεια βάρους 0.5kg/1kg ανά εβδομάδα.
+    * [ ] Λήψη βάρους 0.5kg/1kg ανά εβδομάδα.
+* [ ] Δυνατότητα εισαγωγής τύπου δραστηριότητας.
+    * [ ] Διατήρηση βάρους.
 * [ ] Clean up the root directory.
 * [ ] Create a very convenient music bot with great features.
