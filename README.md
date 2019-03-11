@@ -1,6 +1,6 @@
 # Nutrition🍑 - Team13
 Project for nutrition center 
-## PART A - R1
+## PART A (R1)
 
 ### Goals ⚽
 
