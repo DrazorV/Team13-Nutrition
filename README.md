@@ -28,4 +28,4 @@ Project for nutrition center
 * [ ] Δυνατότητα παραγωγής εβδομαδιαίων στατιστικών με απόκλιση από τους στόχους του.
 
 ### Use Case Diagram 📈
-[Imgur](https://i.imgur.com/MNj0vgs.jpg)
+<a https://i.imgur.com/MNj0vgs.jpg>
