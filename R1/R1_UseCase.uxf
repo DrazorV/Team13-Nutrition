@@ -128,17 +128,6 @@ fontsize=10
     <id>UMLUseCase</id>
     <coordinates>
       <x>504</x>
-      <y>224</y>
-      <w>238</w>
-      <h>35</h>
-    </coordinates>
-    <panel_attributes>Υποβολή διατροφικών και αθλητικών δεδομένων </panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>504</x>
       <y>140</y>
       <w>238</w>
       <h>35</h>
@@ -178,17 +167,6 @@ fontsize=10
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;30.0;260.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>735</x>
-      <y>182</y>
-      <w>189</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;80.0;250.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
