@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.2">
+<diagram program="umlet" version="14.3.0">
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1190</x>
-      <y>30</y>
+      <x>1230</x>
+      <y>0</y>
       <w>320</w>
       <h>90</h>
     </coordinates>
@@ -23,17 +23,17 @@ Gain_weight
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
-      <y>210</y>
+      <x>770</x>
+      <y>180</y>
       <w>320</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>Food
 --
-name:String
-callories:double
+name: String
+calories: double
 carbonhydrates: double
-liquids: double
+liquid: double
 fat: double
 energy: double
 protein: double
@@ -45,8 +45,8 @@ protein: double
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
-      <y>220</y>
+      <x>90</x>
+      <y>190</y>
       <w>320</w>
       <h>330</h>
     </coordinates>
@@ -60,14 +60,14 @@ gender :String
 age: int
 height: double
 weight: double
-total_callories: double
+total_calories: double
 goals: Nutrition_goals
 BMR: double
 BMI: double
 protein: double
 remaining_calories: double
 carbonhydrates: double
-liquids: double
+liquid: double
 fat: double
 energy: double
 task: String
@@ -77,22 +77,22 @@ task: String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>260</y>
+      <x>400</x>
+      <y>230</y>
       <w>390</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=*
-καταγραφει &gt;</panel_attributes>
+καταγράφει &gt;</panel_attributes>
     <additional_attributes>10.0;20.0;370.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
-      <y>270</y>
+      <x>590</x>
+      <y>240</y>
       <w>30</w>
       <h>290</h>
     </coordinates>
@@ -102,8 +102,8 @@ m2=*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>540</y>
+      <x>520</x>
+      <y>510</y>
       <w>160</w>
       <h>60</h>
     </coordinates>
@@ -116,22 +116,22 @@ IsFoorbiden:boolean
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>780</y>
+      <x>80</x>
+      <y>750</y>
       <w>370</w>
       <h>180</h>
     </coordinates>
-    <panel_attributes>Spοr
+    <panel_attributes>Exercise
 --
 name:String
-loss_callories:double
-loss_carbonhydrates: double
-loss_liquids: double
-loss_fat: double
+calories_burned:double
+carbonhydrates_burned: double
+liquid_loss: double
+fat_loss: double
 energy: double
 protein: double
-how_many times: double
-type:TypeSpor
+quantity: int
+type: ExerciseType
 
 </panel_attributes>
     <additional_attributes/>
@@ -139,8 +139,8 @@ type:TypeSpor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1170</x>
-      <y>610</y>
+      <x>1210</x>
+      <y>580</y>
       <w>320</w>
       <h>90</h>
     </coordinates>
@@ -158,15 +158,15 @@ Intense
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>540</y>
+      <x>230</x>
+      <y>510</y>
       <w>110</w>
       <h>260</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=*
-καταγραφει &gt;</panel_attributes>
+καταγράφει &gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
   </element>
 </diagram>
