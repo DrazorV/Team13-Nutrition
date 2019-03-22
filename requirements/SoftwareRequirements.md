@@ -14,7 +14,8 @@
 
 ## Αναφορές
 
-[Έγγραφο αναφοράς διατροφολογίας](Nutrition-Data/Nutrition.pdf) 
+* [ ] [Έγγραφο αναφοράς διατροφολογίας](Nutrition-Data/Nutrition.pdf)
+* [ ] [Σημείο αναφοράς υπολογισμοί θερμιδικής άξιας τροφών](https://www.everydayhealth.com/g00/calorie-counter/?i10c.ua=1&i10c.encReferrer=&i10c.dv=11)
 
 ## Επισκόπηση
 
