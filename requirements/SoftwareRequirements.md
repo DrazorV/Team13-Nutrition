@@ -69,9 +69,9 @@
 
 #### [ΠΧ1 Δημιουργία προφίλ χρήστη](uc1-profile-creation.md)
 
-#### [ΠΧ2 Διαχείριση Λογαριασμού](uc2-account-management.md)
+#### [ΠΧ2 Διαχείριση τροφών](uc2-callorie-foods-administration.md)
 
-#### [ΠΧ3 Διαχείριση Στοιχείων Πελάτη](uc3-client-management.md)
+#### [ΠΧ3 Διαχείριση δραστηριοτήτων](uc3-callorie-sports-administration.md)
 
 #### [ΠΧ4 Έκδοση κάρτας ανάληψης](uc4-debit-card-management.md)
 
