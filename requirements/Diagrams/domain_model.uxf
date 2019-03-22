@@ -145,7 +145,7 @@ type: ExerciseType
       <h>90</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enum&gt;&gt;
-TypeSpor
+ExerciseType
 --
 Light
 Normal
