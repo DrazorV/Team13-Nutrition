@@ -184,14 +184,14 @@ getPaasword</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>140</x>
+      <x>210</x>
       <y>360</y>
-      <w>300</w>
+      <w>230</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-typeCallories</panel_attributes>
-    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
+typeCalories</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -213,7 +213,7 @@ typeCallories</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-setCallories(calloriees)</panel_attributes>
+setCalories(calories)</panel_attributes>
     <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
