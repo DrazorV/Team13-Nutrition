@@ -20,3 +20,6 @@
   
 ### Διάγραμμα δραστηριότητας - Διαχείριση θερμιδών τροφών
 ![Διάγραμμα δραστηριότητα - Άνοιγμα Λογαριασμού](Diagrams/activity-calories-food-administration.jpg)
+
+
+![Διάγραμμα δραστηριότητα - Άνοιγμα Λογαριασμού](Diagrams/sequence-calories-food-administration.jpg)
