@@ -123,7 +123,17 @@
 
 #### [ΠΧ3 Διαχείριση δραστηριοτήτων](uc3-calories-exercise-administration.md)
 
-#### [ΠΧ4 Έκδοση κάρτας ανάληψης](uc4.md)
+#### [ΠΧ4 Ημερήσια Καταγραφή Διατροφής](uc4-daily-input-of-foods.md)
+
+#### [ΠΧ5 Ημερήσια Καταγραφή Δραστηριοτήτων](uc5-daily-input-of-excersizes.md)
+
+#### [ΠΧ6 Εβδομαδιαία Καταγραφή Βάρους](uc6-weekly-weight-input.md)
+
+#### [ΠΧ7 Προτάσεις Διατροφής](uc7-suggesttion-of-food.md)
+
+#### [ΠΧ8 Προτάσεις Δραστηριοτήτων](uc8-suggestion-of-sports.md)
+
+#### [ΠΧ9 Εμφάνιση προβλεπόμενων θερμιδών](uc9-show-calories.md)
 
 ## Συμπληρωματικές προδιαγραφές
 
