@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.2">
+<diagram program="umlet" version="14.3.0">
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLSpecialState</id>
@@ -38,12 +38,12 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>150</x>
+      <x>90</x>
       <y>150</y>
       <w>300</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>Πατημα κουμιου διαχειρηση δραστηριοτητων
+    <panel_attributes>Πάτημα κουμιού διαχείρησης δραστηριοτήτων
 bg=white</panel_attributes>
     <additional_attributes/>
   </element>
@@ -67,7 +67,7 @@ bg=white</panel_attributes>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-right input</panel_attributes>
+valid input</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -90,7 +90,7 @@ right input</panel_attributes>
       <w>220</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Πατημα κουμπιου Διατροφολογος</panel_attributes>
+    <panel_attributes>Πάτημα κουμπιού Διατροφολόγου</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -112,7 +112,7 @@ right input</panel_attributes>
       <w>250</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>Πατημα κουμιου εισαγωγη θερμιδων
+    <panel_attributes>Πάτημα κουμιού εισαγωγή θερμίδων
 bg=white</panel_attributes>
     <additional_attributes/>
   </element>
@@ -193,8 +193,8 @@ invalid input</panel_attributes>
       <h>410</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-υπαρχουν δραστηριοτητες
-που δεν εισαχθηκαν θερμιδες</panel_attributes>
+υπάρχουν δραστηριότητες
+που δεν εισάχθηκαν θερμίδες</panel_attributes>
     <additional_attributes>10.0;10.0;580.0;10.0;580.0;390.0;20.0;390.0</additional_attributes>
   </element>
   <element>
@@ -206,7 +206,7 @@ invalid input</panel_attributes>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-σε ολες τις δραστηριοτητες εισαχθηκαν θερμιδες</panel_attributes>
+σε όλες τις δραστηριότητες εισάχθηκαν θερμίδες</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -228,7 +228,7 @@ invalid input</panel_attributes>
       <w>200</w>
       <h>50</h>
     </coordinates>
-    <panel_attributes>Εισαγωγη Password</panel_attributes>
+    <panel_attributes>Εισαγωγή Password</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -262,7 +262,7 @@ invalid input</panel_attributes>
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-  right Password</panel_attributes>
+valid Password</panel_attributes>
     <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -274,7 +274,7 @@ invalid input</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-wrong Passwonrd</panel_attributes>
+invalid Password</panel_attributes>
     <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>

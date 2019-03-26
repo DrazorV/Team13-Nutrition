@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.2">
+<diagram program="umlet" version="14.3.0">
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLActor</id>
@@ -110,7 +110,7 @@ getNutritionistAbility</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-getPaasword</panel_attributes>
+getPassword</panel_attributes>
     <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -143,7 +143,7 @@ getPaasword</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>_:Spor_</panel_attributes>
+    <panel_attributes>_:Exercise_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -167,7 +167,7 @@ getPaasword</panel_attributes>
     </coordinates>
     <panel_attributes>loop
 --
-                                        for each spor  </panel_attributes>
+                                        for each exercise  </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
