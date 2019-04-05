@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1160</x>
+      <y>60</y>
+      <w>320</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+Nutrition_Goal_Type
+--
+Maintain_Weight
+Weight_loss
+Gain_weight
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>60</y>
+      <w>320</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Food
+--
+name:String
+callories:double
+carbonhydrates: double
+liquids: double
+fat: double
+energy: double
+protein: double
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>110</x>
+      <y>220</y>
+      <w>320</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>Customer
+--
+Username: String
+password: String
+Name: String
+Surname :String
+gender :String
+age: int
+height: double
+weight: double
+total_callories: double
+goals: Nutrition_Goal_Type
+BMR: double
+BMI: double
+protein: double
+remaining_calories: double
+carbonhydrates: double
+liquids: double
+fat: double
+energy: double
+task: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>120</y>
+      <w>370</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=*
+καταναλωνει</panel_attributes>
+    <additional_attributes>10.0;160.0;350.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>720</y>
+      <w>370</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Excercise
+--
+name:String
+loss_callories:double
+loss_carbonhydrates: double
+loss_liquids: double
+loss_fat: double
+energy: double
+protein: double
+how_many times: double
+type:TypeSpor
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1240</x>
+      <y>370</y>
+      <w>320</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+TypeSpor
+--
+Light
+Normal
+Intense
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>540</y>
+      <w>110</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=*
+καταγραφει &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>790</x>
+      <y>270</y>
+      <w>320</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>FoodConsumption
+--
+quantity:int
+date:Date
+MealType:mealTpye
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>300</y>
+      <w>390</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes>
+    <additional_attributes>10.0;40.0;370.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1220</x>
+      <y>200</y>
+      <w>320</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+MealType
+--
+Breakfast
+Lunch
+Dinner
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>940</x>
+      <y>190</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>820</x>
+      <y>460</y>
+      <w>370</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ExcercisePerformance
+--
+date:Date
+duration:double
+dayperiod:String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>490</y>
+      <w>430</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+καταγραφει &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;410.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>530</y>
+      <w>510</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+εχει &gt;</panel_attributes>
+    <additional_attributes>490.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>360</y>
+      <w>370</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Nutrition Goal
+--
+startDate:Date
+GoalType:Nutrition_Goal_type
+targetWeight:double
+active:boolean
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>390</y>
+      <w>380</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+καταγραφει &gt;</panel_attributes>
+    <additional_attributes>10.0;30.0;360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>10</y>
+      <w>370</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>WeightStatus
+--
+date:Date
+weight:double
+bmr:double
+bmi:double
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>100</y>
+      <w>110</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+καταγραφει &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+</diagram>
