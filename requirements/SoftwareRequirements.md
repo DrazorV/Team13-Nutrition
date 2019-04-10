@@ -113,23 +113,25 @@
 
 #### [ΠΧ1 Δημιουργία προφίλ χρήστη](uc1-profile-creation.md)
 
-#### [ΠΧ2 Διαχείριση τροφών](uc2-calories-food-administration.md)
+#### [ΠΧ2 Ταυτοποίηση χρήστη](uc2-user-identification.md)
 
-#### [ΠΧ3 Διαχείριση δραστηριοτήτων](uc3-calories-exercise-administration.md)
+#### [ΠΧ3 Διαχείριση τροφών](uc3-calories-food-administration.md)
 
-#### [ΠΧ4 Ημερήσια Καταγραφή Διατροφής](uc4-daily-input-of-foods.md)
+#### [ΠΧ4 Διαχείριση δραστηριοτήτων](uc4-calories-exercise-administration.md)
 
-#### [ΠΧ5 Ημερήσια Καταγραφή Δραστηριοτήτων](uc5-daily-input-of-excersizes.md)
+#### [ΠΧ5 Ημερήσια Καταγραφή Διατροφής](uc5-daily-input-of-foods.md)
 
-#### [ΠΧ6 Εβδομαδιαία Καταγραφή Βάρους](uc6-weekly-weight-input.md)
+#### [ΠΧ6 Ημερήσια Καταγραφή Δραστηριοτήτων](uc6-daily-input-of-excersizes.md)
 
-#### [ΠΧ7 Προτάσεις Διατροφής](uc7-suggesttion-of-food.md)
+#### [ΠΧ7 Εβδομαδιαία Καταγραφή Βάρους](uc7-weekly-weight-input.md)
 
-#### [ΠΧ8 Προτάσεις Δραστηριοτήτων](uc8-suggestion-of-sports.md)
+#### [ΠΧ8 Προτάσεις Διατροφής](uc8-suggesttion-of-food.md)
 
-#### [ΠΧ9 Εμφάνιση Προβλεπόμενων Θερμιδών](uc9-show-calories.md)
+#### [ΠΧ9 Προτάσεις Δραστηριοτήτων](uc9-suggestion-of-sports.md)
 
-#### [ΠΧ10 Εμφάνιση Προόδου](uc10-attending-the-progress.md)
+#### [ΠΧ10 Εμφάνιση Προβλεπόμενων Θερμιδών](uc10-show-expected-values.md)
+
+#### [ΠΧ11 Εμφάνιση Προόδου](uc11-show-progress.md)
 
 ## Συμπληρωματικές προδιαγραφές
 
