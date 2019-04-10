@@ -15,6 +15,7 @@ public class Customer {
     private Set<Food>foods;
     private Set<FoodConsumption> foodConsumptions;
     private Set<ExcercisePerformance> excercisePerformances;
+    private Set<WeightStatus>weightStatuses;
     public Customer(String Username,String password,String Name,String Surname,String gender,int age,double height,double weight,Nutrition_Goal.Nutrition_Goal_Type goals){
         try {
             check(Username);
@@ -156,6 +157,34 @@ public class Customer {
     }
     public void addExcercisePerformance(ExcercisePerformance ep){
         excercisePerformances.add(ep);
+    }
+    private double BMR(){
+        double[]lm={17.7,15.1,11.5,11.9,8.4};
+        double[]lf={13.4,14.8,8.3,9.2,9.8};
+        int []bm={657,692,873,700,821};
+        int[]bf={692,487,687,687,624};
+        double []choosel;
+        int []chooseb;
+        if(gender.equals("male")){
+            choosel=lm;
+            chooseb=bm;
+        }else{
+            choosel=lf;
+            chooseb=bf;
+        }
+        int i=0;
+        int []boundary_ages={18,30,60,75};
+        for(int j=0; j<4; j++){
+            if(boundary_ages[j]>=age)break;
+            i++;
+        }
+        return choosel[i]*weight+chooseb[i];
+    }
+    private double BMI(){
+        return weight/(height*height);
+    }
+    public void addWeightSatus(){
+        weightStatuses.add(new WeightStatus(weight,BMR(),BMI()));
     }
 }
 
