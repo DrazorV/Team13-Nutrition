@@ -1,6 +1,7 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
+//0.45kg=3500 callories
+//1       x
 public class Customer {
     private final String Username;
     private String password;
@@ -16,6 +17,7 @@ public class Customer {
     private Set<FoodConsumption> foodConsumptions;
     private Set<ExcercisePerformance> excercisePerformances;
     private Set<WeightStatus>weightStatuses;
+    private Set<Nutrition_Goal> nutriton_goals;
     public Customer(String Username,String password,String Name,String Surname,String gender,int age,double height,double weight,Nutrition_Goal.Nutrition_Goal_Type goals){
         try {
             check(Username);
@@ -32,6 +34,7 @@ public class Customer {
         setHeight(height);
         setWeight(weight);
         setGoals(goals);
+        nutriton_goals=new HashSet<>();
         excercisePerformances=new HashSet<>();
         foods=new HashSet<>();
         foodConsumptions=new HashSet<>();
@@ -186,5 +189,61 @@ public class Customer {
     public void addWeightSatus(){
         weightStatuses.add(new WeightStatus(weight,BMR(),BMI()));
     }
+    public double Callories() {
+        double sum = 0;
+        for(Food f:foods)sum=sum+f.how_many_foods();
+        return sum;
+    }
+    public HashMap calculateFoodsAndExcercises(){
+        //link :https://www.healthline.com/nutrition/how-many-calories-per-day#section1
+        double targetweight=0;
+        for(Nutrition_Goal ng:nutriton_goals){
+            if(ng.isActive()){
+                targetweight=ng.getTargetWeight();
+            }
+        }
+        if(targetweight==weight) return null;
+        double neededcallories=0;
+        if(goals==Nutrition_Goal.Nutrition_Goal_Type.Maintain_Weight){
+            if(gender.equals("male")){
+                neededcallories=2500;
+            }else{
+                neededcallories=2000;
+            }
+        }else if(goals==Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss){
+            if(gender.equals("male")){
+                neededcallories=2000;
+            }else{
+                neededcallories=1500;
+            }
+        }else{
+            if(gender.equals("male")){
+                neededcallories=2000;
+            }else{
+                neededcallories=1500;
+            }
+        }
+        double sum=0;
+        ArrayList<Food> neededFoods=new ArrayList<>();
+        ArrayList<Excercise> neededExcercise=new ArrayList<>();
+        for(Food f:foods){
+            if(sum>neededcallories) break;
+            sum=sum+f.getCallories();
+            neededFoods.add(f);
+        }
+        excercises.stream().sorted(Comparator.comparing(Excercise::getLoss_callories));//link: https://stackoverflow.com/questions/22391350/how-to-sort-a-hashset
+        for(Excercise e:excercises){
+            if(sum<=neededcallories)break;
+            sum=sum-e.getLoss_callories();
+        }ArrayList<String> fe=new ArrayList<>();
+        fe.add("food");
+        fe.add("excersice");
+            HashMap < String,Object> hm = new HashMap<>();
+
+        hm.put(fe.get(0),neededFoods);
+        hm.put(fe.get(1),neededExcercise);
+         return hm;
+    }
+
 }
 
