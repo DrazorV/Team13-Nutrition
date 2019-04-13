@@ -62,4 +62,5 @@ public class Excercise {
     public Set<ExcercisePerformance> getExcercisePerformances() {
         return excercisePerformances;
     }
+
 }

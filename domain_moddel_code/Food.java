@@ -50,4 +50,9 @@ public class Food {
     public Set<FoodConsumption> getFoodConsumptions() {
         return FoodConsumptions;
     }
+    public double how_many_foods(){
+        double sum=0;
+        for(FoodConsumption fc:FoodConsumptions)sum=sum+fc.getQuantity();
+        return sum;
+    }
 }

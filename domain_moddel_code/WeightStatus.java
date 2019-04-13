@@ -5,6 +5,7 @@ public class WeightStatus {
     private double bmr;
     private double bmi;
     private Date date;
+    private Customer customer;
 
     public WeightStatus(double weight,double bmr,double bmi){
         this.weight=weight;

@@ -11,13 +11,15 @@ public class Nutrition_Goal {
 
    private Nutrition_Goal_Type Goal_Type;
 
-    public Nutrition_Goal(Nutrition_Goal_Type Goal_Type,double targeWeight) {
+    public Nutrition_Goal(String type,double targeWeight) {
         startDate = new Date();
         active=true;
         this.targetWeight=targeWeight;
-        this.Goal_Type=Goal_Type;
-    }
+        if(type.equals("Maintain_Weight")) Goal_Type=Nutrition_Goal_Type.Maintain_Weight;
+        else if(type.equals("Weight_Loss"))  Goal_Type=Nutrition_Goal_Type.Weight_Loss;
+        else Goal_Type=Nutrition_Goal_Type.Gain_Weight;
 
+    }
     public void diactivateGoal(){
         endDate=new Date();
         active=false;
@@ -33,5 +35,8 @@ public class Nutrition_Goal {
     }
     public double getTargetWeight(){
         return targetWeight;
+    }
+    public Nutrition_Goal_Type getGoal_Type(){
+        return  Goal_Type;
     }
 }
