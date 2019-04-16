@@ -9,12 +9,12 @@ public class Excercise {
     private double loss_fat;
     private double energy;
     private double how_many_times;
-    private enum TypeSport{
+    public enum TypeSport{
         Light,Normal,Intense
     }
     private TypeSport type;
     private Set<ExcercisePerformance> excercisePerformances;
-    public Excercise(String name,double loss_callories,double loss_carbonhydrates,double loss_liquids,double loss_fat,double energy,double how_many_times,TypeSport type){
+    public Excercise(String name,double loss_callories,double loss_carbonhydrates,double loss_liquids,double loss_fat,double energy,double how_many_times,String typesport){
         this.name=name;
         this.loss_callories=loss_callories;
         this.loss_carbonhydrates=loss_carbonhydrates;
@@ -22,9 +22,12 @@ public class Excercise {
         this.loss_fat=loss_fat;
         this.energy=energy;
         this.how_many_times=how_many_times;
-        this.type=type;
+       if(typesport.equals("Light"))type= TypeSport.Light;
+       else if(typesport.equals("Normal"))type=TypeSport.Normal;
+       else type=TypeSport.Intense;
         excercisePerformances=new HashSet<>();
     }
+
     public String getName(){
         return name;
     }
