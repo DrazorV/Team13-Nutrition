@@ -48,7 +48,7 @@ protein: double
       <x>110</x>
       <y>320</y>
       <w>320</w>
-      <h>180</h>
+      <h>190</h>
     </coordinates>
     <panel_attributes>Customer
 --
@@ -61,7 +61,7 @@ age: int
 height: double
 weight: double
 goals: Nutrition_Goal_Type
-
+job: JobType
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -124,15 +124,15 @@ Intense
     <id>Relation</id>
     <coordinates>
       <x>250</x>
-      <y>490</y>
+      <y>500</y>
       <w>110</w>
-      <h>250</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=*
 καταγράφει &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -304,5 +304,24 @@ m1=*
 m2=1
 καταγράφει &gt;</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1230</x>
+      <y>530</y>
+      <w>320</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+JobType
+--
+Light
+Normal
+Intense
+
+
+</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
