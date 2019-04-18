@@ -1,5 +1,4 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Excercise {
     private String name;
@@ -27,7 +26,14 @@ public class Excercise {
        else type=TypeSport.Intense;
         excercisePerformances=new HashSet<>();
     }
+    public Date getMostRecent(){
+        ArrayList<Date> dates=new ArrayList<>();
+        for(ExcercisePerformance ep:excercisePerformances){
+            dates.add(ep.getDate());
+        }
+        return Collections.max(dates);//link https://stackoverflow.com/questions/10128387/how-to-get-the-most-recent-of-a-set-of-date-variables-in-java
 
+    }
     public String getName(){
         return name;
     }
