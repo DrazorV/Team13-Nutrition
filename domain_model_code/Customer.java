@@ -1,14 +1,12 @@
 import java.util.*;
 
-//0.45kg=3500 callories
-//1       x
-public class Customer {
+public class Customer{
     public enum JobType{Light,Normal,Intense}
     private final String Username;
     private String password;
     private final String Name;
     private final String Surname;
-    private final String gender;
+    private  String gender;
     private int age;
     private double height;
     private double weight;
@@ -20,7 +18,7 @@ public class Customer {
     private Set<ExcercisePerformance> excercisePerformances;
     private Set<WeightStatus>weightStatuses;
     private Set<Nutrition_Goal> nutriton_goals;
-    public Customer(String Username,String password,String Name,String Surname,String gender,int age,double height,double weight,Nutrition_Goal.Nutrition_Goal_Type goals,String jobt){
+    public Customer(String Username,String password,String Name,String Surname,String gender,int age,double height,double weight,String goal,String jobt,double targetWeight)throws Exception{
         try {
             check(Username);
             check(Surname);
@@ -35,30 +33,31 @@ public class Customer {
         setAge(age);
         setHeight(height);
         setWeight(weight);
-        setGoals(goals);
-        if(jobt.equals("Light"))jobType=JobType.Light;
-        else if(jobt.equals("Normal"))jobType=JobType.Normal;
-        else jobType=JobType.Intense;
+        setGoals(goal,targetWeight);
+        setJobType(jobt);
         nutriton_goals=new HashSet<>();
         excercisePerformances=new HashSet<>();
         foods=new HashSet<>();
         foodConsumptions=new HashSet<>();
         excercisePerformances=new HashSet<>();
+        weightStatuses=new HashSet<>();
+        excercises=new HashSet<>();
 
     }
-    public void setPassword(String password){
-           try{
-               checkPassword(password);
-           }catch (Exception e){
-               e.printStackTrace();
-           }
+    public void changeGender(){//for JUnit
+        if (getGender().equals("male"))gender="female";
+        else gender="male";
     }
-    public void setAge(int age){
-        try {
+    public void setJobType(String jobt){
+        if(jobt.equals("Light"))jobType=JobType.Light;
+        else if(jobt.equals("Normal"))jobType=JobType.Normal;
+        else jobType=JobType.Intense;
+    }
+    public void setPassword(String password)throws Exception{
+               checkPassword(password);
+    }
+    public void setAge(int age) throws Exception{
             checkAge(age);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
         this.age=age;
     }
     public void setHeight(double height){
@@ -69,16 +68,23 @@ public class Customer {
         }
         this.height=height;
     }
-    public void setWeight(double weight){
-        try {
+    public void setWeight(double weight) throws Exception{
             checkWeight(weight);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
         this.weight=weight;
     }
-    public void setGoals(Nutrition_Goal.Nutrition_Goal_Type goals){
-        this.goals=goals;
+    public void setGoals(String goal,double target)throws Exception{
+        if (goal.equals("Maintain_Weight")) {
+            goals = Nutrition_Goal.Nutrition_Goal_Type.Maintain_Weight;
+        }
+        else if(goal.equals("Weight_Loss")) {
+            goals = Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss;
+            if(target>=weight)throw new Exception();
+        }
+        else {
+            goals = Nutrition_Goal.Nutrition_Goal_Type.Gain_Weight;
+            if (target<=weight)throw  new Exception();
+        }
+        nutriton_goals.add(new Nutrition_Goal(goal,target));
     }
 
     public void check(String characteristic)throws Exception {
@@ -86,7 +92,7 @@ public class Customer {
             if (!Character.isLetter(characteristic.charAt(i))) throw new NameException();
         }
     public void checkAge(int age)throws Exception{
-        if(age<10 || age>100) throw new AgeException();
+        if(age<10 || age>99) throw new AgeException();
     }
     public void checkHeight(double height)throws Exception{
         if(height<0 || height>7)throw new HeightException();
@@ -138,6 +144,9 @@ public class Customer {
     public Set<Food> getFoods() {
         return foods;
     }
+    public Set<WeightStatus> getWeightStatuses(){
+        return  weightStatuses;
+    }
 
     public String getGender() {
         return gender;
@@ -170,7 +179,7 @@ public class Customer {
     public void addExcercisePerformance(ExcercisePerformance ep){
         excercisePerformances.add(ep);
     }
-    private double BMR(double w) {
+    public double BMR(double w) throws Exception{
             double[] lm = {17.7, 15.1, 11.5, 11.9, 8.4};
             double[] lf = {13.4, 14.8, 8.3, 9.2, 9.8};
             int[] bm = {657, 692, 873, 700, 821};
@@ -187,24 +196,25 @@ public class Customer {
             int i = 0;
             int[] boundary_ages = {18, 30, 60, 75};
             for (int j = 0; j < 4; j++) {
-                if (boundary_ages[j] >= age) break;
+                if (boundary_ages[j] > age) break;
                 i++;
             }
             double bmr = choosel[i] * w + chooseb[i];
-
-            if (BMI(w) > 30 && BMI(w) < 40) {
+            if(BMI(w)<18.5)
+                bmr=bmr+500;
+            else if(BMI(w)>25&&BMI(w)<30)
+                bmr=bmr-500;
+            else if (BMI(w) > 30 && BMI(w) < 40) {
                 bmr = 5 + 10 * w + 6.25 * height - 5 * age;
                 if (gender.equals("female")) bmr -= 166;
             } else if (BMI(w) > 40)
-                try{throw new Exception();}catch (Exception e){
-                    System.out.println("Sorry friend I am afraid I canot help you.Advise your doctor Immediately");
-                }
+               throw new BMIException();
         return bmr;
     }
-    private double BMI(double w){
+    public double BMI(double w){
         return w/(height*height);
     }
-    public void addWeightSatus(){
+    public void addWeightSatus()throws Exception{
         weightStatuses.add(new WeightStatus(weight,BMR(this.weight),BMI(this.weight)));
     }
 
@@ -260,7 +270,7 @@ public class Customer {
 
 
     }
-    public double callories(double w){
+    public double callories(double w)throws Exception{
           double callories=PAL()*BMR(w);
           if(BMI(w)>=18.5&&BMI(w)<=25){
               return callories;
@@ -273,7 +283,7 @@ public class Customer {
           }
           return -1;
     }
-    public HashMap calculateFoodsAndExcercises(){
+    public HashMap calculateFoodsAndExcercises()throws Exception{
         //link :https://www.healthline.com/nutrition/how-many-calories-per-day#section1
         HashMap<String,Object> hashMap=new HashMap<>();
         ArrayList<String> fe=new ArrayList<>();
