@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.*;
 
 public class Customer{
@@ -30,11 +31,6 @@ public class Customer{
         this.Name=Name;
         this.Surname=Surname;
         this.gender=gender;
-        setAge(age);
-        setHeight(height);
-        setWeight(weight);
-        setGoals(goal,targetWeight);
-        setJobType(jobt);
         nutriton_goals=new HashSet<>();
         excercisePerformances=new HashSet<>();
         foods=new HashSet<>();
@@ -42,6 +38,12 @@ public class Customer{
         excercisePerformances=new HashSet<>();
         weightStatuses=new HashSet<>();
         excercises=new HashSet<>();
+        setAge(age);
+        setHeight(height);
+        setWeight(weight);
+        setGoals(goal,targetWeight);
+        setJobType(jobt);
+
 
     }
     public void changeGender(){//for JUnit
@@ -220,51 +222,62 @@ public class Customer{
 
     public double PAL(){
         Excercise.TypeSport ts;
+        Excercise maxex;
         ArrayList<Date>dates=new ArrayList<>();
-        Date maxdate=null;
-        Excercise maxex=null;
+        ArrayList<Excercise>ex=new ArrayList<>();
        for (Excercise e:excercises){
-           Date d=e.getMostRecent();
-           if(maxdate==null||maxdate.compareTo(d)<0){
-                 maxdate=d;
-                 maxex=e;
-           }
+           dates.add(e.getMostRecent());
+           ex.add(e);
        }
+       Date maxdate=null;
+       int maxp=0;
+       for(int i=0; i<dates.size(); i++){
+           if(maxdate==null||maxdate.compareTo(dates.get(i))<=0){
+               maxdate=dates.get(i);
+               maxp=i;
+           }
+
+       }
+        maxex=ex.get(maxp);
        ts=maxex.getType();
+
        //continue
+        int pal_int;
         if(jobType.equals(JobType.Light)){
             if(ts.equals(Excercise.TypeSport.Light)){
                 return 1.4;
             }else if(ts.equals(Excercise.TypeSport.Normal)){
                 return 1.5;
-            }else{
-              return 1.6;
-            }
+            }else if(ts.equals(Excercise.TypeSport.Intense)){
+                return 1.6;
+            }else{return -1;}
         }else if(jobType.equals(JobType.Normal)){
             double pal;
             if(ts.equals(Excercise.TypeSport.Light)){
-                pal=1.6;
+                pal_int=16;
             }else if(ts.equals(Excercise.TypeSport.Normal)){
-                pal=1.7;
-            }else{
-                pal=1.8;
-            }
+                pal_int=17;
+            }else if(ts.equals(Excercise.TypeSport.Intense)){
+                pal_int=18;
+            }else{return -1;}
             if(gender.equals("female")){
-                pal-=0.1;
+             pal_int--;
             }
+            pal=(double)pal_int/10;
             return pal;
         }else{
             double pal;
             if(ts.equals(Excercise.TypeSport.Light)){
-                pal=1.7;
+                pal_int=17;
             }else if(ts.equals(Excercise.TypeSport.Normal)){
-                pal=1.8;
-            }else{
-                pal=1.9;
-            }
+                pal_int=18;
+            }else if(ts.equals(Excercise.TypeSport.Intense)){
+                pal_int=19;
+            }else{return -1;}
             if(gender.equals("female")){
-                pal-=0.2;
+                pal_int=pal_int-2;
             }
+            pal=(double) pal_int/10;
             return pal;
         }
 

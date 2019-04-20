@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class Excercise {
     private String name;
     private double loss_callories;
@@ -23,15 +24,18 @@ public class Excercise {
         this.how_many_times=how_many_times;
        if(typesport.equals("Light"))type= TypeSport.Light;
        else if(typesport.equals("Normal"))type=TypeSport.Normal;
-       else type=TypeSport.Intense;
+       else if(typesport.equals("Intense"))type=TypeSport.Intense;
+       else System.out.println("S");
         excercisePerformances=new HashSet<>();
     }
     public Date getMostRecent(){
-        ArrayList<Date> dates=new ArrayList<>();
-        for(ExcercisePerformance ep:excercisePerformances){
-            dates.add(ep.getDate());
-        }
-        return Collections.max(dates);//link https://stackoverflow.com/questions/10128387/how-to-get-the-most-recent-of-a-set-of-date-variables-in-java
+          Date max=null;
+          for(ExcercisePerformance ep:excercisePerformances){
+              if(max==null||max.compareTo(ep.getDate())<=0){
+                  max=ep.getDate();
+              }
+          }
+          return  max;
 
     }
     public String getName(){
@@ -64,7 +68,9 @@ public class Excercise {
     public TypeSport getType() {
         return type;
     }
+
     public void addExcercisePerformance(ExcercisePerformance ep){
+
         excercisePerformances.add(ep);
     }
 
