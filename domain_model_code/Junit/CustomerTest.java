@@ -2,13 +2,15 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 public class CustomerTest{
 Customer cu;
     @Before
     public void checkCust()throws Exception{
-        cu=new Customer("MMorf","Abcde3/","Manos","Morfiadakis","male",17,1.78,70.8,"Weight_Loss","Intense",90);
+        cu=new Customer("MMorf","Abcde3/","Manos","Morfiadakis","male",17,1.78,70.8,"Weight_Loss","Intense",60);
         Assert.assertNotNull(cu.getExcercises());
         Assert.assertNotNull(cu.getFoods());
         Assert.assertNotNull(cu.getExcercisePerformances());
@@ -138,7 +140,62 @@ Customer cu;
         cu.changeGender();
     }
     @Test
-    public void checkPAL(){
+    public void checkPAL()throws Exception{
         cu.setJobType("Light");
+        Excercise e=new Excercise("run",50,40,10,13.7,100.8,5,"Light");
+        e.addExcercisePerformance(new ExcercisePerformance(40,"morning"));
+        cu.addExcercise(e);
+        Assert.assertTrue(cu.PAL()==1.4);
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.4);
+        cu.changeGender();
+        cu.setJobType("Normal");
+        Assert.assertTrue(cu.PAL()==1.6);
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.5);
+        cu.changeGender();
+        cu.setJobType("Intense");
+        Assert.assertTrue(cu.PAL()==1.7);
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.5);
+        cu.changeGender();
+        cu.setJobType("Light");
+        Excercise e2=new Excercise("run",50,40,10,13.7,100.8,5,"Normal");
+        e2.addExcercisePerformance(new ExcercisePerformance(40,"morning"));
+        cu.addExcercise(e2);
+        Assert.assertTrue(cu.PAL()==1.5);
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.5);
+        cu.changeGender();
+        cu.setJobType("Normal");
+        Assert.assertTrue(cu.PAL()==1.7);
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.6);
+        cu.changeGender();
+        cu.setJobType("Intense");
+        Assert.assertTrue(cu.PAL()==1.8);
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.6);
+        cu.changeGender();
+        cu.setJobType("Light");
+        Excercise e3=new Excercise("AK-47",50,40,10,13.7,100.8,5,"Intense");
+        e3.addExcercisePerformance(new ExcercisePerformance(40,"morning"));
+        cu.addExcercise(e3);
+        Assert.assertEquals(e3.getType(), Excercise.TypeSport.Intense);
+        System.out.println(cu.PAL());
+        Assert.assertTrue(cu.PAL()==1.6);
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.6);
+        cu.setJobType("Normal");
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.8);
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.7);
+        cu.setJobType("Intense");
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.9);
+        cu.changeGender();
+        Assert.assertTrue(cu.PAL()==1.7);
+
     }
 }

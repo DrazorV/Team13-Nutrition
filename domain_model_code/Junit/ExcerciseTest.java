@@ -25,7 +25,7 @@ public void startExcercise(){
     Assert.assertNotNull(e.getExcercisePerformances());
 }
 @Test
-public void checksizeofExcercisePerformance(){
+public void checksizeofExcercisePerformance()throws Exception{
     e.addExcercisePerformance(new ExcercisePerformance(39.5,"morning"));
     e.addExcercisePerformance(new ExcercisePerformance(90,"afternoom"));
     Assert.assertTrue(e.getExcercisePerformances().size()==2);

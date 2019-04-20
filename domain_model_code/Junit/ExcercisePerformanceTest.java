@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class ExcercisePerformanceTest {
 
     @Test
-    public void CheckDateIsNotNULL() {
+    public void CheckDateIsNotNULL()throws Exception {
       ExcercisePerformance ep=new ExcercisePerformance(5,"morning");
         Assert.assertNotNull(ep.getDate());
     }
