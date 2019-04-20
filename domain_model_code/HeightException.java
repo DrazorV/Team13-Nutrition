@@ -1,3 +1,5 @@
+package Nutrition;
+
 public class HeightException extends Exception {
 
     public String toString(){

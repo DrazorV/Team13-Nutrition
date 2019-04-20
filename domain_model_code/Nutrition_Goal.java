@@ -1,3 +1,5 @@
+package Nutrition;
+
 import java.util.Date;
 public class Nutrition_Goal {
     private Date startDate;

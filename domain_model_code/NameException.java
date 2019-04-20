@@ -1,3 +1,5 @@
+package Nutrition;
+
 public class NameException extends  Exception{
     @Override
     public String toString() {
