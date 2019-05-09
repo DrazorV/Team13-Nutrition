@@ -17,8 +17,6 @@ public class Customer{
     private double weight;
     private JobType jobType;
     private Nutrition_Goal.Nutrition_Goal_Type goals;
-    private Set<Excercise> excercises;
-    private Set<Food>foods;
     private Set<FoodConsumption> foodConsumptions;
     private Set<ExcercisePerformance> excercisePerformances;
     private Set<WeightStatus>weightStatuses;
@@ -37,11 +35,9 @@ public class Customer{
         this.gender=gender;
         nutriton_goals=new HashSet<>();
         excercisePerformances=new HashSet<>();
-        foods=new HashSet<>();
         foodConsumptions=new HashSet<>();
         excercisePerformances=new HashSet<>();
         weightStatuses=new HashSet<>();
-        excercises=new HashSet<>();
         setAge(age);
         setHeight(height);
         setWeight(weight);
@@ -143,13 +139,7 @@ public class Customer{
         return goals;
     }
 
-    public Set<Excercise> getExcercises() {
-        return excercises;
-    }
 
-    public Set<Food> getFoods() {
-        return foods;
-    }
     public Set<WeightStatus> getWeightStatuses(){
         return  weightStatuses;
     }
@@ -172,12 +162,6 @@ public class Customer{
 
     public String getUsername() {
         return Username;
-    }
-    public void addFood(Food f){
-        foods.add(f);
-    }
-    public void addExcercise(Excercise e){
-        excercises.add(e);
     }
     public void addFoodConsumption(FoodConsumption fc){
         foodConsumptions.add(fc);
@@ -224,68 +208,58 @@ public class Customer{
         weightStatuses.add(new WeightStatus(weight,BMR(this.weight),BMI(this.weight)));
     }
 
-    public double PAL(){
+    public double PAL() {
+
+        ExcercisePerformance ep = null;
+        for (ExcercisePerformance e : excercisePerformances)
+            ep = e;
+        Excercise ex = ep.getExcercise();
         Excercise.TypeSport ts;
-        Excercise maxex;
-        ArrayList<Date>dates=new ArrayList<>();
-        ArrayList<Excercise>ex=new ArrayList<>();
-       for (Excercise e:excercises){
-           dates.add(e.getMostRecent());
-           ex.add(e);
-       }
-       Date maxdate=null;
-       int maxp=0;
-       for(int i=0; i<dates.size(); i++){
-           if(maxdate==null||maxdate.compareTo(dates.get(i))<=0){
-               maxdate=dates.get(i);
-               maxp=i;
-           }
-
-       }
-        maxex=ex.get(maxp);
-       ts=maxex.getType();
-
-       //continue
+        ts = ex.getType();
         int pal_int;
-        if(jobType.equals(JobType.Light)){
-            if(ts.equals(Excercise.TypeSport.Light)){
+        if (jobType.equals(JobType.Light)) {
+            if (ts.equals(Excercise.TypeSport.Light)) {
                 return 1.4;
-            }else if(ts.equals(Excercise.TypeSport.Normal)){
+            } else if (ts.equals(Excercise.TypeSport.Normal)) {
                 return 1.5;
-            }else if(ts.equals(Excercise.TypeSport.Intense)){
+            } else if (ts.equals(Excercise.TypeSport.Intense)) {
                 return 1.6;
-            }else{return -1;}
-        }else if(jobType.equals(JobType.Normal)){
-            double pal;
-            if(ts.equals(Excercise.TypeSport.Light)){
-                pal_int=16;
-            }else if(ts.equals(Excercise.TypeSport.Normal)){
-                pal_int=17;
-            }else if(ts.equals(Excercise.TypeSport.Intense)){
-                pal_int=18;
-            }else{return -1;}
-            if(gender.equals("female")){
-             pal_int--;
+            } else {
+                return -1;
             }
-            pal=(double)pal_int/10;
+        } else if (jobType.equals(JobType.Normal)) {
+            double pal;
+            if (ts.equals(Excercise.TypeSport.Light)) {
+                pal_int = 16;
+            } else if (ts.equals(Excercise.TypeSport.Normal)) {
+                pal_int = 17;
+            } else if (ts.equals(Excercise.TypeSport.Intense)) {
+                pal_int = 18;
+            } else {
+                return -1;
+            }
+            if (gender.equals("female")) {
+                pal_int--;
+            }
+            pal = (double) pal_int / 10;
             return pal;
-        }else{
+        } else {
             double pal;
-            if(ts.equals(Excercise.TypeSport.Light)){
-                pal_int=17;
-            }else if(ts.equals(Excercise.TypeSport.Normal)){
-                pal_int=18;
-            }else if(ts.equals(Excercise.TypeSport.Intense)){
-                pal_int=19;
-            }else{return -1;}
-            if(gender.equals("female")){
-                pal_int=pal_int-2;
+            if (ts.equals(Excercise.TypeSport.Light)) {
+                pal_int = 17;
+            } else if (ts.equals(Excercise.TypeSport.Normal)) {
+                pal_int = 18;
+            } else if (ts.equals(Excercise.TypeSport.Intense)) {
+                pal_int = 19;
+            } else {
+                return -1;
             }
-            pal=(double) pal_int/10;
+            if (gender.equals("female")) {
+                pal_int = pal_int - 2;
+            }
+            pal = (double) pal_int / 10;
             return pal;
         }
-
-
     }
     public double callories(double w)throws Exception{
           double callories=PAL()*BMR(w);
@@ -318,6 +292,8 @@ public class Customer{
         if(targetweight==weight) return null;
           else{
              //case1
+            ArrayList<Food> foods=FoodsAndExcercises.getFoods();
+            ArrayList<Excercise> excercises=FoodsAndExcercises.getExcercises();
             double neededCallories=callories(targetweight);
             if(neededCallories<callories(this.weight)){
                 foods.stream().sorted(Comparator.comparing(Food::getCallories));

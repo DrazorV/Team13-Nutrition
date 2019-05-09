@@ -10,32 +10,34 @@ public class Food {
     private double fat;
     private double energy;
     private double protein;
-    private Set<FoodConsumption> FoodConsumptions;
-    public Food(String name,double callories,double carbonhydrates,double liquids,double fat,double energy,double portein){
-        this.name=name;
-        this.callories=callories;
-        this.carbonhydrates=carbonhydrates;
-        this.liquids=liquids;
-        this.fat=fat;
-        this.energy=energy;
-        this.protein=portein;
-        FoodConsumptions=new HashSet<>();
+
+
+    public Food(String name, double callories, double carbonhydrates, double liquids, double fat, double energy, double portein) {
+        this.name = name;
+        this.callories = callories;
+        this.carbonhydrates = carbonhydrates;
+        this.liquids = liquids;
+        this.fat = fat;
+        this.energy = energy;
+        this.protein = portein;
     }
-    public void addFoodConsumption(FoodConsumption fc){
-        FoodConsumptions.add(fc);
-    }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public double getCallories(){
+
+    public double getCallories() {
         return callories;
     }
-    public double getCarbonhydrates(){
+
+    public double getCarbonhydrates() {
         return carbonhydrates;
     }
-    public double getLiquids(){
-        return  liquids;
+
+    public double getLiquids() {
+        return liquids;
     }
+
     public double getFat() {
         return fat;
     }
@@ -48,12 +50,6 @@ public class Food {
         return protein;
     }
 
-    public Set<FoodConsumption> getFoodConsumptions() {
-        return FoodConsumptions;
-    }
-    public double how_many_foods(){
-        double sum=0;
-        for(FoodConsumption fc:FoodConsumptions)sum=sum+fc.getQuantity();
-        return sum;
-    }
+
 }
+

@@ -14,7 +14,6 @@ public class Excercise {
         Light,Normal,Intense
     }
     private TypeSport type;
-    private Set<ExcercisePerformance> excercisePerformances;
     public Excercise(String name,double loss_callories,double loss_carbonhydrates,double loss_liquids,double loss_fat,double energy,double how_many_times,String typesport){
         this.name=name;
         this.loss_callories=loss_callories;
@@ -27,17 +26,6 @@ public class Excercise {
        else if(typesport.equals("Normal"))type=TypeSport.Normal;
        else if(typesport.equals("Intense"))type=TypeSport.Intense;
        else System.out.println("S");
-        excercisePerformances=new HashSet<>();
-    }
-    public Date getMostRecent(){
-          Date max=null;
-          for(ExcercisePerformance ep:excercisePerformances){
-              if(max==null||max.compareTo(ep.getDate())<=0){
-                  max=ep.getDate();
-              }
-          }
-          return  max;
-
     }
     public String getName(){
         return name;
@@ -68,15 +56,6 @@ public class Excercise {
 
     public TypeSport getType() {
         return type;
-    }
-
-    public void addExcercisePerformance(ExcercisePerformance ep){
-
-        excercisePerformances.add(ep);
-    }
-
-    public Set<ExcercisePerformance> getExcercisePerformances() {
-        return excercisePerformances;
     }
 
 }
