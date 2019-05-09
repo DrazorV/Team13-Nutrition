@@ -12,8 +12,6 @@ Customer cu;
     @Before
     public void checkCust()throws Exception{
         cu=new Customer("MMorf","Abcde3/","Manos","Morfiadakis","male",17,1.78,70.8,"Weight_Loss","Intense",60);
-        Assert.assertNotNull(cu.getExcercises());
-        Assert.assertNotNull(cu.getFoods());
         Assert.assertNotNull(cu.getExcercisePerformances());
         Assert.assertNotNull(cu.getFoodConsumptions());
         Assert.assertNotNull(cu.getWeightStatuses());
@@ -141,11 +139,11 @@ Customer cu;
         cu.changeGender();
     }
     @Test
-    public void checkPAL()throws Exception{
+    public void checkPAL()throws Exception{//if this  method runs with other test it is false.But if it runs indipendently it is true.
         cu.setJobType("Light");
         Excercise e=new Excercise("run",50,40,10,13.7,100.8,5,"Light");
-        e.addExcercisePerformance(new ExcercisePerformance(40,"morning"));
-        cu.addExcercise(e);
+        ExcercisePerformance ep=new ExcercisePerformance(20,"Morning",e);
+        cu.addExcercisePerformance(ep);
         Assert.assertTrue(cu.PAL()==1.4);
         cu.changeGender();
         Assert.assertTrue(cu.PAL()==1.4);
@@ -162,8 +160,8 @@ Customer cu;
         cu.changeGender();
         cu.setJobType("Light");
         Excercise e2=new Excercise("run",50,40,10,13.7,100.8,5,"Normal");
-        e2.addExcercisePerformance(new ExcercisePerformance(40,"morning"));
-        cu.addExcercise(e2);
+        ExcercisePerformance ep2=new ExcercisePerformance(20,"Morning",e2);
+        cu.addExcercisePerformance(ep2);
         Assert.assertTrue(cu.PAL()==1.5);
         cu.changeGender();
         Assert.assertTrue(cu.PAL()==1.5);
@@ -180,10 +178,9 @@ Customer cu;
         cu.changeGender();
         cu.setJobType("Light");
         Excercise e3=new Excercise("AK-47",50,40,10,13.7,100.8,5,"Intense");
-        e3.addExcercisePerformance(new ExcercisePerformance(40,"morning"));
-        cu.addExcercise(e3);
+        ExcercisePerformance ep3=new ExcercisePerformance(20,"Morning",e3);
+        cu.addExcercisePerformance(ep3);
         Assert.assertEquals(e3.getType(), Excercise.TypeSport.Intense);
-        System.out.println(cu.PAL());
         Assert.assertTrue(cu.PAL()==1.6);
         cu.changeGender();
         Assert.assertTrue(cu.PAL()==1.6);
