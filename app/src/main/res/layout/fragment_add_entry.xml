@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"		android:layout_height="wrap_content" >
+    
+<LinearLayout
+	    android:layout_width="match_parent"		 android:layout_height="wrap_content" 
+   		android:orientation="vertical"           android:background="@color/low_light_gray"
+   		android:divider="@drawable/list_divider" android:showDividers="middle" >
+    
+	    <TextView
+	        android:id="@+id/date" 
+	        android:layout_width="match_parent" android:layout_height="@dimen/medium_large_entry_height" 
+	        android:gravity="center"            android:background="@color/white"
+	        android:text="@string/date"         android:textStyle="bold"
+	        android:textSize="@dimen/medium_text_size"  
+	        android:textColor="@color/my_blue" />
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/small_entry_height"
+	        android:gravity="center_vertical"   android:background="@color/text_gray"
+	        android:text = "@string/meals"      android:textStyle="bold"
+	        android:textSize="@dimen/small_text_size" 
+	        android:paddingLeft="@dimen/small_padding"/>
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/large_entry_height"
+	        android:gravity="center_vertical"
+	        android:text = "@string/breakfast"  android:textSize="@dimen/medium_large_text_size"
+	        android:paddingLeft="@dimen/large_padding"/>
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/large_entry_height"
+	        android:gravity="center_vertical"
+	        android:text = "@string/lunch"      android:textSize="@dimen/medium_large_text_size"
+	        android:paddingLeft="@dimen/large_padding"/>
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/large_entry_height"
+	        android:gravity="center_vertical"	        
+	        android:text = "@string/dinner"     android:textSize="@dimen/medium_large_text_size"
+	        android:paddingLeft="@dimen/large_padding"/>
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/large_entry_height"
+	        android:gravity="center_vertical"	       
+	        android:text = "@string/snacks"     android:textSize="@dimen/medium_large_text_size"
+	        android:paddingLeft="@dimen/large_padding"/>
+	    
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/small_entry_height"
+	        android:gravity="center_vertical"   android:background="@color/text_gray"
+	        android:text = "@string/uc_exercise"      android:textStyle="bold"
+	        android:textSize="@dimen/small_text_size" 
+	        android:paddingLeft="@dimen/small_padding"/>
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/large_entry_height"
+	        android:gravity="center_vertical"
+	        android:text = "@string/cardiovascular"  android:textSize="@dimen/medium_large_text_size"
+	        android:paddingLeft="@dimen/large_padding"/>
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/large_entry_height"
+	        android:gravity="center_vertical"
+	        android:text = "@string/strength"      android:textSize="@dimen/medium_large_text_size"
+	        android:paddingLeft="@dimen/large_padding"/>
+	    
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/small_entry_height"
+	        android:gravity="center_vertical"   android:background="@color/text_gray"
+	        android:text = "@string/water_upcase"      android:textStyle="bold"
+	        android:textSize="@dimen/small_text_size" 
+	        android:paddingLeft="@dimen/small_padding"/>
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/large_entry_height"
+	        android:gravity="center_vertical"
+	        android:text = "@string/water"  android:textSize="@dimen/medium_large_text_size"
+	        android:paddingLeft="@dimen/large_padding"/>
+	   
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/small_entry_height"
+	        android:gravity="center_vertical"   android:background="@color/text_gray"
+	        android:text = "@string/notes"      android:textStyle="bold"
+	        android:textSize="@dimen/small_text_size" 
+	        android:paddingLeft="@dimen/small_padding"/>
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/large_entry_height"
+	        android:gravity="center_vertical"
+	        android:text = "@string/food_notes"  android:textSize="@dimen/medium_large_text_size"
+	        android:paddingLeft="@dimen/large_padding"/>
+	    <TextView 
+	        android:layout_width="match_parent" android:layout_height="@dimen/large_entry_height"
+	        android:gravity="center_vertical"
+	        android:text = "@string/exercise_notes"      android:textSize="@dimen/medium_large_text_size"
+	        android:paddingLeft="@dimen/large_padding"/>
+	</LinearLayout>
+</ScrollView>

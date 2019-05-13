@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/large_entry_height"
+    android:background="@drawable/list_selector">
+ 
+    <!-- drawer icon -->
+    <ImageView
+        android:id="@+id/drawer_icon"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:contentDescription="@string/desc_list_item_icon"
+        android:src="@drawable/ic_menu_home"
+        android:layout_centerVertical="true" />
+ 
+    <!-- drawer title -->
+    <TextView
+        android:id="@+id/drawer_title"
+        android:layout_height="@dimen/large_entry_height"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/drawer_icon"        
+        android:textSize="@dimen/medium_large_text_size"
+        android:textColor="@color/text_gray"
+        android:gravity="center_vertical"
+        android:paddingRight="40dp"/>   
+
+    <!-- item count -->
+    <TextView android:id="@+id/drawer_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/counter_bg"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"/>
+    
+</RelativeLayout>

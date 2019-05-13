@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <TextView
+	    android:id="@+id/date" 
+	    android:layout_width="match_parent" android:layout_height="@dimen/medium_large_entry_height" 
+	    android:gravity="center"            android:background="@color/white"
+	    android:text="@string/date"         android:textStyle="bold"
+	    android:textSize="@dimen/medium_text_size"  android:textColor="@color/my_blue" /> 
+    
+    <TextView	        
+        android:id="@+id/menu"              android:text="@string/calorie_breakdown" 
+        android:textStyle="bold"            android:textSize="@dimen/medium_text_size"  
+        android:textColor="@color/white"    android:gravity="center_vertical"
+        android:layout_width="match_parent" android:layout_height="@dimen/medium_large_entry_height"
+		android:layout_below="@id/date"     android:background="@color/my_blue"
+        android:paddingLeft="@dimen/large_padding" />
+    
+    <RelativeLayout
+        android:id="@+id/nutritionChartFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/menu" />
+    
+</RelativeLayout>

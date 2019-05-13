@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/medium_large_entry_height"
+    android:minHeight="@dimen/medium_large_entry_height"
+    android:background="@color/my_blue">
+   
+    <!-- header title -->
+
+    <TextView
+        android:id="@+id/diaryItemListHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        android:gravity = "center_vertical"
+        android:paddingLeft="@dimen/extra_large_padding"
+        android:textColor="@color/white"
+        android:textSize="@dimen/medium_text_size"
+        android:textStyle="bold" />
+    
+    <!-- header calorie value -->
+
+    <TextView
+        android:id="@+id/diaryItemListHeaderValue"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="right|center_vertical"
+        android:paddingRight="@dimen/extra_large_padding"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        android:textSize="@dimen/medium_text_size"
+        android:textStyle="bold" />
+    
+
+ 
+</LinearLayout>
+

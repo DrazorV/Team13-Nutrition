@@ -1,5 +1,4 @@
-package com.example.tean13_nutrition;
-import com.example.tean13_nutrition.Nutrition_Goal;
+package com.example.team13_nutrition;
 
 import org.junit.Assert;
 import org.junit.Before;

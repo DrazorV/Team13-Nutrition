@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+ <TextView 
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/lblListHeader"
+     android:layout_width="match_parent" 
+     android:minHeight="@dimen/small_entry_height"
+     android:gravity="center_vertical"   
+     android:background="@color/text_gray"
+     android:textStyle="bold"
+     android:textSize="@dimen/small_text_size" 
+     android:paddingLeft="@dimen/small_padding" />
+

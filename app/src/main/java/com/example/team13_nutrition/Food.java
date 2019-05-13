@@ -1,6 +1,4 @@
-package com.example.tean13_nutrition;
-import java.util.HashSet;
-import java.util.Set;
+package com.example.team13_nutrition;
 
 public class Food {
     private String name;

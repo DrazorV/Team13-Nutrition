@@ -1,4 +1,4 @@
-package com.example.tean13_nutrition;
+package com.example.team13_nutrition;
 public class AgeException extends Exception{
 
     public String toString(){

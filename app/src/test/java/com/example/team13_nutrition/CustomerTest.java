@@ -1,14 +1,4 @@
-package com.example.tean13_nutrition;
-import com.example.tean13_nutrition.AgeException;
-import com.example.tean13_nutrition.BMIException;
-import com.example.tean13_nutrition.Customer;
-import com.example.tean13_nutrition.Excercise;
-import com.example.tean13_nutrition.ExcercisePerformance;
-import com.example.tean13_nutrition.HeightException;
-import com.example.tean13_nutrition.NameException;
-import com.example.tean13_nutrition.Nutrition_Goal;
-import com.example.tean13_nutrition.PasswordException;
-import com.example.tean13_nutrition.WeightException;
+package com.example.team13_nutrition;
 
 import org.junit.Assert;
 import org.junit.Before;

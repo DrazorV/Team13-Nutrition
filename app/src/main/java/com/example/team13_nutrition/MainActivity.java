@@ -1,0 +1,18 @@
+package com.example.team13_nutrition;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+
+
+public class MainActivity extends FragmentActivity {
+    private Bundle mSavedInstanceState;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mSavedInstanceState = savedInstanceState;
+        setContentView(R.layout.activity_main);
+
+    }
+}

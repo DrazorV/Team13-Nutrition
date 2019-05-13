@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/low_light_gray" >
+    
+	<TableLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@color/mid_light_gray"
+	    android:paddingTop="@dimen/small_vertical_margin"
+	    android:paddingBottom="@dimen/small_vertical_margin" >
+	    
+	    <TableRow 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	        
+	        <TextView 
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="@string/goal"
+	            android:textSize="@dimen/small_text_size"/>
+	        
+	        <TextView 
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="@string/food"
+	            android:textSize="@dimen/small_text_size"/>
+	        
+	        <TextView 
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="@string/exercise"
+	            android:textSize="@dimen/small_text_size"/>
+	        
+	        <TextView 
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="@string/net"
+	            android:textSize="@dimen/small_text_size"/>
+	        
+	        <TextView 
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:text="@string/remaining"
+	            android:textSize="@dimen/small_text_size"/>
+	    </TableRow>
+	    
+	    <TableRow 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
+	        
+	        <TextView 
+	            android:id="@+id/calorie_goal"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:textSize="@dimen/medium_large_text_size"
+	            android:textStyle="bold"/>
+	        
+	        <TextView 
+	            android:id="@+id/calorie_food"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:textSize="@dimen/medium_large_text_size"
+	            android:textStyle="bold"/>
+	        
+	        <TextView 
+	            android:id="@+id/calorie_exercise"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:textSize="@dimen/medium_large_text_size"
+	            android:textStyle="bold"/>
+	        
+	        <TextView 
+	            android:id="@+id/calorie_net"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:textSize="@dimen/medium_large_text_size"
+	            android:textStyle="bold"/>
+	        
+	        <TextView 
+	            android:id="@+id/calorie_remaining"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:textSize="@dimen/medium_large_text_size"
+	            android:textStyle="bold"/>	        
+	    </TableRow>
+	</TableLayout>
+	
+    <TextView
+       android:id="@+id/date" 
+       android:layout_width="match_parent" android:layout_height="@dimen/medium_large_entry_height" 
+       android:gravity="center"            android:background="@color/white"
+       android:text="@string/date"         android:textStyle="bold"
+       android:textSize="@dimen/medium_text_size"  
+       android:textColor="@color/my_blue" />
+    
+    <ExpandableListView
+            android:id="@+id/diaryItemLVExp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" 
+            android:groupIndicator="@null" 
+            android:background="@drawable/list_selector" />
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+This layout resource defines the TextView that will be used for each item
+in the search result list in AddFragment.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_result_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/large_entry_height" >
+
+    <TextView 
+	    android:id="@+id/search_result_list_text"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="center_vertical"	     
+	    android:paddingLeft="@dimen/extra_large_padding"
+	    android:textSize="@dimen/small_text_size"
+	    android:textStyle="bold" />
+</LinearLayout>
