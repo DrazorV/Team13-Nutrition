@@ -1,4 +1,4 @@
-package com.example.nutrition_project;
+package com.example.tean13_nutrition;
 import java.util.Date;
 
 public class FoodConsumption {

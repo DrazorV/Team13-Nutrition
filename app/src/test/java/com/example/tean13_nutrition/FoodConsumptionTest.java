@@ -1,9 +1,9 @@
-package com.example.nutrition_project;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+package com.example.tean13_nutrition;
+import com.example.tean13_nutrition.Food;
+import com.example.tean13_nutrition.FoodConsumption;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class FoodConsumptionTest {
     public FoodConsumption fc;

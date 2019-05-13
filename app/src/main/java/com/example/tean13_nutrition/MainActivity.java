@@ -1,4 +1,4 @@
-package com.example.nutrition_project;
+package com.example.tean13_nutrition;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

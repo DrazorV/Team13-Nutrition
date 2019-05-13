@@ -1,7 +1,4 @@
-package com.example.nutrition_project;
-
-import com.example.nutrition_project.Excercise;
-import com.example.nutrition_project.Food;
+package com.example.tean13_nutrition;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,7 @@
-package com.example.nutrition_project;
+package com.example.tean13_nutrition;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
-import java.math.BigDecimal;
 import java.util.*;
 
 public class Customer{

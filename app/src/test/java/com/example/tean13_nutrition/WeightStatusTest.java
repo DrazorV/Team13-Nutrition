@@ -1,8 +1,8 @@
-package com.example.nutrition_project;
+package com.example.tean13_nutrition;
+import com.example.tean13_nutrition.WeightStatus;
+
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class WeightStatusTest {
     @Test

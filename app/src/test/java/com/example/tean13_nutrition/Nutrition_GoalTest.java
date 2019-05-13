@@ -1,9 +1,9 @@
-package com.example.nutrition_project;
+package com.example.tean13_nutrition;
+import com.example.tean13_nutrition.Nutrition_Goal;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class Nutrition_GoalTest {
     Nutrition_Goal ng;

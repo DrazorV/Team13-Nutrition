@@ -1,11 +1,18 @@
-package com.example.nutrition_project;
+package com.example.tean13_nutrition;
+import com.example.tean13_nutrition.AgeException;
+import com.example.tean13_nutrition.BMIException;
+import com.example.tean13_nutrition.Customer;
+import com.example.tean13_nutrition.Excercise;
+import com.example.tean13_nutrition.ExcercisePerformance;
+import com.example.tean13_nutrition.HeightException;
+import com.example.tean13_nutrition.NameException;
+import com.example.tean13_nutrition.Nutrition_Goal;
+import com.example.tean13_nutrition.PasswordException;
+import com.example.tean13_nutrition.WeightException;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Date;
-
-import static org.junit.Assert.*;
 
 public class CustomerTest{
 Customer cu;
@@ -18,7 +25,7 @@ Customer cu;
         Assert.assertEquals(cu.getGoals(), Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss);
     }
     @Test
-            (expected=PasswordException.class)
+            (expected= PasswordException.class)
     public void wrongPasword()throws Exception{
         cu.setPassword("WSW");
     }
@@ -37,11 +44,11 @@ Customer cu;
     public void wrongPassword4()throws Exception{
         cu.setPassword("WWWWW/");
     }
-    @Test(expected=NameException.class)
+    @Test(expected= NameException.class)
     public void wrongNameOrSurname()throws Exception{
         cu.check("Masn0");
     }
-    @Test(expected=AgeException.class)
+    @Test(expected= AgeException.class)
     public void invalidAge()throws Exception{
         cu.checkAge(9);
     }
@@ -49,7 +56,7 @@ Customer cu;
     public void invalidAge2()throws Exception{
         cu.checkAge(100);
     }
-    @Test(expected=HeightException.class)
+    @Test(expected= HeightException.class)
     public void invalidHeight()throws Exception{
         cu.checkHeight(-0.1);
     }
@@ -57,7 +64,7 @@ Customer cu;
     public void invalidHeight2()throws Exception{
         cu.checkHeight(7.01);
     }
-    @Test(expected=WeightException.class)
+    @Test(expected= WeightException.class)
     public void NegativeWeight()throws Exception{
         cu.checkWeight(-0.1);
     }
