@@ -71,16 +71,6 @@
             android:layout_marginTop="9dp"
             android:background="#b9b9b9" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/roboto_bold"
-            android:text="Forgot Pass?"
-            android:textColor="#d3d3d3"
-            android:textSize="14sp" />
-
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
