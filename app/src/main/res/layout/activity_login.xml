@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             android:layout_marginTop="110dp"
             android:text="Hello There!"
             android:textColor="#d11e48"
-            android:textSize="28.6sp" tools:targetApi="jelly_bean"/>
+            android:textSize="28.6sp" tools:targetApi="jelly_bean" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -99,15 +100,19 @@
                 android:src="@drawable/whitearrow"/>
         </FrameLayout>
     </LinearLayout>
+
     <TextView
         android:fontFamily="@font/roboto_light"
         android:id="@+id/sign_up"
+        android:clickable="true"
+        android:onClick="perform_action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up, if you’re new!"
+        android:text="@string/sign_up_if_you_re_new"
         android:textSize="15sp"
         android:textColor="@color/black"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp"/>
+        android:layout_marginBottom="45dp"
+        android:focusable="true" />
 </RelativeLayout>
