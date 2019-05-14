@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Login_1_wsdActivity">
+    tools:context=".Login">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="110dp"
-            android:text="Hello There!"
+            android:text="@string/hello_there"
             android:textColor="#d11e48"
             android:textSize="28.6sp" />
 
@@ -31,9 +31,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="18dp"
             android:fontFamily="@font/maven_pro_regular"
-            android:text="Please sign in to continue."
+            android:text="@string/please_sign_in_to_continue"
             android:textColor="#444444"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -41,10 +41,11 @@
             android:layout_marginTop="100dp"
             android:background="#00000000"
             android:fontFamily="@font/roboto_light"
-            android:hint="Email Address"
+            android:hint="@string/email_address"
             android:inputType="textEmailAddress"
             android:textColor="#d3d3d3"
-            android:textColorHint="#d3d3d3" />
+            android:textColorHint="#d3d3d3"
+            android:autofillHints="" />
 
         <View
             android:layout_width="match_parent"
@@ -58,7 +59,7 @@
             android:layout_marginTop="38.8dp"
             android:background="#00000000"
             android:fontFamily="@font/roboto_light"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="numberPassword"
             android:maxLength="6"
             android:textColor="#d3d3d3"
@@ -76,7 +77,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="Forgot Pass?"
+            android:text="@string/forgot_pass"
             android:textColor="#d3d3d3"
             android:textSize="14sp" />
 
@@ -90,20 +91,23 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:src="@drawable/circle"
-                android:tint="#d11e48"/>
+                android:tint="#d11e48"
+                android:contentDescription="@string/todo" />
             <ImageView
                 android:layout_width="45dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="22dp"
-                android:src="@drawable/whitearrow"/>
+                android:src="@drawable/whitearrow"
+                android:layout_marginStart="12dp"
+                android:contentDescription="TODO" />
         </FrameLayout>
     </LinearLayout>
     <TextView
         android:fontFamily="@font/roboto_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up, if you’re new!"
+        android:text="@string/sign_up_if_you_re_new"
         android:textSize="15sp"
         android:textColor="@color/black"
         android:layout_alignParentBottom="true"

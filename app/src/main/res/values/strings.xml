@@ -138,8 +138,15 @@
 	
 	<string name="nutritional_facts">NUTRITIONAL FACTS</string>
 	<string name="calories">Calories</string>
-	
-	<!-- Diary Item List Headers -->
+    <string name="todo">TODO</string>
+    <string name="sign_up_if_you_re_new">Sign up, if you’re new!</string>
+    <string name="forgot_pass">Forgot Pass?</string>
+    <string name="password">Password</string>
+    <string name="email_address">Email Address</string>
+    <string name="please_sign_in_to_continue">Please sign in to continue.</string>
+    <string name="hello_there">Hello There!</string>
+
+    <!-- Diary Item List Headers -->
     <string-array name="diary_item_list_header_array">
         <item>BREAKFAST</item>
         <item>LUNCH</item>
