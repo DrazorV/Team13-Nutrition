@@ -145,6 +145,7 @@
     <string name="email_address">Email Address</string>
     <string name="please_sign_in_to_continue">Please sign in to continue.</string>
     <string name="hello_there">Hello There!</string>
+    <string name="lets_sign_up">Lets Sign Up!</string>
 
     <!-- Diary Item List Headers -->
     <string-array name="diary_item_list_header_array">
