@@ -58,6 +58,9 @@
     <string name="water">Water</string>
     <string name="food_notes">Food Notes</string>
     <string name="exercise_notes">Exercise Notes</string>
+    <string name="hi">
+        <font fgcolor="#444444">Haven’t registered yet?  </font><font fgcolor="#000000">Join now</font>
+    </string>
 
     <!-- Add Entry List Headers -->
     <string-array name="add_entry_list_header_array">
