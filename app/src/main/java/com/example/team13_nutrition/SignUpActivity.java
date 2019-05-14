@@ -11,17 +11,17 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_up);
+        setContentView(R.layout.activity_sign_up);
 
         back = findViewById(R.id.back);
         next = findViewById(R.id.next);
         back.setOnClickListener(v -> {
-            Intent it= new Intent(SignUpActivity.this,LoginActivity.class);
+            Intent it = new Intent(SignUpActivity.this,LoginActivity.class);
             startActivity(it);
         });
 
         next.setOnClickListener(v -> {
-            Intent it= new Intent(SignUpActivity.this,LoginActivity.class);
+            Intent it = new Intent(SignUpActivity.this,SignUpSecondActivity.class);
             startActivity(it);
         });
     }
