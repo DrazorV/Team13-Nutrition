@@ -19,11 +19,11 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="123dp"
+            android:layout_height="135dp"
             android:layout_gravity="center"
             android:layout_marginTop="110dp"
             android:fontFamily="@font/sfnsdisplay"
-            android:text="Hello There!"
+            android:text="Lets Sign Up!"
             android:textColor="#d11e48"
             android:textSize="28.6sp"
             tools:targetApi="jelly_bean" />
