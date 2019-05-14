@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mainlogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rleftbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="15dp"
+        />
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/logo"
+                android:layout_marginTop="30dp">
+                
+                <custom_font.MyEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#aeb0a5"
+                    android:hint="Enter Your Email"
+                    android:layout_gravity="center"
+                    android:inputType="text"
+                    android:background="#00000000"
+                    android:textSize="12dp"
+                    android:letterSpacing="0.1"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#c1c1c1"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginTop="5dp"
+
+                    ></LinearLayout>
+
+                <custom_font.MyEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#aeb0a5"
+                    android:hint="Enter Your Password"
+                    android:layout_gravity="center"
+                    android:inputType="textPassword"
+                    android:background="#00000000"
+                    android:textSize="12dp"
+                    android:letterSpacing="0.1"
+                    android:layout_marginTop="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#c1c1c1"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginTop="5dp"
+                    ></LinearLayout>
+
+                <custom_font.MyEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#aeb0a5"
+                    android:hint="Re-Enter password"
+                    android:layout_gravity="center"
+                    android:inputType="textPassword"
+                    android:background="#00000000"
+                    android:textSize="12dp"
+                    android:letterSpacing="0.1"
+                    android:layout_marginTop="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#c1c1c1"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginTop="5dp"
+                    ></LinearLayout>
+                <custom_font.MyEditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#aeb0a5"
+                    android:hint="Mobile Number"
+                    android:layout_gravity="center"
+                    android:inputType="number"
+                    android:background="#00000000"
+                    android:textSize="12dp"
+                    android:letterSpacing="0.1"
+                    android:layout_marginTop="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="#c1c1c1"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginTop="10dp"
+                    ></LinearLayout>
+
+
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/signin"
+                    android:scaleType="fitXY"
+                  android:layout_gravity="center"
+                    android:layout_marginTop="22dp"
+
+
+
+                    />
+
+            </LinearLayout>
+
+
+
+
+</RelativeLayout>

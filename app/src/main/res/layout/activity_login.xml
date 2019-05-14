@@ -95,7 +95,6 @@
         android:fontFamily="@font/roboto_light"
         android:id="@+id/sign_up"
         android:clickable="true"
-        android:onClick="perform_action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_up_if_you_re_new"
