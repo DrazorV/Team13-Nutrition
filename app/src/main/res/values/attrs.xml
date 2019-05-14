@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PieChart">
+       <attr name="showChart"     format="boolean" />
+       <attr name="pieRadius"     format="dimension" />
+       <attr name="textColor"     format="color" />
+       <attr name="emptyPieColor" format="color" />
+       <attr name="carbSliceColor"  format="color" />
+       <attr name="fatSliceColor"   format="color" />
+       <attr name="proteinSliceColor"   format="color" />
+       <attr name="carbPercentage"    format="integer" />       
+       <attr name="fatPercentage"     format="integer" /> 
+       <attr name="proteinPercentage" format="integer" /> 
+   </declare-styleable>
+</resources>
