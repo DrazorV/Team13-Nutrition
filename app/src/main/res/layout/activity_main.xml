@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         app:bmb_buttonEnum="ham"
         android:layout_gravity="bottom|end"
-        app:bmb_piecePlaceEnum="piecePlace_ham_4"
-        app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
+        app:bmb_piecePlaceEnum="piecePlace_ham_2"
+        app:bmb_buttonPlaceEnum="buttonPlace_ham_2"
         android:layout_margin="@dimen/fab_margin" />
 </android.support.design.widget.CoordinatorLayout>

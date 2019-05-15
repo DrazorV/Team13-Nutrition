@@ -23,11 +23,16 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         BoomMenuButton bmb = findViewById(R.id.bmb);
-        for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
-            HamButton.Builder builder = (HamButton.Builder) new HamButton.Builder()
-                    .normalImageRes(R.drawable.peach);
-            bmb.addBuilder(builder);
-        }
+
+        HamButton.Builder builder = new HamButton.Builder()
+                .normalText("Add")
+                .normalImageRes(R.drawable.peach);
+        bmb.addBuilder(builder);
+
+        HamButton.Builder builder2 = new HamButton.Builder()
+                .normalText("Add2")
+                .normalImageRes(R.drawable.peach);
+        bmb.addBuilder(builder2);
         //FloatingActionButton fab = findViewById(R.id.fab);
 
         //fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show());
