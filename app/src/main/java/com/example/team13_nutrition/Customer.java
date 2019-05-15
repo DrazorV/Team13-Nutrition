@@ -80,7 +80,7 @@ public class Customer {
     }
 
     public void checkHeight(double height) throws Exception {
-        if (height < 0 || height > 3) throw new HeightException();
+        if (height < 0 || height > 230) throw new HeightException();
     }
 
     public void checkWeight(double weight) throws Exception {

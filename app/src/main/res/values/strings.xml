@@ -7,7 +7,7 @@
     <string name="action_edit">Edit</string>
     <string name="action_new">New</string>
     <string name="action_delete">Delete</string>
-    
+
     <string name="date">Today</string>
     <string name="calories_remaining_number">1200</string>
     <string name="calories_remaining">CALORIES REMAINING</string>
@@ -45,10 +45,10 @@
     <string name="calcium">Calcium</string>
     <string name="iron">Iron</string>
     <string name="default_number">0</string>
-    
+
     <string name="meals">MEALS</string>
     <string name="water_upcase">WATER</string>
-    <string name="notes">NOTES</string>    
+    <string name="notes">NOTES</string>
     <string name="breakfast">Breakfast</string>
     <string name="lunch">Lunch</string>
     <string name="dinner">Dinner</string>
@@ -69,32 +69,32 @@
         <item>WATER</item>
         <item>NOTES</item>
     </string-array>
-    
+
     <!-- Add Entry List Meal Items -->
     <string-array name="meal_child_array">
         <item>Breakfast</item>
-	    <item>Lunch</item>
-	    <item>Dinner</item>
-	    <item>Snacks</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Snacks</item>
     </string-array>
-    
+
     <!-- Add Entry List Exercise Items -->
     <string-array name="exercise_child_array">
         <item>Cardiovascular</item>
-	    <item>Strength</item>
+        <item>Strength</item>
     </string-array>
-    
+
     <!-- Add Entry List Water Items -->
     <string-array name="water_child_array">
         <item>Water</item>
     </string-array>
-    
+
     <!-- Add Entry List Note Items -->
     <string-array name="note_child_array">
         <item>Food Notes</item>
-	    <item>Exercise Notes</item>
+        <item>Exercise Notes</item>
     </string-array>
-    
+
     <!-- Nav Drawer Menu Items -->
     <string-array name="navigations_array">
         <item>Home</item>
@@ -104,7 +104,7 @@
         <item>Goals</item>
         <item>Settings</item>
     </string-array>
-    
+
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are -->
     <array name="nav_drawer_icons">
@@ -115,7 +115,7 @@
         <item>@drawable/ic_action_good</item>
         <item>@drawable/ic_action_settings</item>
     </array>
-    
+
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
     <string name="diary_category_settings_icon">Settings Icon</string>
@@ -130,14 +130,14 @@
     <string name="carbs_goal">50 %</string>
     <string name="fat_goal">30 %</string>
     <string name="protein_goal">20 %</string>
-    
-	<string name="item_hint">Search for an Item</string>
-	<string name="search_results">SEARCH RESULTS</string>
-	<string name="number_of_servings">Number of Servings</string>
-	<string name="serving_size">Serving Size</string>
-	
-	<string name="nutritional_facts">NUTRITIONAL FACTS</string>
-	<string name="calories">Calories</string>
+
+    <string name="item_hint">Search for an Item</string>
+    <string name="search_results">SEARCH RESULTS</string>
+    <string name="number_of_servings">Number of Servings</string>
+    <string name="serving_size">Serving Size</string>
+
+    <string name="nutritional_facts">NUTRITIONAL FACTS</string>
+    <string name="calories">Calories</string>
     <string name="todo">TODO</string>
     <string name="sign_up_if_you_re_new">Sign up, if you’re new!</string>
     <string name="forgot_pass">Forgot Pass?</string>
@@ -154,4 +154,13 @@
         <item>DINNER</item>
         <item>SNACKS</item>
     </string-array>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>

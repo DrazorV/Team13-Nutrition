@@ -18,10 +18,13 @@ public class SignUpSecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_second);
 
+        String username = getIntent().getStringExtra("username");
+        String password = getIntent().getStringExtra("password");
+
         back = findViewById(R.id.back);
         next = findViewById(R.id.next);
         back.setOnClickListener(v -> {
-            Intent it= new Intent(SignUpSecondActivity.this,LoginActivity.class);
+            Intent it = new Intent(SignUpSecondActivity.this,LoginActivity.class);
             startActivity(it);
         });
 
@@ -29,7 +32,13 @@ public class SignUpSecondActivity extends AppCompatActivity {
             weight.findViewById(R.id.enter_weight);
             height.findViewById(R.id.enter_height);
             age.findViewById(R.id.enter_age);
-            Intent it= new Intent(SignUpSecondActivity.this,LoginActivity.class);
+            try {
+                Customer temp = new Customer(username, password, null, null, null, 0, 0, 0, null, null, 0);
+                CustomerMap.customerMap.put(username,temp);
+            } catch (Exception ignored) {
+
+            }
+            Intent it = new Intent(SignUpSecondActivity.this,LoginActivity.class);
             startActivity(it);
         });
     }
