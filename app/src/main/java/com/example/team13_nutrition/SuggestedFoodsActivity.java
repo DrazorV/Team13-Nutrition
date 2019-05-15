@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-
+//
 public class SuggestedFoodsActivity extends AppCompatActivity {
     private SuggestedFoodsPresenter presenter = new SuggestedFoodsPresenter(this);
     ListView lv;
