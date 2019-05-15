@@ -23,7 +23,7 @@ import com.example.team13_nutrition.R;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-    Customer c1 = new Customer("admin","123456","Vagelis","Panos","male",21,1.88,86,"Maintain_Weight","Normal",84);
+    Customer c1 = new Customer("vagelis","123456","Vagelis","Panos","male",21,1.88,86,"Maintain_Weight","Normal",84);
 
 
     @Override
@@ -100,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName() + "!";
         Intent it = new Intent(LoginActivity.this, MainActivity.class);
+        it.putExtra("user",loginViewModel.getLoginResult().getValue().getSuccess().getDisplayName());
         startActivity(it);
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }

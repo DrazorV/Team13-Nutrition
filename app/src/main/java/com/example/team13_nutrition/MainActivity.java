@@ -4,6 +4,11 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.team13_nutrition.ui.main.SectionsPagerAdapter;
 import com.example.team13_nutrition.ui.main.Tab1;
@@ -13,20 +18,31 @@ import com.nightonke.boommenu.BoomMenuButton;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String user = getIntent().getStringExtra("user");
         ViewPager viewPager = findViewById(R.id.view_pager);
         TabLayout tabs = findViewById(R.id.tabs);
 
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab1(), "Summary");
-        adapter.addFragment(new Tab2(), "Profile");
+        Bundle bundle = new Bundle();
+        bundle.putString("params", user);
+        Tab1 t1 = new Tab1();
+        Tab2 t2 = new Tab2();
+        t1.setArguments(bundle);
+        t2.setArguments(bundle);
 
+        adapter.addFragment(t1, "Summary");
+        adapter.addFragment(t2, "Profile");
 
         viewPager.setAdapter(adapter);
         tabs.setupWithViewPager(viewPager);
+
         BoomMenuButton bmb = findViewById(R.id.bmb);
 
         HamButton.Builder builder = new HamButton.Builder()
@@ -38,5 +54,21 @@ public class MainActivity extends AppCompatActivity {
                 .normalText("Add2")
                 .normalImageRes(R.drawable.peach);
         bmb.addBuilder(builder2);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.main,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.action_settings){
+            Toast.makeText(this, "Action Item", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
