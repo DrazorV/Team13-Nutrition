@@ -33,8 +33,8 @@ public class SignUpActivity extends AppCompatActivity {
             password = findViewById(R.id.enter_password);
             rePassword = findViewById(R.id.reenter_password);
             if(username.getText().length() < 4) Toast.makeText(getApplicationContext(), "Username too small!", Toast.LENGTH_SHORT).show();
-            else if(password.getText().length() < 3) Toast.makeText(getApplicationContext(), "Username too small!", Toast.LENGTH_SHORT).show();
-            else if(!password.getText().equals(rePassword.getText())) Toast.makeText(getApplicationContext(), "Passwords don't match!", Toast.LENGTH_SHORT).show();
+            else if(Customer.checkPassword) Toast.makeText(getApplicationContext(), "Username too small!", Toast.LENGTH_SHORT).show();
+            else if(!password.getText().toString().equals(rePassword.getText().toString())) Toast.makeText(getApplicationContext(), "Passwords don't match!", Toast.LENGTH_SHORT).show();
             else {
                 try {
                     Customer temp = new Customer(username.getText().toString(), password.getText().toString(), null, null, null, 0, 0, 0, null, null, 0);

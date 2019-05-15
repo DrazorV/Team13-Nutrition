@@ -161,6 +161,7 @@ public class Customer {
 
     void setPassword(String password) throws Exception {
         checkPassword(password);
+        this.password = password;
     }
 
     public String getSurname() {
