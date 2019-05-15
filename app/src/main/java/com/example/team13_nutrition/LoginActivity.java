@@ -10,38 +10,34 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     TextView signUp;
     ImageView login;
     EditText username;
     EditText password;
-    Map<String,Customer> customerMap = new HashMap<>();
+
+    Customer c1 = new Customer("DrazorV","4522","Vagelis","Panos","male",21,1.88,86,"Maintain_Weight","Normal",84);
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        CustomerMap.customerMap.put(c1.getUsername(),c1);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         signUp = findViewById(R.id.sign_up);
         login = findViewById(R.id.login);
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
         login.setOnClickListener(v -> {
             hideKeyboard(this);
-            if(customerMap.keySet().contains(username.getText().toString())){
-                if(customerMap.get(username.getText().toString()).getPassword().equals(password.getText().toString())){
+            username = findViewById(R.id.username);
+            password = findViewById(R.id.password);
+            if(CustomerMap.customerMap.keySet().contains(username.getText().toString())){
+                if(Objects.requireNonNull(CustomerMap.customerMap.get(username.getText().toString())).getPassword().equals(password.getText().toString())){
                     Intent it = new Intent(LoginActivity.this, LoginActivity.class);
                     startActivity(it);
-                }else{
-                    Toast.makeText(getApplicationContext(), "Wrong Password!", Toast.LENGTH_SHORT).show();
-                }
-            }else{
-                Toast.makeText(getApplicationContext(), "This Username doesn't exist please sign up below!", Toast.LENGTH_SHORT).show();
-            }
+                }else Toast.makeText(getApplicationContext(), "Wrong Password!", Toast.LENGTH_SHORT).show();
+            }else Toast.makeText(getApplicationContext(), "This Username doesn't exist please sign up below!", Toast.LENGTH_SHORT).show();
         });
 
         signUp.setOnClickListener(v -> {
@@ -61,4 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+    public LoginActivity() throws Exception {
+
+    }
+
 }

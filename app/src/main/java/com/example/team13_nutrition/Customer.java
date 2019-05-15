@@ -14,14 +14,15 @@ public class Customer {
     private int age;
     private double height;
     private double weight;
-    private JobType jobType;
+    private static jobtype jobtype;
     private Nutrition_Goal.Nutrition_Goal_Type goals;
     private Set<FoodConsumption> foodConsumptions;
     private Set<ExcercisePerformance> excercisePerformances;
     private Set<WeightStatus> weightStatuses;
     private Set<Nutrition_Goal> nutriton_goals;
 
-    public Customer(String Username, String password, String Name, String Surname, String gender, int age, double height, double weight, String goal, String jobt, double targetWeight) throws Exception {
+
+    public Customer(String Username, String password, String Name, String Surname, String gender, int age, double height, double weight, String goal, String job, double targetWeight) throws Exception {
         try {
             check(Username);
             check(Surname);
@@ -42,9 +43,7 @@ public class Customer {
         setHeight(height);
         setWeight(weight);
         setGoals(goal, targetWeight);
-        setJobType(jobt);
-
-
+        setjobtype(job);
     }
 
     public void changeGender() {//for JUnit
@@ -52,10 +51,10 @@ public class Customer {
         else gender = "male";
     }
 
-    public void setJobType(String jobt) {
-        if (jobt.equals("Light")) jobType = JobType.Light;
-        else if (jobt.equals("Normal")) jobType = JobType.Normal;
-        else jobType = JobType.Intense;
+    public void setjobtype(String job) {
+        if (job.equals("Light")) jobtype = Customer.jobtype.Light;
+        else if (job.equals("Normal")) jobtype = Customer.jobtype.Normal;
+        else jobtype = Customer.jobtype.Intense;
     }
 
     public void setGoals(String goal, double target) throws Exception {
@@ -81,7 +80,7 @@ public class Customer {
     }
 
     public void checkHeight(double height) throws Exception {
-        if (height < 0 || height > 7) throw new HeightException();
+        if (height < 0 || height > 3) throw new HeightException();
     }
 
     public void checkWeight(double weight) throws Exception {
@@ -160,7 +159,7 @@ public class Customer {
         return password;
     }
 
-    public void setPassword(String password) throws Exception {
+    void setPassword(String password) throws Exception {
         checkPassword(password);
     }
 
@@ -230,7 +229,7 @@ public class Customer {
         Excercise.TypeSport ts;
         ts = ex.getType();
         int pal_int;
-        if (jobType.equals(JobType.Light)) {
+        if (jobtype.equals(Customer.jobtype.Light)) {
             if (ts.equals(Excercise.TypeSport.Light)) {
                 return 1.4;
             } else if (ts.equals(Excercise.TypeSport.Normal)) {
@@ -240,7 +239,7 @@ public class Customer {
             } else {
                 return -1;
             }
-        } else if (jobType.equals(JobType.Normal)) {
+        } else if (jobtype.equals(Customer.jobtype.Normal)) {
             double pal;
             if (ts.equals(Excercise.TypeSport.Light)) {
                 pal_int = 16;
@@ -332,7 +331,7 @@ public class Customer {
         }
     }
 
-    public enum JobType {Light, Normal, Intense}
+    public enum jobtype {Light, Normal, Intense}
 
 
 }
