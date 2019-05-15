@@ -3,6 +3,13 @@ package com.example.team13_nutrition;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import com.example.team13_nutrition.exceptions.AgeException;
+import com.example.team13_nutrition.exceptions.BMIException;
+import com.example.team13_nutrition.exceptions.HeightException;
+import com.example.team13_nutrition.exceptions.NameException;
+import com.example.team13_nutrition.exceptions.PasswordException;
+import com.example.team13_nutrition.exceptions.WeightException;
+
 import java.util.*;
 
 public class Customer {

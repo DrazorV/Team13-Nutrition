@@ -1,4 +1,4 @@
-package com.example.team13_nutrition;
+package com.example.team13_nutrition.exceptions;
 public class NameException extends  Exception{
     @Override
     public String toString() {
