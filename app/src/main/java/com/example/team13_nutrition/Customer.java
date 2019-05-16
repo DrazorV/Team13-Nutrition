@@ -54,8 +54,8 @@ public class Customer {
     }
 
     public void changeGender() {//for JUnit
-        if (getGender().equals("male")) gender = "female";
-        else gender = "male";
+        if (getGender().equals("Male")) gender = "Female";
+        else gender = "Male";
     }
 
     public void setjobtype(String job) {
@@ -198,7 +198,7 @@ public class Customer {
         int[] bf = {692, 487, 687, 687, 624};
         double[] choosel;
         int[] chooseb;
-        if (gender.equals("male")) {
+        if (gender.equals("Male")) {
             choosel = lm;
             chooseb = bm;
         } else {
@@ -218,7 +218,7 @@ public class Customer {
             bmr = bmr - 500;
         else if (BMI(w) > 30 && BMI(w) < 40) {
             bmr = 5 + 10 * w + 6.25 * height - 5 * age;
-            if (gender.equals("female")) bmr -= 166;
+            if (gender.equals("Female")) bmr -= 166;
         } else if (BMI(w) > 40)
             throw new BMIException();
         return bmr;
@@ -262,7 +262,7 @@ public class Customer {
             } else {
                 return -1;
             }
-            if (gender.equals("female")) {
+            if (gender.equals("Female")) {
                 pal_int--;
             }
             pal = (double) pal_int / 10;
@@ -278,7 +278,7 @@ public class Customer {
             } else {
                 return -1;
             }
-            if (gender.equals("female")) {
+            if (gender.equals("Female")) {
                 pal_int = pal_int - 2;
             }
             pal = (double) pal_int / 10;
