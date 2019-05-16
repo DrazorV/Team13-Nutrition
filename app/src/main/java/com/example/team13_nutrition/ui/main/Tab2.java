@@ -140,19 +140,23 @@ public class Tab2 extends Fragment {
             return true;
         });
 
+
         gender.setOnLongClickListener(u ->{
             EditText editText = dialogView.findViewById(R.id.edt_comment);
-            editText.setText(gender.getText());
-            TextView textView = dialogView.findViewById(R.id.textView);
-            textView.setText("Gender Change");
-            button2.setOnClickListener(view1 -> dialogBuilder.dismiss());
-            button1.setOnClickListener(view12 -> {
-                // DO SOMETHINGS
+            editText.setEnabled(false);
+            editText.setText("Press Submit to change gender or cancel to go back");
+            TextView textView2 = dialogView.findViewById(R.id.textView);
+            textView2.setText("Gender Change");
+            button1.setOnClickListener(view1 -> {
+                Objects.requireNonNull(CustomerMap.customerMap.get(user)).changeGender();
                 dialogBuilder.dismiss();
             });
+            button2.setOnClickListener(view12 -> dialogBuilder.dismiss());
 
             dialogBuilder.setView(dialogView);
             dialogBuilder.show();
+            Objects.requireNonNull(CustomerMap.customerMap.get(user));
+            gender.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getGender());
             return true;
         });
 
