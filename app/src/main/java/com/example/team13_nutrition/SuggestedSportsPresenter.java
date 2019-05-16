@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;//
 
-public class SuggestedSportsPresenter {//
+public class SuggestedSportsPresenter {
     @RequiresApi(api = Build.VERSION_CODES.N)
     private SuggestedSportsActivity view;
     @RequiresApi(api = Build.VERSION_CODES.N)

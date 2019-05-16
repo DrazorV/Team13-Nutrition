@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class SuggestedSportsActivity extends AppCompatActivity {
     private SuggestedSportsPresenter presenter = new SuggestedSportsPresenter(this);
     ListView lv;
-    @RequiresApi(api = Build.VERSION_CODES.N)//
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
