@@ -97,21 +97,6 @@
                 android:layout_marginStart="8dp" />
 
             <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="5dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:textSize="26sp"
-                android:text="DOB: "
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-            <TextView
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -173,21 +158,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/dob"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:textSize="26sp"
-                android:text="01/01/2017"
-                app:layout_constraintLeft_toRightOf="@+id/textView16"
-                app:layout_constraintTop_toBottomOf="@+id/bmi" />
-
-            <TextView
                 android:id="@+id/bmi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -245,35 +215,6 @@
                 android:text="9876543210"
                 app:layout_constraintLeft_toRightOf="@+id/textView22"
                 app:layout_constraintTop_toBottomOf="@+id/height" />
-
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:textSize="26sp"
-                android:layout_marginTop="0dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="marothiatechs@gmail.com"
-                app:layout_constraintLeft_toRightOf="@+id/textView27"
-                app:layout_constraintTop_toBottomOf="@+id/dob" />
-
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="5dp"
-                android:textSize="26sp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="Email: "
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
             <TextView
                 android:id="@+id/textView22"

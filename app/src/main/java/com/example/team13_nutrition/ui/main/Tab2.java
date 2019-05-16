@@ -1,13 +1,16 @@
 package com.example.team13_nutrition.ui.main;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.team13_nutrition.CustomerMap;
@@ -64,7 +67,7 @@ public class Tab2 extends Fragment {
             trgt = ("Lose " + (wght - Objects.requireNonNull(temp).getTargetWeight()) + " kg");
         else trgt = "Maintain Weight";
 
-
+        ImageView edit = getView().findViewById(R.id.edit);
 
         name.setText(nm +" "+ Objects.requireNonNull(CustomerMap.customerMap.get(user)).getSurname());
         age.setText(ag + " years old");
@@ -73,6 +76,24 @@ public class Tab2 extends Fragment {
         gender.setText(gndr + "");
         bmi.setText(bm);
         target.setText(trgt);
-    }
 
+
+        edit.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setTitle("Title");
+
+            // Set up the input
+            final TextView input = name;
+            // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+            input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            builder.setView(input);
+
+            // Set up the buttons
+            builder.setPositiveButton("OK", (dialog, which) -> m_Text = input.getText().toString());
+            builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
+            builder.show();
+        });
+    }
+    private String m_Text = "";
 }
