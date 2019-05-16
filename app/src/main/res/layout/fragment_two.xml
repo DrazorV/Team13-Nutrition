@@ -19,7 +19,7 @@
             android:background="@color/accent_color"
             tools:targetApi="lollipop">
 
-            <ImageView
+            <ImageButton
                 android:contentDescription="Press to change your info"
                 android:id="@+id/edit"
                 android:layout_width="wrap_content"
@@ -30,11 +30,12 @@
                 android:layout_marginRight="1dp"
                 android:scaleX="0.8"
                 android:scaleY="0.8"
+                android:background="@android:color/transparent"
                 android:clickable="true"
                 android:src="@drawable/edit2"
                 android:focusable="true" />
 
-            <EditText
+            <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,11 +45,13 @@
                 android:layout_marginBottom="10dp"
                 android:background="@android:color/transparent"
                 android:gravity="center|center_horizontal|center_vertical"
-                android:text="Name Surname"
+                android:text=""
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
         </RelativeLayout>
 
 
@@ -76,9 +79,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="Age: "
+                android:text="@string/age"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -92,9 +93,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="20dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="Weight: "
+                android:text="@string/weight"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -107,9 +106,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="28dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="Height: "
+                android:text="@string/height"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -122,9 +119,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="Target: "
+                android:text="@string/target"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -137,9 +132,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="28dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="Gender: "
+                android:text="@string/gender"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -152,90 +145,85 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="32dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="BMI:"
+                android:text="@string/bmi"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-            <EditText
+            <TextView
                 android:id="@+id/age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="52dp"
                 android:layout_marginRight="52dp"
                 android:background="@android:color/transparent"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="O+"
+                android:text=""
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textview12"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textview12" />
 
-            <EditText
+            <TextView
                 android:id="@+id/weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="56dp"
                 android:layout_marginRight="56dp"
                 android:background="@android:color/transparent"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="B.Tech"
+                android:text=""
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView5"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <EditText
+            <TextView
                 android:id="@+id/height"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="52dp"
                 android:layout_marginRight="52dp"
                 android:background="@android:color/transparent"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="Business"
+                android:text=""
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView7"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <EditText
+            <TextView
                 android:id="@+id/target"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="52dp"
                 android:layout_marginRight="52dp"
-                android:background="@android:color/transparent"
-                android:text="9876543210"
+                android:text=""
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView22"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView22"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <EditText
+            <TextView
                 android:id="@+id/gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="52dp"
                 android:layout_marginRight="52dp"
-                android:background="@android:color/transparent"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="Male"
+                android:text=""
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView11"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView11"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"/>
 
             <TextView
                 android:id="@+id/bmi"
@@ -245,7 +233,7 @@
                 android:layout_marginRight="56dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="Married"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView15"
@@ -259,7 +247,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:text="y"
+                android:text="@string/y"
+                android:textSize="20sp"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/age"
                 app:layout_constraintStart_toEndOf="@+id/age"
                 app:layout_constraintTop_toTopOf="@+id/age" />
@@ -270,7 +260,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:text="kg"
+                android:text="@string/kg"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/weight"
                 app:layout_constraintStart_toEndOf="@+id/weight"
                 app:layout_constraintTop_toTopOf="@+id/weight" />
@@ -281,7 +273,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:text="m"
+                android:text="@string/m"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/height"
                 app:layout_constraintStart_toEndOf="@+id/height"
                 app:layout_constraintTop_toTopOf="@+id/height" />
@@ -292,11 +286,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:text="kg"
+                android:text="@string/kg"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/target"
                 app:layout_constraintStart_toEndOf="@+id/target"
                 app:layout_constraintTop_toTopOf="@+id/target" />
-
         </android.support.constraint.ConstraintLayout>
     </RelativeLayout>
 </ScrollView>

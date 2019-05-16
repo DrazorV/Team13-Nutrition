@@ -81,24 +81,24 @@ public class Customer {
         return nutriton_goals;
     }
 
-    public void check(String characteristic) throws Exception {
+    public static void check(String characteristic) throws Exception {
         for (int i = 0; i < characteristic.length(); i++)
             if (!Character.isLetter(characteristic.charAt(i))) throw new NameException();
     }
 
-    public void checkAge(int age) throws Exception {
+    public static void checkAge(int age) throws Exception {
         if (age < 10 || age > 99) throw new AgeException();
     }
 
-    public void checkHeight(double height) throws Exception {
+    public static void checkHeight(double height) throws Exception {
         if (height < 0 || height > 230) throw new HeightException();
     }
 
-    public void checkWeight(double weight) throws Exception {
+    public static void checkWeight(double weight) throws Exception {
         if (weight < 0) throw new WeightException();
     }
 
-    public void checkPassword(String password) throws Exception {
+    public static void checkPassword(String password) throws Exception {
         if (password.length() < 7) throw new PasswordException();
         int sum = 0;
         boolean sum2 = false, sum3 = false;

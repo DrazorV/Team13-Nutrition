@@ -168,4 +168,15 @@
     <string name="tab_text_2">Profile</string>
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
+    <string name="y">y</string>
+    <string name="kg">kg</string>
+    <string name="m">m</string>
+    <string name="long_press_to_edit_value">Long press to edit value</string>
+    <string name="bmi">BMI:</string>
+    <string name="gender">Gender:</string>
+    <string name="target">Target:</string>
+    <string name="height">Height:</string>
+    <string name="weight">Weight:</string>
+    <string name="age">Age:</string>
+    <string name="apply">Apply</string>
 </resources>
