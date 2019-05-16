@@ -23,7 +23,7 @@ import com.example.team13_nutrition.R;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-    Customer c1 = new Customer("vagelis","123456","Vagelis","Panos","male",21,1.88,86,"Maintain_Weight","Normal",84);
+    Customer c1 = new Customer("vagelis","123456","Vagelis","Panos","male",21,1.88,86,"Weight_Loss","Normal",84);
 
 
     @Override

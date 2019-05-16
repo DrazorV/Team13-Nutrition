@@ -77,6 +77,10 @@ public class Customer {
         nutriton_goals.add(new Nutrition_Goal(goal, target));
     }
 
+    public Set<Nutrition_Goal> getNutriton_goals(){
+        return nutriton_goals;
+    }
+
     public void check(String characteristic) throws Exception {
         for (int i = 0; i < characteristic.length(); i++)
             if (!Character.isLetter(characteristic.charAt(i))) throw new NameException();
