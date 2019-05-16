@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.team13_nutrition.CustomerMap;
 import com.example.team13_nutrition.Nutrition_Goal;
@@ -58,23 +60,42 @@ public class Tab2 extends Fragment {
         EditText target = Objects.requireNonNull(getView().findViewById(R.id.target));
         Set<Nutrition_Goal> set = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getNutriton_goals();
         for (Nutrition_Goal value: set) if(value.isActive()) temp = value;
-        String trgt;
-        if (Objects.requireNonNull(temp).getGoal_Type().equals(Nutrition_Goal.Nutrition_Goal_Type.Gain_Weight))
-            trgt = ("Gain " + (Objects.requireNonNull(temp).getTargetWeight() - wght) + " kg");
-        else if (Objects.requireNonNull(temp).getGoal_Type().equals(Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss))
-            trgt = ("Lose " + (wght - Objects.requireNonNull(temp).getTargetWeight()) + " kg");
-        else trgt = "Maintain Weight";
+        double trgt = (Objects.requireNonNull(temp).getTargetWeight());
+
+
+        name.setEnabled(false);
+        age.setEnabled(false);
+        weight.setEnabled(false);
+        height.setEnabled(false);
+        target.setEnabled(false);
+        gender.setEnabled(false);
+        bmi.setEnabled(false);
 
         name.setText(nm +" "+ Objects.requireNonNull(CustomerMap.customerMap.get(user)).getSurname());
-        age.setText(ag + " years old");
-        weight.setText(wght + " kg");
-        height.setText(hght + " m");
-        gender.setText(gndr + "");
+        age.setText(ag);
+        weight.setText((int) wght);
+        height.setText((int) hght);
+        gender.setText(gndr);
         bmi.setText(bm);
-        target.setText(trgt);
+        target.setText(trgt + "");
 
-        name.setOnClickListener(v -> {
-
+        ImageView edit = getView().findViewById(R.id.edit);
+        edit.setOnClickListener(v -> {
+            name.setEnabled(true);
+            age.setEnabled(true);
+            weight.setEnabled(true);
+            target.setEnabled(true);
+            height.setEnabled(true);
+            gender.setEnabled(true);
+            //bmi.setText(bm);
         });
+
+        getView().setOnLongClickListener(v -> {
+            Toast.makeText(getActivity(), "On long click listener", Toast.LENGTH_LONG).show();
+            return true;
+        });
+
     }
+
+
 }
