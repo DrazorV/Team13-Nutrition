@@ -10,7 +10,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 //
 public class SuggestedFoodsActivity extends AppCompatActivity {
-    private SuggestedFoodsPresenter presenter = new SuggestedFoodsPresenter(this);
+    private SuggestedFoodsPresenter presenter = new SuggestedFoodsPresenter();
     ListView lv;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
