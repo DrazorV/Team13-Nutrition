@@ -19,13 +19,9 @@ public class SuggestedFoodsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggested_foods);
         lv = findViewById(R.id.foods);
-        try {
-            ArrayList<Food> foods = presenter.createList();
-            ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, foods) ;
-            lv.setAdapter(arrayAdapter);
-            } catch(Exception e){
-            }
 
-
+        ArrayList<Food> foods = presenter.createList();
+        ArrayAdapter<Food> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, foods) ;
+        lv.setAdapter(arrayAdapter);
     }
 }

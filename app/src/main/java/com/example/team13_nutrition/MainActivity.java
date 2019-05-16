@@ -1,5 +1,6 @@
 package com.example.team13_nutrition;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -41,12 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
         BoomMenuButton bmb = findViewById(R.id.bmb);
 
-        HamButton.Builder builder = new HamButton.Builder()
-                .normalText("Add")
+        HamButton.Builder builder = new HamButton.Builder().listener(index -> {
+            Intent it = new Intent(MainActivity.this, SuggestedFoodsActivity.class);
+            startActivity(it);
+        })
+                .normalText("Let's add some foods!")
                 .normalImageRes(R.drawable.peach);
         bmb.addBuilder(builder);
 
-        HamButton.Builder builder2 = new HamButton.Builder()
+        HamButton.Builder builder2 = new HamButton.Builder().listener(index -> {
+
+        })
                 .normalText("Add2")
                 .normalImageRes(R.drawable.peach);
         bmb.addBuilder(builder2);
