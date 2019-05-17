@@ -69,6 +69,39 @@ public class CustomerMap {
         try {
 
 
+            Exercise e1 = new Exercise("Basketball", 340, "Intense");
+            Exercise e2 = new Exercise("Boxing", 544, "Intense");
+            Exercise e3 = new Exercise("", 0, "Intense");
+            Exercise e4 = new Exercise("", 0, "Intense");
+            Exercise e5 = new Exercise("", 0, "Intense");
+            Exercise e6 = new Exercise("", 0, "Intense");
+            Exercise e7 = new Exercise("", 0, "Intense");
+            Exercise e8 = new Exercise("", 0, "Intense");
+            Exercise e9 = new Exercise("", 0, "Intense");
+            Exercise e10 = new Exercise("", 0, "Intense");
+            Exercise e11 = new Exercise("", 0, "Intense");
+            Exercise e12 = new Exercise("", 0, "Intense");
+            Exercise e13 = new Exercise("", 0, "Intense");
+            Exercise e14 = new Exercise("", 0, "Intense");
+            Exercise e15 = new Exercise("", 0, "Intense");
+            Exercise e16 = new Exercise("", 0, "Intense");
+
+            exerciseMap.put(e1.getName(), e1);
+            exerciseMap.put(e2.getName(), e2);
+            exerciseMap.put(e3.getName(), e3);
+            exerciseMap.put(e4.getName(), e4);
+            exerciseMap.put(e5.getName(), e5);
+            exerciseMap.put(e6.getName(), e6);
+            exerciseMap.put(e7.getName(), e7);
+            exerciseMap.put(e8.getName(), e8);
+            exerciseMap.put(e9.getName(), e9);
+            exerciseMap.put(e10.getName(), e10);
+            exerciseMap.put(e11.getName(), e11);
+            exerciseMap.put(e12.getName(), e12);
+            exerciseMap.put(e13.getName(), e13);
+            exerciseMap.put(e14.getName(), e14);
+            exerciseMap.put(e15.getName(), e15);
+            exerciseMap.put(e16.getName(), e16);
 
         } catch (Exception e) {
             e.printStackTrace();

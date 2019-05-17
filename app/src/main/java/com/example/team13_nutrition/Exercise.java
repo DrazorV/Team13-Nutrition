@@ -9,12 +9,9 @@ public class Exercise {
     private double loss_fat;
     private TypeSport type;
 
-    public Exercise(String name, double loss_calories, double loss_carbohydrates, double loss_liquids, double loss_fat, String typesport) {
+    public Exercise(String name, double loss_calories, String typesport) {
         this.name = name;
         this.loss_calories = loss_calories;
-        this.loss_carbohydrates = loss_carbohydrates;
-        this.loss_liquids = loss_liquids;
-        this.loss_fat = loss_fat;
         if (typesport.equals("Light")) type = TypeSport.Light;
         else if (typesport.equals("Normal")) type = TypeSport.Normal;
         else if (typesport.equals("Intense")) type = TypeSport.Intense;
