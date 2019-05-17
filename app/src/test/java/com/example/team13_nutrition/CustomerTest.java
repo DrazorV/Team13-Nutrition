@@ -145,7 +145,7 @@ Customer cu;
     @Test
     public void checkPAL()throws Exception{//if this  method runs with other test it is false.But if it runs indipendently it is true.
         cu.setjobtype("Light");
-        Exercise e=new Exercise("run",50,40,10,13.7,100.8,5,"Light");
+        Exercise e=new Exercise("run",50,40,10,13.7,"Light");
         ExcercisePerformance ep=new ExcercisePerformance(20,"Morning",e);
         cu.addExcercisePerformance(ep);
         Assert.assertTrue(cu.PAL()==1.4);
@@ -163,7 +163,7 @@ Customer cu;
         Assert.assertTrue(cu.PAL()==1.5);
         cu.changeGender();
         cu.setjobtype("Light");
-        Exercise e2=new Exercise("run",50,40,10,13.7,100.8,5,"Normal");
+        Exercise e2=new Exercise("run",50,40,10,13.7,"Normal");
         ExcercisePerformance ep2=new ExcercisePerformance(20,"Morning",e2);
         cu.addExcercisePerformance(ep2);
         Assert.assertTrue(cu.PAL()==1.5);
@@ -181,7 +181,7 @@ Customer cu;
         Assert.assertTrue(cu.PAL()==1.6);
         cu.changeGender();
         cu.setjobtype("Light");
-        Exercise e3=new Exercise("AK-47",50,40,10,13.7,100.8,5,"Intense");
+        Exercise e3=new Exercise("AK-47",50,40,10,13.7,"Intense");
         ExcercisePerformance ep3=new ExcercisePerformance(20,"Morning",e3);
         cu.addExcercisePerformance(ep3);
         Assert.assertEquals(e3.getType(), Exercise.TypeSport.Intense);
