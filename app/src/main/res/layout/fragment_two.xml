@@ -15,7 +15,7 @@
             android:id="@+id/profile_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="87dp"
             android:background="@color/accent_color"
             tools:targetApi="lollipop">
 

@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Customer {
+    private static jobtype jobtype;
     private final String Username;
     private final String Name;
     private final String Surname;
@@ -25,7 +26,6 @@ public class Customer {
     private int age;
     private double height;
     private double weight;
-    private static jobtype jobtype;
     private Nutrition_Goal.Nutrition_Goal_Type goals;
     private Set<FoodConsumption> foodConsumptions;
     private Set<ExcercisePerformance> excercisePerformances;
@@ -57,35 +57,6 @@ public class Customer {
         setjobtype(job);
     }
 
-    public void changeGender() {//for JUnit
-        if (getGender().equals("Male")) gender = "Female";
-        else gender = "Male";
-    }
-
-    public void setjobtype(String job) {
-        if (job.equals("Light")) jobtype = Customer.jobtype.Light;
-        else if (job.equals("Normal")) jobtype = Customer.jobtype.Normal;
-        else jobtype = Customer.jobtype.Intense;
-    }
-
-    public void setGoals(String goal, double target) throws WeightException {
-        if (goal.equals("Maintain_Weight")) {
-            goals = Nutrition_Goal.Nutrition_Goal_Type.Maintain_Weight;
-        } else if (goal.equals("Weight_Loss")) {
-            goals = Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss;
-            if (target >= weight) throw new WeightException();
-        } else {
-            goals = Nutrition_Goal.Nutrition_Goal_Type.Gain_Weight;
-            if (target <= weight) throw new WeightException();
-        }
-        for(Nutrition_Goal v: nutriton_goals) v.deactivateGoal();
-        nutriton_goals.add(new Nutrition_Goal(goal, target));
-    }
-
-    public Set<Nutrition_Goal> getNutriton_goals(){
-        return nutriton_goals;
-    }
-
     public static void check(String characteristic) throws Exception {
         for (int i = 0; i < characteristic.length(); i++)
             if (!Character.isLetter(characteristic.charAt(i))) throw new NameException();
@@ -114,6 +85,35 @@ public class Customer {
             else sum3 = !sum3;
         }
         if (sum < 5 || !sum2 || !sum3) throw new PasswordException();
+    }
+
+    public void changeGender() {//for JUnit
+        if (getGender().equals("Male")) gender = "Female";
+        else gender = "Male";
+    }
+
+    public void setjobtype(String job) {
+        if (job.equals("Light")) jobtype = Customer.jobtype.Light;
+        else if (job.equals("Normal")) jobtype = Customer.jobtype.Normal;
+        else jobtype = Customer.jobtype.Intense;
+    }
+
+    public void setGoals(String goal, double target) throws WeightException {
+        if (goal.equals("Maintain_Weight")) {
+            goals = Nutrition_Goal.Nutrition_Goal_Type.Maintain_Weight;
+        } else if (goal.equals("Weight_Loss")) {
+            goals = Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss;
+            if (target >= weight) throw new WeightException();
+        } else {
+            goals = Nutrition_Goal.Nutrition_Goal_Type.Gain_Weight;
+            if (target <= weight) throw new WeightException();
+        }
+        for (Nutrition_Goal v : nutriton_goals) v.deactivateGoal();
+        nutriton_goals.add(new Nutrition_Goal(goal, target));
+    }
+
+    public Set<Nutrition_Goal> getNutriton_goals() {
+        return nutriton_goals;
     }
 
     public Set<ExcercisePerformance> getExcercisePerformances() {
@@ -152,7 +152,7 @@ public class Customer {
 
     public void setWeight(double weight) throws Exception {
         checkWeight(weight);
-        weightStatuses.add(new WeightStatus(this.weight, BMR(this.weight), BMI(this.weight)));
+        weightStatuses.add(new WeightStatus(weight, BMR(weight), BMI(weight)));
         this.weight = weight;
     }
 
@@ -237,54 +237,58 @@ public class Customer {
     public double PAL() {
 
         ExcercisePerformance ep = null;
-        for (ExcercisePerformance e : excercisePerformances)
-            ep = e;
-        Excercise ex = ep.getExcercise();
-        Excercise.TypeSport ts;
-        ts = ex.getType();
-        int pal_int;
-        if (jobtype.equals(Customer.jobtype.Light)) {
-            if (ts.equals(Excercise.TypeSport.Light)) {
-                return 1.4;
-            } else if (ts.equals(Excercise.TypeSport.Normal)) {
-                return 1.5;
-            } else if (ts.equals(Excercise.TypeSport.Intense)) {
-                return 1.6;
-            } else {
-                return -1;
-            }
-        } else if (jobtype.equals(Customer.jobtype.Normal)) {
-            double pal;
-            if (ts.equals(Excercise.TypeSport.Light)) {
-                pal_int = 16;
-            } else if (ts.equals(Excercise.TypeSport.Normal)) {
-                pal_int = 17;
-            } else if (ts.equals(Excercise.TypeSport.Intense)) {
-                pal_int = 18;
-            } else {
-                return -1;
-            }
-            if (gender.equals("Female")) {
-                pal_int--;
-            }
-            pal = (double) pal_int / 10;
-            return pal;
+        for (ExcercisePerformance e : excercisePerformances) ep = e;
+
+        if (ep == null) {
+            return 1.4;
         } else {
-            double pal;
-            if (ts.equals(Excercise.TypeSport.Light)) {
-                pal_int = 17;
-            } else if (ts.equals(Excercise.TypeSport.Normal)) {
-                pal_int = 18;
-            } else if (ts.equals(Excercise.TypeSport.Intense)) {
-                pal_int = 19;
+            Excercise ex = ep.getExcercise();
+            Excercise.TypeSport ts;
+            ts = ex.getType();
+            int pal_int;
+            if (jobtype.equals(Customer.jobtype.Light)) {
+                if (ts.equals(Excercise.TypeSport.Light)) {
+                    return 1.4;
+                } else if (ts.equals(Excercise.TypeSport.Normal)) {
+                    return 1.5;
+                } else if (ts.equals(Excercise.TypeSport.Intense)) {
+                    return 1.6;
+                } else {
+                    return -1;
+                }
+            } else if (jobtype.equals(Customer.jobtype.Normal)) {
+                double pal;
+                if (ts.equals(Excercise.TypeSport.Light)) {
+                    pal_int = 16;
+                } else if (ts.equals(Excercise.TypeSport.Normal)) {
+                    pal_int = 17;
+                } else if (ts.equals(Excercise.TypeSport.Intense)) {
+                    pal_int = 18;
+                } else {
+                    return -1;
+                }
+                if (gender.equals("Female")) {
+                    pal_int--;
+                }
+                pal = (double) pal_int / 10;
+                return pal;
             } else {
-                return -1;
+                double pal;
+                if (ts.equals(Excercise.TypeSport.Light)) {
+                    pal_int = 17;
+                } else if (ts.equals(Excercise.TypeSport.Normal)) {
+                    pal_int = 18;
+                } else if (ts.equals(Excercise.TypeSport.Intense)) {
+                    pal_int = 19;
+                } else {
+                    return -1;
+                }
+                if (gender.equals("Female")) {
+                    pal_int = pal_int - 2;
+                }
+                pal = (double) pal_int / 10;
+                return pal;
             }
-            if (gender.equals("Female")) {
-                pal_int = pal_int - 2;
-            }
-            pal = (double) pal_int / 10;
-            return pal;
         }
     }
 
@@ -298,8 +302,7 @@ public class Customer {
             return callories - 500;
         } else if (BMI(w) > 30 && BMI(w) <= 40) {
             return BMR(w) * 1.4 - 500;
-        }
-        return -1;
+        } else return -1;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)

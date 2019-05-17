@@ -40,33 +40,34 @@ public class Tab2 extends Fragment {
         final AlertDialog dialogBuilder = new AlertDialog.Builder(getContext()).create();
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.custom_dialog, null);
-        Nutrition_Goal temp = null;
+        Nutrition_Goal activeGoal = null;
         Button button1 = dialogView.findViewById(R.id.buttonSubmit);
         Button button2 = dialogView.findViewById(R.id.buttonCancel);
         String user = Objects.requireNonNull(getArguments()).getString("params");
+        Customer customer = CustomerMap.customerMap.get(user);
 
         TextView name = view.findViewById(R.id.name);
-        name.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(CustomerMap.customerMap.get(user)).getSurname());
+        name.setText(Objects.requireNonNull(customer).getName() + " " + customer.getSurname());
 
         TextView age = view.findViewById(R.id.age);
-        age.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getAge()));
+        age.setText(String.valueOf(customer.getAge()));
 
         TextView weight = view.findViewById(R.id.weight);
-        weight.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight()));
+        weight.setText(String.valueOf(customer.getWeight()));
 
         TextView height = view.findViewById(R.id.height);
-        height.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getHeight()));
+        height.setText(String.valueOf(customer.getHeight()));
 
         TextView gender = view.findViewById(R.id.gender);
-        gender.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getGender());
+        gender.setText(customer.getGender());
 
         TextView bmi = view.findViewById(R.id.bmi);
-        bmi.setText(df.format(Objects.requireNonNull(CustomerMap.customerMap.get(user)).BMI(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight())));
+        bmi.setText(df.format(customer.BMI(customer.getWeight())));
 
         TextView target = view.findViewById(R.id.target);
-        Set<Nutrition_Goal> set = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getNutriton_goals();
-        for (Nutrition_Goal value: set) if(value.isActive()) temp = value;
-        target.setText(Objects.requireNonNull(temp).getTargetWeight()+"");
+        Set<Nutrition_Goal> set = customer.getNutriton_goals();
+        for (Nutrition_Goal value : set) if (value.isActive()) activeGoal = value;
+        target.setText(Objects.requireNonNull(activeGoal).getTargetWeight() + "");
 
         age.setOnLongClickListener(u ->{
             EditText editText = dialogView.findViewById(R.id.edt_comment);
@@ -78,8 +79,8 @@ public class Tab2 extends Fragment {
                 try {
                     int t = Integer.parseInt(editText.getText().toString());
                     Customer.checkAge(t);
-                    Objects.requireNonNull(CustomerMap.customerMap.get(user)).setAge(t);
-                    age.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getAge()));
+                    customer.setAge(t);
+                    age.setText(String.valueOf(customer.getAge()));
                 } catch (AgeException e) {
                     Toast.makeText(getContext(),e.toString(),Toast.LENGTH_SHORT).show();
                 }
@@ -101,10 +102,10 @@ public class Tab2 extends Fragment {
                 try {
                     double t = Double.parseDouble(editText.getText().toString());
                     Customer.checkWeight(t);
-                    Objects.requireNonNull(CustomerMap.customerMap.get(user)).setWeight(t);
-                    weight.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight()));
-                    bmi.setText(df.format(Objects.requireNonNull(CustomerMap.customerMap.get(user)).BMI(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight())));
-                } catch (WeightException e) {
+                    customer.setWeight(t);
+                    weight.setText(String.valueOf(customer.getWeight()));
+                    bmi.setText(df.format(customer.BMI(customer.getWeight())));
+                } catch (Exception e) {
                     Toast.makeText(getContext(),e.toString(),Toast.LENGTH_SHORT).show();
                 }
                 dialogBuilder.dismiss();
@@ -125,9 +126,9 @@ public class Tab2 extends Fragment {
                 try {
                     double t = Double.parseDouble(editText.getText().toString());
                     Customer.checkHeight(t);
-                    Objects.requireNonNull(CustomerMap.customerMap.get(user)).setHeight(t);
-                    height.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getHeight()));
-                    bmi.setText(df.format(Objects.requireNonNull(CustomerMap.customerMap.get(user)).BMI(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight())));
+                    customer.setHeight(t);
+                    height.setText(String.valueOf(customer.getHeight()));
+                    bmi.setText(df.format(customer.BMI(customer.getWeight())));
                 } catch (HeightException e) {
                     Toast.makeText(getContext(),e.toString(),Toast.LENGTH_SHORT).show();
                 }
@@ -146,14 +147,13 @@ public class Tab2 extends Fragment {
             TextView textView2 = dialogView.findViewById(R.id.textView);
             textView2.setText("Gender Change");
             button1.setOnClickListener(view1 -> {
-                Objects.requireNonNull(CustomerMap.customerMap.get(user)).changeGender();
-                gender.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getGender());
+                customer.changeGender();
+                gender.setText(customer.getGender());
                 dialogBuilder.dismiss();
             });
             button2.setOnClickListener(view12 -> dialogBuilder.dismiss());
             dialogBuilder.setView(dialogView);
             dialogBuilder.show();
-            Objects.requireNonNull(CustomerMap.customerMap.get(user));
             return true;
         });
 
@@ -166,21 +166,21 @@ public class Tab2 extends Fragment {
             button1.setOnClickListener(view1 -> {
                 Nutrition_Goal temp2 = null;
                 double t = Double.parseDouble(editText.getText().toString());
-                double currentWeight = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight();
+                double currentWeight = customer.getWeight();
                 try {
                     if (t > currentWeight) {
-                        Objects.requireNonNull(CustomerMap.customerMap.get(user)).setGoals("Gain_Weight", t);
+                        customer.setGoals("Gain_Weight", t);
                     }
 
                     if (t == currentWeight) {
-                        Objects.requireNonNull(CustomerMap.customerMap.get(user)).setGoals("Maintain_Weight", Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight());
+                        customer.setGoals("Maintain_Weight", customer.getWeight());
                     }
 
                     if (t < currentWeight){
-                        Objects.requireNonNull(CustomerMap.customerMap.get(user)).setGoals("Weight_Loss", t);
+                        customer.setGoals("Weight_Loss", t);
                     }
 
-                    Set<Nutrition_Goal> set2 = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getNutriton_goals();
+                    Set<Nutrition_Goal> set2 = customer.getNutriton_goals();
                     for (Nutrition_Goal value : set2) if (value.isActive()) temp2 = value;
                     target.setText(String.valueOf(Objects.requireNonNull(temp2).getTargetWeight()));
                 } catch (WeightException e) {

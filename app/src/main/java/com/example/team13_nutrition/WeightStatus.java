@@ -15,15 +15,15 @@ public class WeightStatus {
         date = new Date();
     }
 
-    private double getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    private double getBmr() {
+    public double getBmr() {
         return bmr;
     }
 
-    private double getBmi() {
+    public double getBmi() {
         return bmi;
     }
 
