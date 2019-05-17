@@ -4,7 +4,6 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 
 import com.example.team13_nutrition.exceptions.AgeException;
-import com.example.team13_nutrition.exceptions.BMIException;
 import com.example.team13_nutrition.exceptions.HeightException;
 import com.example.team13_nutrition.exceptions.NameException;
 import com.example.team13_nutrition.exceptions.PasswordException;
@@ -218,17 +217,7 @@ public class Customer {
             if (boundary_ages[j] > age) break;
             i++;
         }
-        double bmr = choosel[i] * w + chooseb[i];
-        if (BMI(w) < 18.5)
-            bmr = bmr + 500;
-        else if (BMI(w) > 25 && BMI(w) < 30)
-            bmr = bmr - 500;
-        else if (BMI(w) > 30 && BMI(w) < 40) {
-            bmr = 5 + 10 * w + 6.25 * height - 5 * age;
-            if (gender.equals("Female")) bmr -= 166;
-        } else if (BMI(w) > 40)
-            throw new BMIException();
-        return bmr;
+        return choosel[i] * w + chooseb[i];
     }
 
     public double BMI(double w) {

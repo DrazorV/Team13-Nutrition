@@ -59,7 +59,7 @@
                             android:indeterminate="false"
                             android:max="100"
                             android:progress="65"
-                            android:progressDrawable="@drawable/circular_progress_bar"></ProgressBar>
+                            android:progressDrawable="@drawable/circular_progress_bar" />
 
                         <TextView
                             android:id="@+id/progr"
@@ -76,11 +76,36 @@
                             android:textSize="30sp" />
                 </RelativeLayout>
 
-                <com.jjoe64.graphview.GraphView
-                    android:id="@+id/graph"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dip"
-                    android:layout_margin="20dp" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            style="@style/TextAppearance.AppCompat.Headline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/com_facebook_button_login_background_color"
+                            android:text="Food Suggestions"
+                            android:textAlignment="center" />
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                        <ListView
+
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent" />
+                                </LinearLayout>
+                        </ScrollView>
+                </LinearLayout>
 
         </LinearLayout>
 </ScrollView>

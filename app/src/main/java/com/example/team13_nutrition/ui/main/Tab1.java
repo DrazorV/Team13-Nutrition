@@ -15,6 +15,7 @@ import com.example.team13_nutrition.Customer;
 import com.example.team13_nutrition.CustomerMap;
 import com.example.team13_nutrition.FoodConsumption;
 import com.example.team13_nutrition.R;
+import com.example.team13_nutrition.WeightStatus;
 
 import java.util.Objects;
 import java.util.Set;
@@ -23,9 +24,11 @@ import java.util.Set;
  * A placeholder fragment containing a simple view.
  */
 public class Tab1 extends Fragment {
-
+    Customer customer;
     private boolean mUserSeen = false;
     private boolean mViewCreated = false;
+    Set<WeightStatus> set2;
+    Set<FoodConsumption> set;
 
     /**
      * Called when the new created view is visible to user for the first time.
@@ -37,13 +40,13 @@ public class Tab1 extends Fragment {
             TextView name = view.findViewById(R.id.name2);
             TextView prog = view.findViewById(R.id.progr);
             name.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(CustomerMap.customerMap.get(user)).getSurname());
-            Customer customer = CustomerMap.customerMap.get(user);
-            Set<FoodConsumption> set = Objects.requireNonNull(customer).getFoodConsumptions();
+            customer = CustomerMap.customerMap.get(user);
+            set = Objects.requireNonNull(customer).getFoodConsumptions();
+            set2 = customer.getWeightStatuses();
             int totalFood = 0;
             for (FoodConsumption v : set)
                 totalFood += (v.getFood().getCallories() * v.getQuantity());
             ProgressBar progressBar = view.findViewById(R.id.progressBar);
-
             try {
                 int call = (int) customer.callories();
                 progressBar.setMax(call);
@@ -54,6 +57,7 @@ public class Tab1 extends Fragment {
             }
         }
     }
+
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {

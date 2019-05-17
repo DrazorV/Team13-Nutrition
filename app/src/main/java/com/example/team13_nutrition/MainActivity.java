@@ -3,13 +3,13 @@ package com.example.team13_nutrition;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.team13_nutrition.ui.main.CustomViewPager;
 import com.example.team13_nutrition.ui.main.SectionsPagerAdapter;
 import com.example.team13_nutrition.ui.main.Tab1;
 import com.example.team13_nutrition.ui.main.Tab2;
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         String user = getIntent().getStringExtra("user");
-        ViewPager viewPager = findViewById(R.id.view_pager);
+        CustomViewPager viewPager = findViewById(R.id.view_pager);
         TabLayout tabs = findViewById(R.id.tabs);
 
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
