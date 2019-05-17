@@ -35,7 +35,6 @@ calories:double
 carbonhydrates: double
 liquids: double
 fat: double
-energy: double
 protein: double
 
 
@@ -80,8 +79,6 @@ loss_calories:double
 loss_carbonhydrates: double
 loss_liquids: double
 loss_fat: double
-energy: double
-how_many_times: double
 type:TypeSport
 
 </panel_attributes>
@@ -175,13 +172,14 @@ m2=1</panel_attributes>
       <x>820</x>
       <y>520</y>
       <w>370</w>
-      <h>80</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>ExcercisePerformance
 --
 date:Date
 duration:double
 dayperiod:String
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -204,15 +202,15 @@ m2=*
     <id>Relation</id>
     <coordinates>
       <x>460</x>
-      <y>590</y>
+      <y>610</y>
       <w>510</w>
-      <h>220</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m1=*
 m2=1
 έχει </panel_attributes>
-    <additional_attributes>490.0;10.0;10.0;200.0</additional_attributes>
+    <additional_attributes>490.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
