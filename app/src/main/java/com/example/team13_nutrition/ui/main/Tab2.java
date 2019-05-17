@@ -14,9 +14,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.team13_nutrition.Customer;
 import com.example.team13_nutrition.CustomerMap;
 import com.example.team13_nutrition.Nutrition_Goal;
 import com.example.team13_nutrition.R;
+import com.example.team13_nutrition.exceptions.AgeException;
+import com.example.team13_nutrition.exceptions.HeightException;
+import com.example.team13_nutrition.exceptions.WeightException;
 
 import java.text.DecimalFormat;
 import java.util.Objects;
@@ -45,52 +49,35 @@ public class Tab2 extends Fragment {
         String user = Objects.requireNonNull(getArguments()).getString("params");
 
         TextView name = Objects.requireNonNull(getView()).findViewById(R.id.name);
-        String nm = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getName();
+        name.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(CustomerMap.customerMap.get(user)).getSurname());
 
         TextView age = Objects.requireNonNull(getView()).findViewById(R.id.age);
-        int ag = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getAge();
+        age.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getAge()));
 
         TextView weight = Objects.requireNonNull(getView().findViewById(R.id.weight));
-        double wght = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight();
+        weight.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight()));
 
         TextView height = Objects.requireNonNull(getView().findViewById(R.id.height));
-        double hght = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getHeight();
+        height.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getHeight()));
 
         TextView gender = Objects.requireNonNull(getView().findViewById(R.id.gender));
-        String gndr = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getGender();
-
+        gender.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getGender());
 
         TextView bmi = Objects.requireNonNull(getView().findViewById(R.id.bmi));
-        String bm = df.format(Objects.requireNonNull(CustomerMap.customerMap.get(user)).BMI(wght));
+        bmi.setText(df.format(Objects.requireNonNull(CustomerMap.customerMap.get(user)).BMI(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight())));
 
         TextView target = Objects.requireNonNull(getView().findViewById(R.id.target));
         Set<Nutrition_Goal> set = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getNutriton_goals();
         for (Nutrition_Goal value: set) if(value.isActive()) temp = value;
-        double trgt = (Objects.requireNonNull(temp).getTargetWeight());
+        target.setText(Objects.requireNonNull(temp).getTargetWeight()+"");
 
-        name.setText(nm +" "+ Objects.requireNonNull(CustomerMap.customerMap.get(user)).getSurname());
-        age.setText(String.valueOf(ag));
-        weight.setText(String.valueOf(wght));
-        height.setText(String.valueOf(hght));
-        gender.setText(gndr);
-        bmi.setText(bm);
-        target.setText(trgt + "");
 
-        name.setOnLongClickListener(u ->{
-            EditText editText = dialogView.findViewById(R.id.edt_comment);
-            editText.setText(name.getText());
-            TextView textView = dialogView.findViewById(R.id.textView);
-            textView.setText("Name Change");
-            button2.setOnClickListener(view1 -> dialogBuilder.dismiss());
-            button1.setOnClickListener(view12 -> {
-                // DO SOMETHINGS
-                dialogBuilder.dismiss();
-            });
 
-            dialogBuilder.setView(dialogView);
-            dialogBuilder.show();
-            return true;
-        });
+
+
+
+
+
 
         age.setOnLongClickListener(u ->{
             EditText editText = dialogView.findViewById(R.id.edt_comment);
@@ -99,7 +86,14 @@ public class Tab2 extends Fragment {
             textView.setText("Age Change");
             button2.setOnClickListener(view1 -> dialogBuilder.dismiss());
             button1.setOnClickListener(view12 -> {
-                // DO SOMETHINGS
+                try {
+                    int t = Integer.parseInt(editText.getText().toString());
+                    Customer.checkAge(t);
+                    Objects.requireNonNull(CustomerMap.customerMap.get(user)).setAge(t);
+                    age.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getAge()));
+                } catch (AgeException e) {
+                    Toast.makeText(getContext(),e.toString(),Toast.LENGTH_SHORT).show();
+                }
                 dialogBuilder.dismiss();
             });
 
@@ -115,7 +109,15 @@ public class Tab2 extends Fragment {
             textView.setText("Weight Change");
             button2.setOnClickListener(view1 -> dialogBuilder.dismiss());
             button1.setOnClickListener(view12 -> {
-                // DO SOMETHINGS
+                try {
+                    double t = Double.parseDouble(editText.getText().toString());
+                    Customer.checkWeight(t);
+                    Objects.requireNonNull(CustomerMap.customerMap.get(user)).setWeight(t);
+                    weight.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight()));
+                    bmi.setText(df.format(Objects.requireNonNull(CustomerMap.customerMap.get(user)).BMI(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight())));
+                } catch (WeightException e) {
+                    Toast.makeText(getContext(),e.toString(),Toast.LENGTH_SHORT).show();
+                }
                 dialogBuilder.dismiss();
             });
 
@@ -131,10 +133,17 @@ public class Tab2 extends Fragment {
             textView.setText("Height Change");
             button2.setOnClickListener(view1 -> dialogBuilder.dismiss());
             button1.setOnClickListener(view12 -> {
-                // DO SOMETHINGS
+                try {
+                    double t = Double.parseDouble(editText.getText().toString());
+                    Customer.checkHeight(t);
+                    Objects.requireNonNull(CustomerMap.customerMap.get(user)).setHeight(t);
+                    height.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getHeight()));
+                    bmi.setText(df.format(Objects.requireNonNull(CustomerMap.customerMap.get(user)).BMI(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight())));
+                } catch (HeightException e) {
+                    Toast.makeText(getContext(),e.toString(),Toast.LENGTH_SHORT).show();
+                }
                 dialogBuilder.dismiss();
             });
-
             dialogBuilder.setView(dialogView);
             dialogBuilder.show();
             return true;
@@ -144,44 +153,63 @@ public class Tab2 extends Fragment {
         gender.setOnLongClickListener(u ->{
             EditText editText = dialogView.findViewById(R.id.edt_comment);
             editText.setEnabled(false);
-            editText.setText("Press Submit to change gender or cancel to go back");
+            editText.setText("Press Submit to change gender");
             TextView textView2 = dialogView.findViewById(R.id.textView);
             textView2.setText("Gender Change");
             button1.setOnClickListener(view1 -> {
                 Objects.requireNonNull(CustomerMap.customerMap.get(user)).changeGender();
+                gender.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getGender());
                 dialogBuilder.dismiss();
             });
             button2.setOnClickListener(view12 -> dialogBuilder.dismiss());
-
             dialogBuilder.setView(dialogView);
             dialogBuilder.show();
             Objects.requireNonNull(CustomerMap.customerMap.get(user));
-            gender.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getGender());
             return true;
         });
+
 
         target.setOnLongClickListener(u ->{
             EditText editText = dialogView.findViewById(R.id.edt_comment);
             editText.setText(target.getText());
             TextView textView = dialogView.findViewById(R.id.textView);
             textView.setText("Goal Change");
-            button2.setOnClickListener(view1 -> dialogBuilder.dismiss());
-            button1.setOnClickListener(view12 -> {
-                // DO SOMETHINGS
+            button1.setOnClickListener(view1 -> {
+                Nutrition_Goal temp2 = null;
+                double t = Double.parseDouble(editText.getText().toString());
+                double currentWeight = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight();
+                try {
+                    if (t > currentWeight) {
+                        Objects.requireNonNull(CustomerMap.customerMap.get(user)).setGoals("Gain_Weight", t);
+                    }
+
+                    if (t == currentWeight) {
+                        Objects.requireNonNull(CustomerMap.customerMap.get(user)).setGoals("Maintain_Weight", Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight());
+                    }
+
+                    if (t < currentWeight){
+                        Objects.requireNonNull(CustomerMap.customerMap.get(user)).setGoals("Weight_Loss", t);
+                    }
+
+                    Set<Nutrition_Goal> set2 = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getNutriton_goals();
+                    for (Nutrition_Goal value : set2) if (value.isActive()) temp2 = value;
+                    target.setText(String.valueOf(Objects.requireNonNull(temp2).getTargetWeight()));
+                } catch (WeightException e) {
+                    e.printStackTrace();
+                }
                 dialogBuilder.dismiss();
             });
-
+            button2.setOnClickListener(view12 -> dialogBuilder.dismiss());
             dialogBuilder.setView(dialogView);
             dialogBuilder.show();
             return true;
         });
     }
 
+
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
-            Toast.makeText(getContext(),"Long press on any value to change it",Toast.LENGTH_LONG).show();
-        }
+        if (isVisibleToUser) Toast.makeText(getContext(),"Long press on any value to change it",Toast.LENGTH_LONG).show();
     }
 }

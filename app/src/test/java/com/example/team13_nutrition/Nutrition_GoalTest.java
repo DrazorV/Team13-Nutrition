@@ -27,7 +27,7 @@ public class Nutrition_GoalTest {
         Assert.assertTrue(ng.isActive());
         Assert.assertNotNull(ng.getStartDate());
         Assert.assertNull(ng.getEndDate());
-        ng.diactivateGoal();
+        ng.deactivateGoal();
         Assert.assertFalse(ng.isActive());
         Assert.assertNotNull(ng.getEndDate());
     }

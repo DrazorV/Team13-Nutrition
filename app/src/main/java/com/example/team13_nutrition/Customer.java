@@ -64,16 +64,17 @@ public class Customer {
         else jobtype = Customer.jobtype.Intense;
     }
 
-    public void setGoals(String goal, double target) throws Exception {
+    public void setGoals(String goal, double target) throws WeightException {
         if (goal.equals("Maintain_Weight")) {
             goals = Nutrition_Goal.Nutrition_Goal_Type.Maintain_Weight;
         } else if (goal.equals("Weight_Loss")) {
             goals = Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss;
-            if (target >= weight) throw new Exception();
+            if (target >= weight) throw new WeightException();
         } else {
             goals = Nutrition_Goal.Nutrition_Goal_Type.Gain_Weight;
-            if (target <= weight) throw new Exception();
+            if (target <= weight) throw new WeightException();
         }
+        for(Nutrition_Goal v: nutriton_goals) v.deactivateGoal();
         nutriton_goals.add(new Nutrition_Goal(goal, target));
     }
 
@@ -86,19 +87,19 @@ public class Customer {
             if (!Character.isLetter(characteristic.charAt(i))) throw new NameException();
     }
 
-    public static void checkAge(int age) throws Exception {
+    public static void checkAge(int age) throws AgeException {
         if (age < 10 || age > 99) throw new AgeException();
     }
 
-    public static void checkHeight(double height) throws Exception {
-        if (height < 0 || height > 230) throw new HeightException();
+    public static void checkHeight(double height) throws HeightException {
+        if (height < 1 || height > 2.3) throw new HeightException();
     }
 
-    public static void checkWeight(double weight) throws Exception {
-        if (weight < 0) throw new WeightException();
+    public static void checkWeight(double weight) throws WeightException {
+        if (weight < 20 || weight > 200) throw new WeightException();
     }
 
-    public static void checkPassword(String password) throws Exception {
+    public static void checkPassword(String password) throws PasswordException {
         if (password.length() < 7) throw new PasswordException();
         int sum = 0;
         boolean sum2 = false, sum3 = false;
@@ -136,7 +137,7 @@ public class Customer {
         return age;
     }
 
-    public void setAge(int age) throws Exception {
+    public void setAge(int age) throws AgeException {
         checkAge(age);
         this.age = age;
     }
@@ -145,7 +146,7 @@ public class Customer {
         return weight;
     }
 
-    public void setWeight(double weight) throws Exception {
+    public void setWeight(double weight) throws WeightException {
         checkWeight(weight);
         this.weight = weight;
     }
@@ -306,7 +307,7 @@ public class Customer {
         HashMap<String, Object> hashMap = new HashMap<>();
         ArrayList<String> fe = new ArrayList<>();
         fe.add("food");
-        fe.add("excersice");
+        fe.add("exercise");
         ArrayList<Food> neededfoods = new ArrayList<>();
         ArrayList<Excercise> neededexcersice = new ArrayList<>();
         double targetweight = 0;
