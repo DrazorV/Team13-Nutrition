@@ -26,9 +26,6 @@ import java.text.DecimalFormat;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class Tab2 extends Fragment {
 
     @Override
@@ -48,36 +45,28 @@ public class Tab2 extends Fragment {
         Button button2 = dialogView.findViewById(R.id.buttonCancel);
         String user = Objects.requireNonNull(getArguments()).getString("params");
 
-        TextView name = Objects.requireNonNull(getView()).findViewById(R.id.name);
+        TextView name = view.findViewById(R.id.name);
         name.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(CustomerMap.customerMap.get(user)).getSurname());
 
-        TextView age = Objects.requireNonNull(getView()).findViewById(R.id.age);
+        TextView age = view.findViewById(R.id.age);
         age.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getAge()));
 
-        TextView weight = Objects.requireNonNull(getView().findViewById(R.id.weight));
+        TextView weight = view.findViewById(R.id.weight);
         weight.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight()));
 
-        TextView height = Objects.requireNonNull(getView().findViewById(R.id.height));
+        TextView height = view.findViewById(R.id.height);
         height.setText(String.valueOf(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getHeight()));
 
-        TextView gender = Objects.requireNonNull(getView().findViewById(R.id.gender));
+        TextView gender = view.findViewById(R.id.gender);
         gender.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getGender());
 
-        TextView bmi = Objects.requireNonNull(getView().findViewById(R.id.bmi));
+        TextView bmi = view.findViewById(R.id.bmi);
         bmi.setText(df.format(Objects.requireNonNull(CustomerMap.customerMap.get(user)).BMI(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getWeight())));
 
-        TextView target = Objects.requireNonNull(getView().findViewById(R.id.target));
+        TextView target = view.findViewById(R.id.target);
         Set<Nutrition_Goal> set = Objects.requireNonNull(CustomerMap.customerMap.get(user)).getNutriton_goals();
         for (Nutrition_Goal value: set) if(value.isActive()) temp = value;
         target.setText(Objects.requireNonNull(temp).getTargetWeight()+"");
-
-
-
-
-
-
-
-
 
         age.setOnLongClickListener(u ->{
             EditText editText = dialogView.findViewById(R.id.edt_comment);
@@ -205,7 +194,6 @@ public class Tab2 extends Fragment {
             return true;
         });
     }
-
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {

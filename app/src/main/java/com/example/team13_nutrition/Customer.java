@@ -10,7 +10,11 @@ import com.example.team13_nutrition.exceptions.NameException;
 import com.example.team13_nutrition.exceptions.PasswordException;
 import com.example.team13_nutrition.exceptions.WeightException;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Customer {
     private final String Username;
@@ -146,8 +150,9 @@ public class Customer {
         return weight;
     }
 
-    public void setWeight(double weight) throws WeightException {
+    public void setWeight(double weight) throws Exception {
         checkWeight(weight);
+        weightStatuses.add(new WeightStatus(this.weight, BMR(this.weight), BMI(this.weight)));
         this.weight = weight;
     }
 
@@ -227,10 +232,6 @@ public class Customer {
 
     public double BMI(double w) {
         return w / (height * height);
-    }
-
-    public void addWeightSatus() throws Exception {
-        weightStatuses.add(new WeightStatus(weight, BMR(this.weight), BMI(this.weight)));
     }
 
     public double PAL() {

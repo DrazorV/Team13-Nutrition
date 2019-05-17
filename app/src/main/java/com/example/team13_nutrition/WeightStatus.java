@@ -1,4 +1,5 @@
 package com.example.team13_nutrition;
+
 import java.util.Date;
 
 public class WeightStatus {
@@ -6,24 +7,27 @@ public class WeightStatus {
     private double bmr;
     private double bmi;
     private Date date;
-    private Customer customer;
 
-    public WeightStatus(double weight,double bmr,double bmi){
-        this.weight=weight;
-        this.bmr=bmr;
-        this.bmi=bmi;
-        date=new Date();
+    public WeightStatus(double weight, double bmr, double bmi) {
+        this.weight = weight;
+        this.bmr = bmr;
+        this.bmi = bmi;
+        date = new Date();
     }
-    private double getWeight(){
-        return  weight;
+
+    private double getWeight() {
+        return weight;
     }
-    private double getBmr(){
-        return  bmr;
+
+    private double getBmr() {
+        return bmr;
     }
-    private double getBmi(){
+
+    private double getBmi() {
         return bmi;
     }
-    public Date getDate(){
+
+    public Date getDate() {
         return date;
     }
 }
