@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Customer {
@@ -292,17 +293,16 @@ public class Customer {
         }
     }
 
-    public double callories(double w) throws Exception {
+    public double callories() throws Exception {
+        Nutrition_Goal activeGoal = null;
+        for (Nutrition_Goal value : nutriton_goals) if (value.isActive()) activeGoal = value;
+        double w = Objects.requireNonNull(activeGoal).getTargetWeight();
         double callories = PAL() * BMR(w);
-        if (BMI(w) >= 18.5 && BMI(w) <= 25) {
-            return callories;
-        } else if (BMI(w) < 18.5) {
-            return callories + 500;
-        } else if (BMI(w) > 25 && BMI(w) <= 30) {
+        if (activeGoal.getGoal_Type().equals(Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss))
             return callories - 500;
-        } else if (BMI(w) > 30 && BMI(w) <= 40) {
-            return BMR(w) * 1.4 - 500;
-        } else return -1;
+        else if (activeGoal.getGoal_Type().equals(Nutrition_Goal.Nutrition_Goal_Type.Gain_Weight))
+            return callories + 500;
+        else return callories;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -325,20 +325,20 @@ public class Customer {
             //case1
             ArrayList<Food> foods = FoodsAndExcercises.getFoods();
             ArrayList<Excercise> excercises = FoodsAndExcercises.getExcercises();
-            double neededCallories = callories(targetweight);
-            if (neededCallories < callories(this.weight)) {
+            double neededCallories = callories();
+            if (neededCallories < callories()) {
                 foods.stream().sorted(Comparator.comparing(Food::getCallories));
                 for (Food f : foods) {
                     neededfoods.add(f);
                     neededCallories += f.getCallories();
-                    if (neededCallories > callories(this.weight)) break;
+                    if (neededCallories > callories()) break;
                 }
             } else {
                 excercises.stream().sorted(Comparator.comparing(Excercise::getLoss_callories));
                 for (Excercise e : excercises) {
                     neededexcersice.add(e);
                     neededCallories -= e.getLoss_callories();
-                    if (neededCallories < callories(this.weight)) break;
+                    if (neededCallories < callories()) break;
                 }
             }
             hashMap.put(fe.get(0), neededfoods);

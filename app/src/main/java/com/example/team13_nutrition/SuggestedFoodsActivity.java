@@ -11,14 +11,13 @@ import java.util.ArrayList;
 //
 public class SuggestedFoodsActivity extends AppCompatActivity {
     private SuggestedFoodsPresenter presenter = new SuggestedFoodsPresenter();
-    ListView lv;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggested_foods);
-        lv = findViewById(R.id.foods);
+        ListView lv = findViewById(R.id.foods);
 
         ArrayList<Food> foods = presenter.createList();
         ArrayAdapter<Food> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, foods) ;

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.example.team13_nutrition.Customer;
 import com.example.team13_nutrition.CustomerMap;
 import com.example.team13_nutrition.FoodConsumption;
-import com.example.team13_nutrition.Nutrition_Goal;
 import com.example.team13_nutrition.R;
 
 import java.util.Objects;
@@ -39,20 +38,14 @@ public class Tab1 extends Fragment {
             TextView prog = view.findViewById(R.id.progr);
             name.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(CustomerMap.customerMap.get(user)).getSurname());
             Customer customer = CustomerMap.customerMap.get(user);
-            Set<Nutrition_Goal> set = Objects.requireNonNull(customer).getNutriton_goals();
-            Set<FoodConsumption> set2 = customer.getFoodConsumptions();
-
-            Nutrition_Goal activeGoal = null;
+            Set<FoodConsumption> set = Objects.requireNonNull(customer).getFoodConsumptions();
             int totalFood = 0;
-
-            for (Nutrition_Goal value : set) if (value.isActive()) activeGoal = value;
-            for (FoodConsumption v : set2)
+            for (FoodConsumption v : set)
                 totalFood += (v.getFood().getCallories() * v.getQuantity());
             ProgressBar progressBar = view.findViewById(R.id.progressBar);
 
             try {
-                double trg = Objects.requireNonNull(activeGoal).getTargetWeight();
-                int call = (int) customer.callories(trg);
+                int call = (int) customer.callories();
                 progressBar.setMax(call);
                 progressBar.setProgress(totalFood);
                 prog.setText(totalFood + "/" + call);
