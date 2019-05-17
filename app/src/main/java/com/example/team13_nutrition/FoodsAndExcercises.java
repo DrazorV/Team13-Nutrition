@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public class FoodsAndExcercises {
     private static ArrayList<Food> foods;
-    private static ArrayList<Excercise> excercises;
+    private static ArrayList<Exercise> exercises;
 
     public static void addFood(Food f){
         foods.add(f);
     }
-    public static void addExcercise(Excercise e){
-        excercises.add(e);
+    public static void addExcercise(Exercise e){
+        exercises.add(e);
     }
     public static ArrayList<Food> getFoods(){
         return foods;
     }
 
-    public static ArrayList<Excercise> getExcercises() {
-        return excercises;
+    public static ArrayList<Exercise> getExercises() {
+        return exercises;
     }
 }

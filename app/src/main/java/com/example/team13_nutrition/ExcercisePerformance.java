@@ -7,14 +7,14 @@ public class ExcercisePerformance {
     private Date date;
     private double duration;
     private String dayperiod;
-    private Excercise excercise;
+    private Exercise exercise;
 
-    public ExcercisePerformance(double duration, String dayperiod, Excercise excercise) throws Exception {
+    public ExcercisePerformance(double duration, String dayperiod, Exercise exercise) throws Exception {
         TimeUnit.SECONDS.sleep(1);
         this.duration = duration;
         this.dayperiod = dayperiod;
         this.date = new Date();
-        this.excercise = excercise;
+        this.exercise = exercise;
     }
 
     public Date getDate() {
@@ -29,8 +29,8 @@ public class ExcercisePerformance {
         return dayperiod;
     }
 
-    public Excercise getExcercise() {
-        return excercise;
+    public Exercise getExercise() {
+        return exercise;
     }
 
 }

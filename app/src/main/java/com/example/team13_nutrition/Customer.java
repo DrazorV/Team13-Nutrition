@@ -232,27 +232,27 @@ public class Customer {
         if (ep == null) {
             return 1.4;
         } else {
-            Excercise ex = ep.getExcercise();
-            Excercise.TypeSport ts;
+            Exercise ex = ep.getExercise();
+            Exercise.TypeSport ts;
             ts = ex.getType();
             int pal_int;
             if (jobtype.equals(Customer.jobtype.Light)) {
-                if (ts.equals(Excercise.TypeSport.Light)) {
+                if (ts.equals(Exercise.TypeSport.Light)) {
                     return 1.4;
-                } else if (ts.equals(Excercise.TypeSport.Normal)) {
+                } else if (ts.equals(Exercise.TypeSport.Normal)) {
                     return 1.5;
-                } else if (ts.equals(Excercise.TypeSport.Intense)) {
+                } else if (ts.equals(Exercise.TypeSport.Intense)) {
                     return 1.6;
                 } else {
                     return -1;
                 }
             } else if (jobtype.equals(Customer.jobtype.Normal)) {
                 double pal;
-                if (ts.equals(Excercise.TypeSport.Light)) {
+                if (ts.equals(Exercise.TypeSport.Light)) {
                     pal_int = 16;
-                } else if (ts.equals(Excercise.TypeSport.Normal)) {
+                } else if (ts.equals(Exercise.TypeSport.Normal)) {
                     pal_int = 17;
-                } else if (ts.equals(Excercise.TypeSport.Intense)) {
+                } else if (ts.equals(Exercise.TypeSport.Intense)) {
                     pal_int = 18;
                 } else {
                     return -1;
@@ -264,11 +264,11 @@ public class Customer {
                 return pal;
             } else {
                 double pal;
-                if (ts.equals(Excercise.TypeSport.Light)) {
+                if (ts.equals(Exercise.TypeSport.Light)) {
                     pal_int = 17;
-                } else if (ts.equals(Excercise.TypeSport.Normal)) {
+                } else if (ts.equals(Exercise.TypeSport.Normal)) {
                     pal_int = 18;
-                } else if (ts.equals(Excercise.TypeSport.Intense)) {
+                } else if (ts.equals(Exercise.TypeSport.Intense)) {
                     pal_int = 19;
                 } else {
                     return -1;
@@ -302,7 +302,7 @@ public class Customer {
         fe.add("food");
         fe.add("exercise");
         ArrayList<Food> neededfoods = new ArrayList<>();
-        ArrayList<Excercise> neededexcersice = new ArrayList<>();
+        ArrayList<Exercise> neededexcersice = new ArrayList<>();
         double targetweight = 0;
         for (Nutrition_Goal ng : nutriton_goals) {
             if (ng.isActive()) {
@@ -313,7 +313,7 @@ public class Customer {
         else {
             //case1
             ArrayList<Food> foods = FoodsAndExcercises.getFoods();
-            ArrayList<Excercise> excercises = FoodsAndExcercises.getExcercises();
+            ArrayList<Exercise> exercises = FoodsAndExcercises.getExercises();
             double neededCallories = callories();
             if (neededCallories < callories()) {
                 foods.stream().sorted(Comparator.comparing(Food::getCallories));
@@ -323,8 +323,8 @@ public class Customer {
                     if (neededCallories > callories()) break;
                 }
             } else {
-                excercises.stream().sorted(Comparator.comparing(Excercise::getLoss_callories));
-                for (Excercise e : excercises) {
+                exercises.stream().sorted(Comparator.comparing(Exercise::getLoss_callories));
+                for (Exercise e : exercises) {
                     neededexcersice.add(e);
                     neededCallories -= e.getLoss_callories();
                     if (neededCallories < callories()) break;

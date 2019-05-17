@@ -6,7 +6,7 @@ import java.util.Map;
 public class CustomerMap {
     public static Map<String,Customer> customerMap = new HashMap<>();
     public static Map<String,Food> foodMap = new HashMap<>();
-    public static Map<String,Excercise> exerciseMap = new HashMap<>();
+    public static Map<String, Exercise> exerciseMap = new HashMap<>();
 
 
     public static void MakeCustomerMap() {
@@ -67,6 +67,8 @@ public class CustomerMap {
     public static void MakeExerciseMap() {
 
         try {
+
+
 
         } catch (Exception e) {
             e.printStackTrace();

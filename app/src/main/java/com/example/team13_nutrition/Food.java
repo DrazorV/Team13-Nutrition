@@ -3,16 +3,16 @@ package com.example.team13_nutrition;
 public class Food {
     private String name;
     private double calories;
-    private double carbonhydrates;
+    private double carbohydrates;
     private double liquids;
     private double fat;
     private double protein;
 
 
-    public Food(String name, double calories, double carbonhydrates, double liquids, double fat, double protein) {
+    public Food(String name, double calories, double carbohydrates, double liquids, double fat, double protein) {
         this.name = name;
         this.calories = calories;
-        this.carbonhydrates = carbonhydrates;
+        this.carbohydrates = carbohydrates;
         this.liquids = liquids;
         this.fat = fat;
         this.protein = protein;
@@ -26,8 +26,8 @@ public class Food {
         return calories;
     }
 
-    public double getCarbonhydrates() {
-        return carbonhydrates;
+    public double getCarbohydrates() {
+        return carbohydrates;
     }
 
     public double getLiquids() {

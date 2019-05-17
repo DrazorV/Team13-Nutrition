@@ -1,24 +1,20 @@
 package com.example.team13_nutrition;
 
 
-public class Excercise {
+public class Exercise {
     private String name;
-    private double loss_callories;
-    private double loss_carbonhydrates;
+    private double loss_calories;
+    private double loss_carbohydrates;
     private double loss_liquids;
     private double loss_fat;
-    private double energy;
-    private double how_many_times;
     private TypeSport type;
 
-    public Excercise(String name, double loss_callories, double loss_carbonhydrates, double loss_liquids, double loss_fat, double energy, double how_many_times, String typesport) {
+    public Exercise(String name, double loss_calories, double loss_carbohydrates, double loss_liquids, double loss_fat, String typesport) {
         this.name = name;
-        this.loss_callories = loss_callories;
-        this.loss_carbonhydrates = loss_carbonhydrates;
+        this.loss_calories = loss_calories;
+        this.loss_carbohydrates = loss_carbohydrates;
         this.loss_liquids = loss_liquids;
         this.loss_fat = loss_fat;
-        this.energy = energy;
-        this.how_many_times = how_many_times;
         if (typesport.equals("Light")) type = TypeSport.Light;
         else if (typesport.equals("Normal")) type = TypeSport.Normal;
         else if (typesport.equals("Intense")) type = TypeSport.Intense;
@@ -30,11 +26,11 @@ public class Excercise {
     }
 
     public double getLoss_callories() {
-        return loss_callories;
+        return loss_calories;
     }
 
-    public double getLoss_carbonhydrates() {
-        return loss_carbonhydrates;
+    public double getLoss_carbohydrates() {
+        return loss_carbohydrates;
     }
 
     public double getLoss_liquids() {
@@ -43,14 +39,6 @@ public class Excercise {
 
     public double getLoss_fat() {
         return loss_fat;
-    }
-
-    public double getEnergy() {
-        return energy;
-    }
-
-    public double getHow_many_times() {
-        return how_many_times;
     }
 
     public TypeSport getType() {

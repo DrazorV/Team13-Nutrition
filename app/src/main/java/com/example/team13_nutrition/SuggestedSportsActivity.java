@@ -17,11 +17,11 @@ public class SuggestedSportsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_suggested_sports);
         lv = findViewById(R.id.sports);
 
-        ArrayList<Excercise> sports = null;
+        ArrayList<Exercise> sports = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             sports = presenter.createList();
         }
-        ArrayAdapter<Excercise> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sports) ;
+        ArrayAdapter<Exercise> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, sports) ;
         lv.setAdapter(arrayAdapter);
     }
 }
