@@ -30,7 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         CustomerMap.MakeCustomerMap();
-        //CustomerMap.MakeFoodMap();
+        CustomerMap.MakeFoodMap();
+        CustomerMap.MakeExerciseMap();
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory()).get(LoginViewModel.class);
 
         final EditText usernameEditText = findViewById(R.id.username);
