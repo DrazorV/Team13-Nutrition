@@ -36,7 +36,7 @@
         <ListView
             android:id="@+id/foodListView"
             android:layout_width="match_parent"
-            android:layout_height="522dp">
+            android:layout_height="400dp">
 
         </ListView>
 
@@ -54,7 +54,7 @@
                 android:textSize="22sp" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/mealType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

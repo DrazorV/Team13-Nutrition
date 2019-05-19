@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         BoomMenuButton bmb = findViewById(R.id.bmb);
 
         HamButton.Builder builder = new HamButton.Builder().listener(index -> {
-            Intent it = new Intent(MainActivity.this, SuggestedFoodsActivity.class);
+            Intent it = new Intent(MainActivity.this, AddFoodActivity.class);
             startActivity(it);
         })
                 .normalText("Let's add some foods!")
