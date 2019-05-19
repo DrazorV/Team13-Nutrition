@@ -1,55 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
 
 
     <TextView
         android:id="@+id/listItemNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:text="TextView"
-        android:textSize="24sp" />
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/quantityTextView" />
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/quantityTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_toLeftOf="@id/quantityEditText"
         android:text="Qt:"
+        android:layout_toStartOf="@id/quantityEditText"
         android:textAllCaps="false"
         android:textColor="@color/com_facebook_button_background_color_focused_disabled"
-        android:textSize="24sp" />
+        android:textAlignment="center"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/quantityEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/minusButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
         android:ems="4"
+        android:textAlignment="center"
         android:inputType="number"
         android:text="1"
-        android:textSize="12sp" />
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/minusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/plusButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
         android:text="-" />
 
     <Button
         android:id="@+id/plusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentRight="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
         android:text="+" />
-</RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="4dp"
+        android:scaleX="1.8"
+        android:scaleY="1.8" />
+
+</LinearLayout>
