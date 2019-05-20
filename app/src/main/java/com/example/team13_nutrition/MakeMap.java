@@ -65,9 +65,7 @@ public class MakeMap {
     }
 
     public static void MakeExerciseMap() { //source -> http://calorielab.com/burned/
-
         try {
-
             Exercise e1 = new Exercise("Basketball", 340, "Intense");
             Exercise e2 = new Exercise("Boxing", 544, "Intense");
             Exercise e3 = new Exercise("Football", 544, "Intense");
@@ -103,7 +101,6 @@ public class MakeMap {
             exerciseMap.put(e15.getName(), e15);
             exerciseMap.put(e16.getName(), e16);
             exerciseMap.put(e17.getName(), e17);
-
         } catch (Exception e) {
             e.printStackTrace();
         }

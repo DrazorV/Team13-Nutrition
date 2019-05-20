@@ -16,7 +16,7 @@ Customer cu;
     @Before
     public void checkCust()throws Exception{
         cu=new Customer("MMorf","Abcde3/","Manos","Morfiadakis","male",17,1.78,70.8,"Weight_Loss","Intense",60);
-        Assert.assertNotNull(cu.getExcercisePerformances());
+        Assert.assertNotNull(cu.getExercisePerformances());
         Assert.assertNotNull(cu.getFoodConsumptions());
         Assert.assertNotNull(cu.getWeightStatuses());
         Assert.assertEquals(cu.getGoals(), Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss);
@@ -43,27 +43,27 @@ Customer cu;
     }
     @Test(expected= NameException.class)
     public void wrongNameOrSurname()throws Exception{
-        cu.check("Masn0");
+        Customer.check("Masn0");
     }
     @Test(expected= AgeException.class)
     public void invalidAge()throws Exception{
-        cu.checkAge(9);
+        Customer.checkAge(9);
     }
     @Test(expected=AgeException.class)
     public void invalidAge2()throws Exception{
-        cu.checkAge(100);
+        Customer.checkAge(100);
     }
     @Test(expected= HeightException.class)
     public void invalidHeight()throws Exception{
-        cu.checkHeight(-0.1);
+        Customer.checkHeight(-0.1);
     }
     @Test(expected=HeightException.class)
     public void invalidHeight2()throws Exception{
-        cu.checkHeight(7.01);
+        Customer.checkHeight(7.01);
     }
     @Test(expected= WeightException.class)
     public void NegativeWeight()throws Exception{
-        cu.checkWeight(-0.1);
+        Customer.checkWeight(-0.1);
     }
     @Test(expected = BMIException.class)
     public void checkBMI()throws Exception{
@@ -146,7 +146,7 @@ Customer cu;
     public void checkPAL()throws Exception{//if this  method runs with other test it is false.But if it runs indipendently it is true.
         cu.setjobtype("Light");
         Exercise e=new Exercise("run",50,40,10,13.7,"Light");
-        ExcercisePerformance ep=new ExcercisePerformance(20,"Morning",e);
+        ExercisePerformance ep = new ExercisePerformance(20, "Morning", e);
         cu.addExcercisePerformance(ep);
         Assert.assertTrue(cu.PAL()==1.4);
         cu.changeGender();
@@ -164,7 +164,7 @@ Customer cu;
         cu.changeGender();
         cu.setjobtype("Light");
         Exercise e2=new Exercise("run",50,40,10,13.7,"Normal");
-        ExcercisePerformance ep2=new ExcercisePerformance(20,"Morning",e2);
+        ExercisePerformance ep2 = new ExercisePerformance(20, "Morning", e2);
         cu.addExcercisePerformance(ep2);
         Assert.assertTrue(cu.PAL()==1.5);
         cu.changeGender();
@@ -182,7 +182,7 @@ Customer cu;
         cu.changeGender();
         cu.setjobtype("Light");
         Exercise e3=new Exercise("AK-47",50,40,10,13.7,"Intense");
-        ExcercisePerformance ep3=new ExcercisePerformance(20,"Morning",e3);
+        ExercisePerformance ep3 = new ExercisePerformance(20, "Morning", e3);
         cu.addExcercisePerformance(ep3);
         Assert.assertEquals(e3.getType(), Exercise.TypeSport.Intense);
         Assert.assertTrue(cu.PAL()==1.6);
