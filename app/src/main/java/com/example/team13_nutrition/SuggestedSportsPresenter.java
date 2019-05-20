@@ -8,7 +8,7 @@ class SuggestedSportsPresenter {
 
 
     ArrayList<Exercise> createList() {
-        Map<String, Customer> c = CustomerMap.customerMap;
+        Map<String, Customer> c = MakeMap.customerMap;
         Map.Entry<String, Customer> entry = c.entrySet().iterator().next();
         String key = entry.getKey();
         Customer customer = entry.getValue();

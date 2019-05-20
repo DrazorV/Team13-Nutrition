@@ -7,7 +7,7 @@
 //import android.widget.ImageView;
 //
 //import com.example.team13_nutrition.Customer;
-//import com.example.team13_nutrition.CustomerMap;
+//import com.example.team13_nutrition.MakeMap;
 //import com.example.team13_nutrition.R;
 //
 //public class SignUpSecondActivity extends AppCompatActivity {
@@ -38,7 +38,7 @@
 //            age.findViewById(R.id.enter_age);
 //            try {
 //                Customer temp = new Customer(username, password, null, null, null, 0, 0, 0, null, null, 0);
-//                CustomerMap.customerMap.put(username,temp);
+//                MakeMap.customerMap.put(username,temp);
 //            } catch (Exception ignored) {
 //
 //            }

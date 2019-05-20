@@ -44,9 +44,9 @@ public class AddFoodActivity extends AppCompatActivity {
 
         foodList = new ArrayList<>();
 
-        for (String key: CustomerMap.foodMap.keySet()) {
+        for (String key : MakeMap.foodMap.keySet()) {
             System.out.println("key : " + key);
-            System.out.println("value : " + CustomerMap.foodMap.get(key));
+            System.out.println("value : " + MakeMap.foodMap.get(key));
 
             ListViewItemClass added = new ListViewItemClass(key, false, 1);
 

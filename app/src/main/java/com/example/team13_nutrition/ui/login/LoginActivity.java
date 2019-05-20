@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.team13_nutrition.CustomerMap;
 import com.example.team13_nutrition.MainActivity;
+import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -29,9 +29,9 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        CustomerMap.MakeCustomerMap();
-        CustomerMap.MakeFoodMap();
-        CustomerMap.MakeExerciseMap();
+        MakeMap.MakeCustomerMap();
+        MakeMap.MakeFoodMap();
+        MakeMap.MakeExerciseMap();
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory()).get(LoginViewModel.class);
 
         final EditText usernameEditText = findViewById(R.id.username);

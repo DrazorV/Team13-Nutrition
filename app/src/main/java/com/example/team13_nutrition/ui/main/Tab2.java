@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.team13_nutrition.Customer;
-import com.example.team13_nutrition.CustomerMap;
+import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.Nutrition_Goal;
 import com.example.team13_nutrition.R;
 import com.example.team13_nutrition.exceptions.AgeException;
@@ -44,7 +44,7 @@ public class Tab2 extends Fragment {
         Button button1 = dialogView.findViewById(R.id.buttonSubmit);
         Button button2 = dialogView.findViewById(R.id.buttonCancel);
         String user = Objects.requireNonNull(getArguments()).getString("params");
-        Customer customer = CustomerMap.customerMap.get(user);
+        Customer customer = MakeMap.customerMap.get(user);
 
         TextView name = view.findViewById(R.id.name);
         name.setText(Objects.requireNonNull(customer).getName() + " " + customer.getSurname());

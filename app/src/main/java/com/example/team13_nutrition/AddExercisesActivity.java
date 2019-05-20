@@ -44,9 +44,9 @@ public class AddExercisesActivity extends AppCompatActivity {
 
         sportsList = new ArrayList<>();
 
-        for (String key: CustomerMap.exerciseMap.keySet()) {
+        for (String key : MakeMap.exerciseMap.keySet()) {
             System.out.println("key : " + key);
-            System.out.println("value : " + CustomerMap.exerciseMap.get(key));
+            System.out.println("value : " + MakeMap.exerciseMap.get(key));
 
             ListViewItemClass added = new ListViewItemClass(key, false, 1);
 

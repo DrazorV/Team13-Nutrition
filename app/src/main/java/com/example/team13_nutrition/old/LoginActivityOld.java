@@ -8,7 +8,7 @@
 //import android.widget.TextView;
 //import android.widget.Toast;
 //
-//import com.example.team13_nutrition.CustomerMap;
+//import com.example.team13_nutrition.MakeMap;
 //import com.example.team13_nutrition.MainActivity;
 //import com.example.team13_nutrition.R;
 //
@@ -33,8 +33,8 @@
 //        login.setOnClickListener(v -> {
 //            username = findViewById(R.id.username);
 //            password = findViewById(R.id.password);
-//            if(CustomerMap.customerMap.keySet().contains(username.getText().toString())){
-//                if(Objects.requireNonNull(CustomerMap.customerMap.get(username.getText().toString())).getPassword().equals(password.getText().toString())){
+//            if(MakeMap.customerMap.keySet().contains(username.getText().toString())){
+//                if(Objects.requireNonNull(MakeMap.customerMap.get(username.getText().toString())).getPassword().equals(password.getText().toString())){
 //                    Intent it = new Intent(LoginActivityOld.this, MainActivity.class);
 //                    startActivity(it);
 //                }else Toast.makeText(getApplicationContext(), "Wrong Password!", Toast.LENGTH_SHORT).show();

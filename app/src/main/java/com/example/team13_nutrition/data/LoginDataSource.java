@@ -1,6 +1,6 @@
 package com.example.team13_nutrition.data;
 
-import com.example.team13_nutrition.CustomerMap;
+import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.data.model.LoggedInUser;
 
 import java.io.IOException;
@@ -14,8 +14,8 @@ public class LoginDataSource {
 
         try {
             // TODO: handle loggedInUser authentication
-            if(CustomerMap.customerMap.keySet().contains(username)){
-                if (CustomerMap.customerMap.get(username).getPassword().equals(password))
+            if (MakeMap.customerMap.keySet().contains(username)) {
+                if (MakeMap.customerMap.get(username).getPassword().equals(password))
                     return new Result.Success<>(new LoggedInUser(username,username));
                 else{
                     return new Result.Error(new IOException("Wrong Password"));

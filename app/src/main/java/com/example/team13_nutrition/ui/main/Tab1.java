@@ -12,8 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.team13_nutrition.Customer;
-import com.example.team13_nutrition.CustomerMap;
 import com.example.team13_nutrition.FoodConsumption;
+import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.R;
 import com.example.team13_nutrition.WeightStatus;
 
@@ -39,8 +39,8 @@ public class Tab1 extends Fragment {
             String user = Objects.requireNonNull(getArguments()).getString("params");
             TextView name = view.findViewById(R.id.name2);
             TextView prog = view.findViewById(R.id.progr);
-            name.setText(Objects.requireNonNull(CustomerMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(CustomerMap.customerMap.get(user)).getSurname());
-            customer = CustomerMap.customerMap.get(user);
+            name.setText(Objects.requireNonNull(MakeMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(MakeMap.customerMap.get(user)).getSurname());
+            customer = MakeMap.customerMap.get(user);
             set = Objects.requireNonNull(customer).getFoodConsumptions();
             set2 = customer.getWeightStatuses();
             int totalFood = 0;
