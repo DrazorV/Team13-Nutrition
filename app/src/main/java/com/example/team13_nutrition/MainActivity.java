@@ -45,17 +45,13 @@ public class MainActivity extends AppCompatActivity {
         HamButton.Builder builder = new HamButton.Builder().listener(index -> {
             Intent it = new Intent(MainActivity.this, AddFoodActivity.class);
             startActivity(it);
-        })
-                .normalText("Add consumed foods.")
-                .normalImageRes(R.drawable.peach);
+        }).normalText("Add consumed foods").normalImageRes(R.drawable.peach);
         bmb.addBuilder(builder);
 
         HamButton.Builder builder2 = new HamButton.Builder().listener(index -> {
             Intent it = new Intent(MainActivity.this, AddExercisesActivity.class);
             startActivity(it);
-        })
-                .normalText("Add done exercises.")
-                .normalImageRes(R.drawable.peach);
+        }).normalText("Add done exercises").normalImageRes(R.drawable.peach);
         bmb.addBuilder(builder2);
     }
 
