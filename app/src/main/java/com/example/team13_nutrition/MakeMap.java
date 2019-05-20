@@ -7,6 +7,7 @@ public class MakeMap {
     public static Map<String,Customer> customerMap = new HashMap<>();
     public static Map<String,Food> foodMap = new HashMap<>();
     public static Map<String, Exercise> exerciseMap = new HashMap<>();
+    //
 
 
     public static void MakeCustomerMap() {
