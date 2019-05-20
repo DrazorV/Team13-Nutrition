@@ -77,7 +77,7 @@ public class CustomerMap {
             Exercise e7 = new Exercise("Rock climbing", 680, "Intense");
             Exercise e8 = new Exercise("Skateboarding", 272, "Intense");
             Exercise e9 = new Exercise("Tennis", 408, "Intense");
-            Exercise e10 = new Exercise("Volleyball, competitive", 476, "Intense");
+            Exercise e10 = new Exercise("Volleyball", 476, "Intense");
             Exercise e11 = new Exercise("Wrestling", 340, "Intense");
             Exercise e12 = new Exercise("Jogging", 420, "Intense");
             Exercise e13 = new Exercise("Running", 490, "Intense"); //5 mph

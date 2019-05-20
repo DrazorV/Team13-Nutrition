@@ -2,6 +2,7 @@ package com.example.team13_nutrition;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -14,7 +15,7 @@ public class AddFoodActivity extends AppCompatActivity {
     SearchView searchView;
     ListView foodListView;
     Spinner mealType;
-    Button confirmButton;
+    Button confirmFoodButton;
     ListViewItemAdapter foodAdapter;
     ArrayList<ListViewItemClass> foodList;
 
@@ -26,11 +27,17 @@ public class AddFoodActivity extends AppCompatActivity {
         searchView = findViewById(R.id.foodSearchView);
         foodListView = findViewById(R.id.foodListView);
         mealType = findViewById(R.id.mealType);
-        confirmButton = findViewById(R.id.foodConfirmButton);
+        confirmFoodButton = findViewById(R.id.foodConfirmButton);
 
         loadFoods();
         foodAdapter = new ListViewItemAdapter(this, foodList);
         foodListView.setAdapter(foodAdapter);
+
+
+        ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this, R.array.diary_item_list_header_array, android.R.layout.simple_spinner_item);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mealType.setAdapter(spinnerAdapter);
+
     }
 
     private void loadFoods() {

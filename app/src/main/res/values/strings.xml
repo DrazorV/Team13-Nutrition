@@ -179,4 +179,10 @@
     <string name="weight">Weight:</string>
     <string name="age">Age:</string>
     <string name="apply">Apply</string>
+
+    <string-array name="exercise_intensity">
+        <item>INTENSE</item>
+        <item>NORMAL</item>
+        <item>LIGHT</item>
+    </string-array>
 </resources>
