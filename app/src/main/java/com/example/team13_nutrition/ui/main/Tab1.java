@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.team13_nutrition.Customer;
+import com.example.team13_nutrition.ExercisePerformance;
 import com.example.team13_nutrition.FoodConsumption;
 import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.R;
@@ -28,7 +29,8 @@ public class Tab1 extends Fragment {
     private boolean mUserSeen = false;
     private boolean mViewCreated = false;
     Set<WeightStatus> set2;
-    Set<FoodConsumption> set;
+    Set<FoodConsumption> foodConsumptions;
+    Set<ExercisePerformance> exercisePerformances;
 
     /**
      * Called when the new created view is visible to user for the first time.
@@ -41,17 +43,22 @@ public class Tab1 extends Fragment {
             TextView prog = view.findViewById(R.id.progr);
             name.setText(Objects.requireNonNull(MakeMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(MakeMap.customerMap.get(user)).getSurname());
             customer = MakeMap.customerMap.get(user);
-            set = Objects.requireNonNull(customer).getFoodConsumptions();
+            foodConsumptions = Objects.requireNonNull(customer).getFoodConsumptions();
+            exercisePerformances = Objects.requireNonNull(customer).getExercisePerformances();
             set2 = customer.getWeightStatuses();
             int totalFood = 0;
-            for (FoodConsumption v : set)
+            int totalExercise = 0;
+            for (FoodConsumption v : foodConsumptions)
                 totalFood += (v.getFood().getCallories() * v.getQuantity());
+            for (ExercisePerformance v : exercisePerformances)
+                totalExercise += (v.getExercise().getLoss_callories() * v.getDuration());
             ProgressBar progressBar = view.findViewById(R.id.progressBar);
             try {
                 int call = (int) customer.callories();
                 progressBar.setMax(call);
-                progressBar.setProgress(totalFood);
-                prog.setText(totalFood + "/" + call);
+                int Sum = totalFood - totalExercise;
+                progressBar.setProgress(Sum);
+                prog.setText(Sum + "/" + call);
             } catch (Exception e) {
                 e.printStackTrace();
             }

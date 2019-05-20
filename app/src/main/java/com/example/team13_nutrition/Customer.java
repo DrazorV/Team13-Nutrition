@@ -28,7 +28,7 @@ public class Customer {
     private double weight;
     private Nutrition_Goal.Nutrition_Goal_Type goals;
     private Set<FoodConsumption> foodConsumptions;
-    private Set<ExcercisePerformance> excercisePerformances;
+    private Set<ExercisePerformance> exercisePerformances;
     private Set<WeightStatus> weightStatuses;
     private Set<Nutrition_Goal> nutriton_goals;
 
@@ -46,9 +46,9 @@ public class Customer {
         this.Surname = Surname;
         this.gender = gender;
         nutriton_goals = new HashSet<>();
-        excercisePerformances = new HashSet<>();
+        exercisePerformances = new HashSet<>();
         foodConsumptions = new HashSet<>();
-        excercisePerformances = new HashSet<>();
+        exercisePerformances = new HashSet<>();
         weightStatuses = new HashSet<>();
         setAge(age);
         setHeight(height);
@@ -116,8 +116,8 @@ public class Customer {
         return nutriton_goals;
     }
 
-    public Set<ExcercisePerformance> getExcercisePerformances() {
-        return excercisePerformances;
+    public Set<ExercisePerformance> getExercisePerformances() {
+        return exercisePerformances;
     }
 
     public double getHeight() {
@@ -193,8 +193,8 @@ public class Customer {
         foodConsumptions.add(fc);
     }
 
-    public void addExcercisePerformance(ExcercisePerformance ep) {
-        excercisePerformances.add(ep);
+    public void addExcercisePerformance(ExercisePerformance ep) {
+        exercisePerformances.add(ep);
     }
 
     public double BMR(double w) throws Exception {
@@ -226,8 +226,8 @@ public class Customer {
 
     public double PAL() {
 
-        ExcercisePerformance ep = null;
-        for (ExcercisePerformance e : excercisePerformances) ep = e;
+        ExercisePerformance ep = null;
+        for (ExercisePerformance e : exercisePerformances) ep = e;
 
         if (ep == null) {
             return 1.4;
