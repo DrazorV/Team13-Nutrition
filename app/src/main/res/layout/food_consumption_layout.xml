@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Εισαγωγή Τροφών"
+            android:text="Let's Add Food"
             android:textColor="#d11e48"
             android:textSize="30sp" />
 
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/login_primary_dark"
-            android:text="Υποβολή Τροφών"
+            android:text="Apply"
             android:textColor="@color/cardview_light_background"
             android:textSize="30sp" />
 

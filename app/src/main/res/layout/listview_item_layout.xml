@@ -7,18 +7,20 @@
 
     <TextView
         android:id="@+id/listItemNameTextView"
-        android:layout_width="120dp"
+        android:layout_width="143dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="19sp" />
 
     <TextView
         android:id="@+id/quantityTextView"
-        android:layout_width="50dp"
+        android:layout_width="30dp"
         android:layout_height="50dp"
         android:layout_toLeftOf="@id/quantityEditText"
         android:text="Qt:"
@@ -26,14 +28,14 @@
         android:textAllCaps="false"
         android:textColor="@color/com_facebook_button_background_color_focused_disabled"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="19sp" />
 
     <EditText
         android:id="@+id/quantityEditText"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@android:color/transparent"
-        android:ems="4"
+        android:ems="1"
         android:textAlignment="center"
         android:inputType="number"
         android:text="1"
@@ -44,7 +46,7 @@
         android:id="@+id/minusButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="0dp"
         android:minHeight="0dp"
         android:minWidth="0dp"
         android:text="-" />
@@ -53,7 +55,7 @@
         android:id="@+id/plusButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="0dp"
         android:minHeight="0dp"
         android:minWidth="0dp"
         android:text="+" />
@@ -62,8 +64,8 @@
         android:id="@+id/checkBox"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
         android:scaleX="1.8"
         android:scaleY="1.8" />
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ public class ListViewItemAdapter extends ArrayAdapter<ListViewItemClass> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
         View listItem = convertView;
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.listview_item_layout,parent,false);
@@ -36,12 +38,47 @@ public class ListViewItemAdapter extends ArrayAdapter<ListViewItemClass> {
         name.setText(currentItem.getName());
 
         CheckBox checkBox = listItem.findViewById(R.id.checkBox);
-        checkBox.setChecked(false);
 
         TextView quantity = listItem.findViewById(R.id.quantityEditText);
-        quantity.setText("1");
+
+        Button minus = listItem.findViewById(R.id.minusButton);
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int value = Integer.parseInt(quantity.getText().toString());
+                String newValue = changeQuantity(value, false);
+                quantity.setText(newValue);
+            }
+        });
+
+        Button plus = listItem.findViewById(R.id.plusButton);
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int value = Integer.parseInt(quantity.getText().toString());
+                String newValue = changeQuantity(value, true);
+                quantity.setText(newValue);
+            }
+        });
 
         return listItem;
+    }
+
+    public String changeQuantity(int value, boolean add){
+
+        if(add)
+            value++;
+        else{
+            if(value>1)
+                value--;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("");
+        sb.append(value);
+        String newValue = sb.toString();
+
+        return newValue;
     }
 
 }

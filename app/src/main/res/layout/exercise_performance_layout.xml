@@ -18,17 +18,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Εισαγωγή Δραστηριοτήτων"
+            android:text="Let's Add Exercises"
             android:textColor="#d11e48"
             android:textSize="30sp" />
 
-        <SearchView
-            android:id="@+id/exerciseSearchView"
+        <EditText
+            android:id="@+id/searchEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-        </SearchView>
+            android:ems="10"
+            android:hint="Search.."
+            android:inputType="textPersonName" />
 
         <ListView
             android:id="@+id/exerciseListView"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/login_primary_dark"
-            android:text="Υποβολή Δραστηριοτήτων"
+            android:text="@string/apply"
             android:textColor="@color/cardview_light_background"
             android:textSize="30sp" />
 
