@@ -3,8 +3,8 @@ package com.example.team13_nutrition;
 import java.util.ArrayList;
 
 public class FoodsAndExcercises {
-    private static ArrayList<Food> foods;
-    private static ArrayList<Exercise> exercises;
+    private static ArrayList<Food> foods=new ArrayList<>();
+    private static ArrayList<Exercise> exercises=new ArrayList<>();
 
     public static void addFood(Food f){
         foods.add(f);
@@ -15,7 +15,6 @@ public class FoodsAndExcercises {
     public static ArrayList<Food> getFoods(){
         return foods;
     }
-
     public static ArrayList<Exercise> getExercises() {
         return exercises;
     }
