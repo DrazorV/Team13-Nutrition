@@ -68,23 +68,21 @@ public class MakeMap {
 
         try {
 
-            Exercise e1 = new Exercise("Basketball", 340, "Intense");
+            Exercise e1 = new Exercise("Basketball", 476, "Intense");
             Exercise e2 = new Exercise("Boxing", 544, "Intense");
-            Exercise e3 = new Exercise("Football", 544, "Intense");
-            Exercise e4 = new Exercise("Handball", 476, "Intense");
-            Exercise e5 = new Exercise("Horseback riding", 204, "Intense");
+            Exercise e3 = new Exercise("Soccer", 612, "Intense");
+            Exercise e4 = new Exercise("Handball", 748, "Intense");
+            Exercise e5 = new Exercise("Horseback riding", 374, "Intense");
             Exercise e6 = new Exercise("Martial arts", 612, "Intense");
             Exercise e7 = new Exercise("Rock climbing", 680, "Intense");
             Exercise e8 = new Exercise("Skateboarding", 272, "Intense");
-            Exercise e9 = new Exercise("Tennis", 408, "Intense");
+            Exercise e9 = new Exercise("Tennis", 476, "Intense");
             Exercise e10 = new Exercise("Volleyball", 476, "Intense");
             Exercise e11 = new Exercise("Wrestling", 340, "Intense");
             Exercise e12 = new Exercise("Jogging", 420, "Intense");
             Exercise e13 = new Exercise("Running", 490, "Intense"); //5 mph
-            Exercise e14 = new Exercise("Bicycling", 490, "Intense");
+            Exercise e14 = new Exercise("Bicycling", 510, "Intense");
             Exercise e15 = new Exercise("Occupation", 500, "Intense");
-            Exercise e16 = new Exercise("Occupation", 250, "Normal");
-            Exercise e17 = new Exercise("Occupation", 100, "Light");
 
             exerciseMap.put(e1.getName(), e1);
             exerciseMap.put(e2.getName(), e2);
@@ -101,8 +99,6 @@ public class MakeMap {
             exerciseMap.put(e13.getName(), e13);
             exerciseMap.put(e14.getName(), e14);
             exerciseMap.put(e15.getName(), e15);
-            exerciseMap.put(e16.getName(), e16);
-            exerciseMap.put(e17.getName(), e17);
 
         } catch (Exception e) {
             e.printStackTrace();
