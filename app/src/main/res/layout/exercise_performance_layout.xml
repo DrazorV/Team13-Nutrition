@@ -22,13 +22,11 @@
             android:textColor="#d11e48"
             android:textSize="30sp" />
 
-        <EditText
+        <SearchView
             android:id="@+id/searchEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Search.."
-            android:inputType="textPersonName" />
+            android:ems="10" />
 
         <ListView
             android:id="@+id/exerciseListView"

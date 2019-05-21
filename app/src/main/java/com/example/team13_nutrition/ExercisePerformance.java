@@ -1,7 +1,6 @@
 package com.example.team13_nutrition;
 
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class ExercisePerformance {
     private Date date;
@@ -9,8 +8,7 @@ public class ExercisePerformance {
     private Exercise exercise;
 
 
-    public ExercisePerformance(double duration, Exercise exercise) throws Exception {
-        TimeUnit.SECONDS.sleep(1);
+    public ExercisePerformance(double duration, Exercise exercise) {
         this.duration = duration;
         this.date = new Date();
         this.exercise = exercise;
