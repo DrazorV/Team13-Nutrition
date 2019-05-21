@@ -2,23 +2,22 @@ package com.example.team13_nutrition;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class AddExercisesActivity extends AppCompatActivity {
 
-    EditText searchView;
+    SearchView searchView;
     ListView exerciseListView;
     Spinner sportsType;
-    Button confirmExercisesButton, minus, plus;
+    Button confirmExercisesButton;
     ListViewItemAdapter exerciseAdapter;
     ArrayList<ListViewItemClass> sportsList;
 
@@ -47,22 +46,6 @@ public class AddExercisesActivity extends AppCompatActivity {
             }
         });
 
-        searchView.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                (AddExercisesActivity.this).exerciseAdapter.getFilter().filter(s);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
     }
 
@@ -71,23 +54,32 @@ public class AddExercisesActivity extends AppCompatActivity {
         sportsList = new ArrayList<>();
 
         for (String key : MakeMap.exerciseMap.keySet()) {
-            System.out.println("key : " + key);
-            System.out.println("value : " + MakeMap.exerciseMap.get(key));
-
             ListViewItemClass added = new ListViewItemClass(key, false, 1);
-
             sportsList.add(added);
         }
 
     }
 
-    public void applyExercises(){
+    private void applyExercises(){
 
         exerciseAdapter.notifyDataSetChanged();
+        boolean hasChosen = false;
 
         for(ListViewItemClass item : sportsList){
+            //System.out.println(item.getName() + " + " + item.getQuantity() + " + " + item.isChecked());
+            if(item.isChecked()){
+                hasChosen = true;
+                Exercise exercise = MakeMap.exerciseMap.get(item.getName());
+                ExercisePerformance performance = new ExercisePerformance(item.getQuantity(), exercise);
+                //System.out.println("Added: " + performance.getExercise().getName());
+            }
+        }
 
-            System.out.println(item.getName() + " + " + item.getQuantity() + " + " + item.isChecked());
+        if(hasChosen){
+            String intensity = sportsType.getSelectedItem().toString();
+        }
+        else{
+            Toast.makeText(this, "No exercises have been selected!", Toast.LENGTH_LONG).show();
         }
 
     }
