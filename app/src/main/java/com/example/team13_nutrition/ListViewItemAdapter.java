@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -48,6 +49,7 @@ public class ListViewItemAdapter extends ArrayAdapter<ListViewItemClass> {
                 int value = Integer.parseInt(quantity.getText().toString());
                 String newValue = changeQuantity(value, false);
                 quantity.setText(newValue);
+                currentItem.setQuantity(Integer.parseInt(newValue));
             }
         });
 
@@ -58,6 +60,22 @@ public class ListViewItemAdapter extends ArrayAdapter<ListViewItemClass> {
                 int value = Integer.parseInt(quantity.getText().toString());
                 String newValue = changeQuantity(value, true);
                 quantity.setText(newValue);
+                currentItem.setQuantity(Integer.parseInt(newValue));
+            }
+        });
+
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(((CompoundButton) view).isChecked()){
+                    System.out.println("Checked");
+                    currentItem.setChecked(true);
+                    checkBox.setChecked(true);
+                } else {
+                    System.out.println("Un-Checked");
+                    currentItem.setChecked(false);
+                    checkBox.setChecked(false);
+                }
             }
         });
 
