@@ -57,20 +57,20 @@ public class MakeMap {
     public static void MakeExerciseMap() { //source -> http://calorielab.com/burned/
         try {
             Exercise[] exc = new Exercise[16];
-            exc[0] = new Exercise("Basketball", 340, "Intense");
+            exc[0] = new Exercise("Basketball", 476, "Intense");
             exc[1] = new Exercise("Boxing", 544, "Intense");
-            exc[2] = new Exercise("Football", 544, "Intense");
-            exc[3] = new Exercise("Handball", 476, "Intense");
-            exc[4] = new Exercise("Horseback riding", 204, "Intense");
+            exc[2] = new Exercise("Football", 612, "Intense");
+            exc[3] = new Exercise("Handball", 748, "Intense");
+            exc[4] = new Exercise("Horseback riding", 374, "Intense");
             exc[5] = new Exercise("Martial arts", 612, "Intense");
             exc[6] = new Exercise("Rock climbing", 680, "Intense");
             exc[7] = new Exercise("Skateboarding", 272, "Intense");
-            exc[8] = new Exercise("Tennis", 408, "Intense");
+            exc[8] = new Exercise("Tennis", 476, "Intense");
             exc[9] = new Exercise("Volleyball", 476, "Intense");
             exc[10] = new Exercise("Wrestling", 340, "Intense");
             exc[11] = new Exercise("Jogging", 420, "Intense");
             exc[12] = new Exercise("Running", 490, "Intense"); //5 mph
-            exc[13] = new Exercise("Bicycling", 490, "Intense");
+            exc[13] = new Exercise("Bicycling", 510, "Intense");
             exc[14] = new Exercise("Occupation", 500, "Intense");
 
             for (int i = 0; i < 15; i++) {
