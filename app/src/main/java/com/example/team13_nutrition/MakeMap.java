@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MakeMap {
-    public static Map<String,Customer> customerMap = new HashMap<>();
-    public static Map<String,Food> foodMap = new HashMap<>();
+    public static Map<String, Customer> customerMap = new HashMap<>();
+    public static Map<String, Food> foodMap = new HashMap<>();
     public static Map<String, Exercise> exerciseMap = new HashMap<>();
     //
 
@@ -13,9 +13,9 @@ public class MakeMap {
     public static void MakeCustomerMap() {
 
         try {
-            Customer c1 = new Customer("vagelis","123456","Vagelis","Panos","Male",21,1.88,86,"Weight_Loss","Normal",84);
-            Customer c2 = new Customer("τ","τ","Nikolas","Kotas","Male",22,1.9,80,"Gain_Weight","Normal",90);
-            Customer c3 = new Customer("test","123","Alexandra","Kramitrou","Female",23,1.78,56,"Maintain_Weight","Normal",57);
+            Customer c1 = new Customer("vagelis", "123456", "Vagelis", "Panos", "Male", 21, 1.88, 86, "Weight_Loss", "Normal", 84);
+            Customer c2 = new Customer("τ", "123456", "Nikolas", "Kotas", "Male", 22, 1.9, 80, "Gain_Weight", "Normal", 90);
+            Customer c3 = new Customer("test", "123456", "Alexandra", "Kramitrou", "Female", 23, 1.78, 56, "Maintain_Weight", "Normal", 57);
             MakeMap.customerMap.put(c1.getUsername(), c1);
             MakeMap.customerMap.put(c2.getUsername(), c2);
             MakeMap.customerMap.put(c3.getUsername(), c3);
@@ -27,9 +27,9 @@ public class MakeMap {
     public static void MakeFoodMap() { //source -> https://www.nutritionvalue.org/
 
         try {
-            Food []ff=new Food[16];
+            Food[] ff = new Food[16];
             ff[0] = new Food("apple", 52, 14, 85.56, 0.2, 0.3);
-            ff[1] = new Food("chicken", 158, 4.1, 57.41, 18,18); //100gr
+            ff[1] = new Food("chicken", 158, 4.1, 57.41, 18, 18); //100gr
             ff[2] = new Food("rice", 130, 28, 68.44, 0.3, 2.7);
             ff[3] = new Food("beef", 240, 0.6, 58.69, 15, 25);
             ff[4] = new Food("beans", 139, 25, 63.08, 0.4, 9.7);
@@ -45,7 +45,7 @@ public class MakeMap {
             ff[14] = new Food("lettuce", 15, 2.9, 94.98, 0.2, 1.4);
             ff[15] = new Food("sausage", 230, 2.6, 60.97, 17, 15);
 
-            for(int i=0; i<16; i++) {
+            for (int i = 0; i < 16; i++) {
                 foodMap.put(ff[i].getName(), ff[i]);
                 FoodsAndExcercises.addFood(ff[i]);
             }
@@ -56,12 +56,12 @@ public class MakeMap {
 
     public static void MakeExerciseMap() { //source -> http://calorielab.com/burned/
         try {
-            Exercise []exc=new Exercise[16];
+            Exercise[] exc = new Exercise[16];
             exc[0] = new Exercise("Basketball", 340, "Intense");
             exc[1] = new Exercise("Boxing", 544, "Intense");
             exc[2] = new Exercise("Football", 544, "Intense");
             exc[3] = new Exercise("Handball", 476, "Intense");
-            exc[4]  = new Exercise("Horseback riding", 204, "Intense");
+            exc[4] = new Exercise("Horseback riding", 204, "Intense");
             exc[5] = new Exercise("Martial arts", 612, "Intense");
             exc[6] = new Exercise("Rock climbing", 680, "Intense");
             exc[7] = new Exercise("Skateboarding", 272, "Intense");
@@ -70,12 +70,10 @@ public class MakeMap {
             exc[10] = new Exercise("Wrestling", 340, "Intense");
             exc[11] = new Exercise("Jogging", 420, "Intense");
             exc[12] = new Exercise("Running", 490, "Intense"); //5 mph
-            exc[13]= new Exercise("Bicycling", 490, "Intense");
+            exc[13] = new Exercise("Bicycling", 490, "Intense");
             exc[14] = new Exercise("Occupation", 500, "Intense");
-            exc[15] = new Exercise("Occupation", 250, "Normal");
-            exc[16] = new Exercise("Occupation", 100, "Light");
 
-            for(int i=0; i<17; i++){
+            for (int i = 0; i < 15; i++) {
                 exerciseMap.put(exc[i].getName(), exc[i]);
                 FoodsAndExcercises.addExcercise(exc[i]);
             }
