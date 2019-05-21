@@ -7,7 +7,7 @@ public class ExercisePerformanceTest {
 
     @Test
     public void CheckDateIsNotNULL()throws Exception {
-        ExercisePerformance ep = new ExercisePerformance(5, "morning", new Exercise("Run", 50, 35, 16.2, 22.6, "Intense"));
+        ExercisePerformance ep = new ExercisePerformance(5, new Exercise("Run", 50,  "Intense"));
         Assert.assertNotNull(ep.getDate());
     }
 }
