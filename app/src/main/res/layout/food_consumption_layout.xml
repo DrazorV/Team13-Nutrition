@@ -38,27 +38,6 @@
 
         </ListView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="Meal Type: "
-                android:textSize="22sp" />
-
-            <Spinner
-                android:id="@+id/mealType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp" />
-
-        </LinearLayout>
-
         <Button
             android:id="@+id/foodConfirmButton"
             android:layout_width="match_parent"

@@ -42,23 +42,10 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/minusButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="0dp"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:text="-" />
-
-    <Button
-        android:id="@+id/plusButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="0dp"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:text="+" />
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" />
 
     <CheckBox
         android:id="@+id/checkBox"
