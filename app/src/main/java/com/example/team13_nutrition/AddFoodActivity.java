@@ -2,13 +2,14 @@ package com.example.team13_nutrition;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.team13_nutrition.ui.main.Tab1;
 
 import java.util.ArrayList;
 
@@ -39,12 +40,7 @@ public class AddFoodActivity extends AppCompatActivity {
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mealType.setAdapter(spinnerAdapter);
 
-        confirmFoodButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                applyExercises();
-            }
-        });
+        confirmFoodButton.setOnClickListener(v -> applyExercises());
 
     }
 
@@ -71,6 +67,7 @@ public class AddFoodActivity extends AppCompatActivity {
                 Food food = MakeMap.foodMap.get(item.getName());
                 String type = mealType.getSelectedItem().toString();
                 FoodConsumption consumption = new FoodConsumption(item.getQuantity(), type, food);
+                Tab1.foodConsumptions.add(consumption);
                 //System.out.println("Added: " + performance.getExercise().getName());
             }
         }
