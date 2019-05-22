@@ -65,7 +65,7 @@ public class Tab2 extends Fragment {
         bmi.setText(df.format(customer.BMI(customer.getWeight())));
 
         TextView target = view.findViewById(R.id.target);
-        Set<Nutrition_Goal> set = customer.getNutriton_goals();
+        Set<Nutrition_Goal> set = customer.getNutrition_goals();
         for (Nutrition_Goal value : set) if (value.isActive()) activeGoal = value;
         target.setText(Objects.requireNonNull(activeGoal).getTargetWeight() + "");
 
@@ -180,7 +180,7 @@ public class Tab2 extends Fragment {
                         customer.setGoals("Weight_Loss", t);
                     }
 
-                    Set<Nutrition_Goal> set2 = customer.getNutriton_goals();
+                    Set<Nutrition_Goal> set2 = customer.getNutrition_goals();
                     for (Nutrition_Goal value : set2) if (value.isActive()) temp2 = value;
                     target.setText(String.valueOf(Objects.requireNonNull(temp2).getTargetWeight()));
                 } catch (WeightException e) {

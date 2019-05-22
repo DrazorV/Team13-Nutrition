@@ -30,44 +30,7 @@ public class Customer {
     private Set<FoodConsumption> foodConsumptions;
     private Set<ExercisePerformance> exercisePerformances;
     private Set<WeightStatus> weightStatuses;
-    private Set<Nutrition_Goal> nutriton_goals;
-
-    public double PAL() {
-        double pal;
-        int pal_int = 0;
-        for (ExercisePerformance ep : exercisePerformances) {
-            if (jobtype.equals(Customer.jobtype.Light)) {
-                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) {
-                    pal_int += 14;
-                } else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal)) {
-                    pal_int += 15;
-                } else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense)) {
-                    pal_int += 16;
-                }
-            } else if (jobtype.equals(Customer.jobtype.Normal)) {
-                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) {
-                    pal_int += 16;
-                } else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal)) {
-                    pal_int += 17;
-                } else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense)) {
-                    pal_int += 18;
-                }
-                if (gender.equals("Female")) pal_int--;
-            } else {
-                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light))
-                    pal_int += 17;
-                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal))
-                    pal_int += 18;
-                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense))
-                    pal_int += 19;
-
-                if (gender.equals("Female")) pal_int = pal_int - 2;
-            }
-        }
-        pal = (double) pal_int / (10 * exercisePerformances.size());
-        if (pal_int == 0) return 1.4;
-        return pal;
-    }
+    private Set<Nutrition_Goal> nutrition_goals;
 
     public Customer(String Username, String password, String Name, String Surname, String gender, int age, double height, double weight, String goal, String job, double targetWeight) throws Exception {
         try {
@@ -81,7 +44,7 @@ public class Customer {
         this.Name = Name;
         this.Surname = Surname;
         this.gender = gender;
-        nutriton_goals = new HashSet<>();
+        nutrition_goals = new HashSet<>();
         exercisePerformances = new HashSet<>();
         foodConsumptions = new HashSet<>();
         exercisePerformances = new HashSet<>();
@@ -91,6 +54,37 @@ public class Customer {
         setWeight(weight);
         setGoals(goal, targetWeight);
         setjobtype(job);
+    }
+
+    public double PAL() {
+        double pal;
+        int pal_int = 0;
+        for (ExercisePerformance ep : exercisePerformances) {
+            if (jobtype.equals(Customer.jobtype.Light)) {
+                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) pal_int += 14;
+                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal))
+                    pal_int += 15;
+                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense))
+                    pal_int += 16;
+            } else if (jobtype.equals(Customer.jobtype.Normal)) {
+                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) pal_int += 16;
+                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal))
+                    pal_int += 17;
+                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense))
+                    pal_int += 18;
+                if (gender.equals("Female")) pal_int--;
+            } else {
+                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) pal_int += 17;
+                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal))
+                    pal_int += 18;
+                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense))
+                    pal_int += 19;
+                if (gender.equals("Female")) pal_int = pal_int - 2;
+            }
+        }
+        pal = (double) pal_int / (10 * exercisePerformances.size());
+        if (pal_int == 0) return 1.4;
+        return pal;
     }
 
     public static void check(String characteristic) throws Exception {
@@ -144,12 +138,12 @@ public class Customer {
             goals = Nutrition_Goal.Nutrition_Goal_Type.Gain_Weight;
             if (target <= weight) throw new WeightException();
         }
-        for (Nutrition_Goal v : nutriton_goals) v.deactivateGoal();
-        nutriton_goals.add(new Nutrition_Goal(goal, target));
+        for (Nutrition_Goal v : nutrition_goals) v.deactivateGoal();
+        nutrition_goals.add(new Nutrition_Goal(goal, target));
     }
 
-    public Set<Nutrition_Goal> getNutriton_goals() {
-        return nutriton_goals;
+    public Set<Nutrition_Goal> getNutrition_goals() {
+        return nutrition_goals;
     }
 
     public Set<ExercisePerformance> getExercisePerformances() {
@@ -262,7 +256,7 @@ public class Customer {
 
     public double calories() throws Exception {
         Nutrition_Goal activeGoal = null;
-        for (Nutrition_Goal value : nutriton_goals) {
+        for (Nutrition_Goal value : nutrition_goals) {
             if (value.isActive()) {
                 activeGoal = value;
             }
@@ -286,7 +280,7 @@ public class Customer {
         ArrayList<Food> neededfoods = new ArrayList<>();
         ArrayList<Exercise> neededexcersice = new ArrayList<>();
         double targetweight = 0;
-        for (Nutrition_Goal ng : nutriton_goals) {
+        for (Nutrition_Goal ng : nutrition_goals) {
             if (ng.isActive()) {
                 targetweight = ng.getTargetWeight();
             }
