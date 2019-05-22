@@ -22,7 +22,7 @@ public class Food {
         return name;
     }
 
-    public double getCallories() {
+    public double getCalories() {
         return calories;
     }
 

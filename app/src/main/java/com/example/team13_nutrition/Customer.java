@@ -32,6 +32,42 @@ public class Customer {
     private Set<WeightStatus> weightStatuses;
     private Set<Nutrition_Goal> nutriton_goals;
 
+    public double PAL() {
+        double pal;
+        int pal_int = 0;
+        for (ExercisePerformance ep : exercisePerformances) {
+            if (jobtype.equals(Customer.jobtype.Light)) {
+                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) {
+                    pal_int += 14;
+                } else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal)) {
+                    pal_int += 15;
+                } else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense)) {
+                    pal_int += 16;
+                }
+            } else if (jobtype.equals(Customer.jobtype.Normal)) {
+                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) {
+                    pal_int += 16;
+                } else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal)) {
+                    pal_int += 17;
+                } else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense)) {
+                    pal_int += 18;
+                }
+                if (gender.equals("Female")) pal_int--;
+            } else {
+                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light))
+                    pal_int += 17;
+                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal))
+                    pal_int += 18;
+                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense))
+                    pal_int += 19;
+
+                if (gender.equals("Female")) pal_int = pal_int - 2;
+            }
+        }
+        pal = (double) pal_int / (10 * exercisePerformances.size());
+        if (pal_int == 0) return 1.4;
+        return pal;
+    }
 
     public Customer(String Username, String password, String Name, String Surname, String gender, int age, double height, double weight, String goal, String job, double targetWeight) throws Exception {
         try {
@@ -224,74 +260,20 @@ public class Customer {
         return w / (height * height);
     }
 
-    public double PAL() {
-
-        ExercisePerformance ep = null;
-        for (ExercisePerformance e : exercisePerformances) ep = e;
-
-        if (ep == null) {
-            return 1.4;
-        } else {
-            Exercise ex = ep.getExercise();
-            Exercise.TypeSport ts;
-            ts = ex.getType();
-            int pal_int;
-            if (jobtype.equals(Customer.jobtype.Light)) {
-                if (ts.equals(Exercise.TypeSport.Light)) {
-                    return 1.4;
-                } else if (ts.equals(Exercise.TypeSport.Normal)) {
-                    return 1.5;
-                } else if (ts.equals(Exercise.TypeSport.Intense)) {
-                    return 1.6;
-                } else {
-                    return -1;
-                }
-            } else if (jobtype.equals(Customer.jobtype.Normal)) {
-                double pal;
-                if (ts.equals(Exercise.TypeSport.Light)) {
-                    pal_int = 16;
-                } else if (ts.equals(Exercise.TypeSport.Normal)) {
-                    pal_int = 17;
-                } else if (ts.equals(Exercise.TypeSport.Intense)) {
-                    pal_int = 18;
-                } else {
-                    return -1;
-                }
-                if (gender.equals("Female")) {
-                    pal_int--;
-                }
-                pal = (double) pal_int / 10;
-                return pal;
-            } else {
-                double pal;
-                if (ts.equals(Exercise.TypeSport.Light)) {
-                    pal_int = 17;
-                } else if (ts.equals(Exercise.TypeSport.Normal)) {
-                    pal_int = 18;
-                } else if (ts.equals(Exercise.TypeSport.Intense)) {
-                    pal_int = 19;
-                } else {
-                    return -1;
-                }
-                if (gender.equals("Female")) {
-                    pal_int = pal_int - 2;
-                }
-                pal = (double) pal_int / 10;
-                return pal;
+    public double calories() throws Exception {
+        Nutrition_Goal activeGoal = null;
+        for (Nutrition_Goal value : nutriton_goals) {
+            if (value.isActive()) {
+                activeGoal = value;
             }
         }
-    }
-
-    public double callories() throws Exception {
-        Nutrition_Goal activeGoal = null;
-        for (Nutrition_Goal value : nutriton_goals) if (value.isActive()) activeGoal = value;
         double w = Objects.requireNonNull(activeGoal).getTargetWeight();
-        double callories = PAL() * BMR(w);
+        double calories = PAL() * BMR(w);
         if (activeGoal.getGoal_Type().equals(Nutrition_Goal.Nutrition_Goal_Type.Weight_Loss))
-            return callories - 500;
+            return calories - 500;
         else if (activeGoal.getGoal_Type().equals(Nutrition_Goal.Nutrition_Goal_Type.Gain_Weight))
-            return callories + 500;
-        else return callories;
+            return calories + 500;
+        else return calories;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -314,20 +296,20 @@ public class Customer {
             //case1
             ArrayList<Food> foods = FoodsAndExcercises.getFoods();
             ArrayList<Exercise> exercises = FoodsAndExcercises.getExercises();
-            double neededCallories = callories();
-            if (neededCallories < callories()) {
-                foods.stream().sorted(Comparator.comparing(Food::getCallories));
+            double neededCallories = calories();
+            if (neededCallories < calories()) {
+                foods.stream().sorted(Comparator.comparing(Food::getCalories));
                 for (Food f : foods) {
                     neededfoods.add(f);
-                    neededCallories += f.getCallories();
-                    if (neededCallories > callories()) break;
+                    neededCallories += f.getCalories();
+                    if (neededCallories > calories()) break;
                 }
             } else {
                 exercises.stream().sorted(Comparator.comparing(Exercise::getLoss_callories));
                 for (Exercise e : exercises) {
                     neededexcersice.add(e);
                     neededCallories -= e.getLoss_callories();
-                    if (neededCallories < callories()) break;
+                    if (neededCallories < calories()) break;
                 }
             }
             hashMap.put(fe.get(0), neededfoods);
@@ -338,7 +320,5 @@ public class Customer {
     }
 
     public enum jobtype {Light, Normal, Intense}
-
-
 }
 

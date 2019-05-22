@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String user = getIntent().getStringExtra("user");
+        String user = getIntent().getStringExtra("params");
         CustomViewPager viewPager = findViewById(R.id.view_pager);
         TabLayout tabs = findViewById(R.id.tabs);
 
@@ -44,12 +44,14 @@ public class MainActivity extends AppCompatActivity {
 
         HamButton.Builder builder = new HamButton.Builder().listener(index -> {
             Intent it = new Intent(MainActivity.this, AddFoodActivity.class);
+            it.putExtra("params", user);
             startActivity(it);
         }).normalText("Add consumed foods").normalImageRes(R.drawable.peach);
         bmb.addBuilder(builder);
 
         HamButton.Builder builder2 = new HamButton.Builder().listener(index -> {
             Intent it = new Intent(MainActivity.this, AddExercisesActivity.class);
+            it.putExtra("params", user);
             startActivity(it);
         }).normalText("Add done exercises").normalImageRes(R.drawable.peach);
         bmb.addBuilder(builder2);

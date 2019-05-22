@@ -49,16 +49,16 @@ public class Tab1 extends Fragment {
             int totalFood = 0;
             int totalExercise = 0;
             for (FoodConsumption v : foodConsumptions)
-                totalFood += (v.getFood().getCallories() * v.getQuantity());
+                totalFood += (v.getFood().getCalories() * v.getQuantity());
             for (ExercisePerformance v : exercisePerformances)
                 totalExercise += (v.getExercise().getLoss_callories() * v.getDuration());
             ProgressBar progressBar = view.findViewById(R.id.progressBar);
             try {
-                int call = (int) customer.callories();
-                progressBar.setMax(call);
-                int Sum = totalFood - totalExercise;
-                progressBar.setProgress(Sum);
-                prog.setText(Sum + "/" + call);
+                int cal = (int) customer.calories();
+                progressBar.setMax(cal);
+                //int Sum = totalFood;
+                progressBar.setProgress(totalFood);
+                prog.setText(totalFood + "/" + cal);
             } catch (Exception e) {
                 e.printStackTrace();
             }

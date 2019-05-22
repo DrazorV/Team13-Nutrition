@@ -22,11 +22,13 @@ public class AddFoodActivity extends AppCompatActivity {
     Button confirmFoodButton;
     ListViewItemAdapter foodAdapter;
     ArrayList<ListViewItemClass> foodList;
+    String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_consumption_layout);
+        user = getIntent().getStringExtra("params");
 
         searchView = findViewById(R.id.foodSearchView);
         foodListView = findViewById(R.id.foodListView);
@@ -70,6 +72,7 @@ public class AddFoodActivity extends AppCompatActivity {
                 FoodConsumption consumption = new FoodConsumption(item.getQuantity(), type, food);
                 Tab1.foodConsumptions.add(consumption);
                 Intent it = new Intent(AddFoodActivity.this, MainActivity.class);
+                it.putExtra("params", user);
                 startActivity(it);
                 //System.out.println("Added: " + performance.getExercise().getName());
             }

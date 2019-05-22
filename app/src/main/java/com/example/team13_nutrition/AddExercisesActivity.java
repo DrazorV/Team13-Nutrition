@@ -22,11 +22,12 @@ public class AddExercisesActivity extends AppCompatActivity {
     Button confirmExercisesButton;
     ListViewItemAdapter exerciseAdapter;
     ArrayList<ListViewItemClass> sportsList;
-
+    String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.exercise_performance_layout);
+        user = getIntent().getStringExtra("params");
 
         searchView = findViewById(R.id.searchEditText);
         exerciseListView = findViewById(R.id.exerciseListView);
@@ -70,6 +71,7 @@ public class AddExercisesActivity extends AppCompatActivity {
                 ExercisePerformance performance = new ExercisePerformance(item.getQuantity(), exercise);
                 Tab1.exercisePerformances.add(performance);
                 Intent it = new Intent(AddExercisesActivity.this, MainActivity.class);
+                it.putExtra("params", user);
                 startActivity(it);
                 //System.out.println("Added: " + performance.getExercise().getName());
             }
