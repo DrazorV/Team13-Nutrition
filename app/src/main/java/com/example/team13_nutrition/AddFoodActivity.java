@@ -1,5 +1,6 @@
 package com.example.team13_nutrition;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
@@ -68,6 +69,8 @@ public class AddFoodActivity extends AppCompatActivity {
                 String type = mealType.getSelectedItem().toString();
                 FoodConsumption consumption = new FoodConsumption(item.getQuantity(), type, food);
                 Tab1.foodConsumptions.add(consumption);
+                Intent it = new Intent(AddFoodActivity.this, MainActivity.class);
+                startActivity(it);
                 //System.out.println("Added: " + performance.getExercise().getName());
             }
         }

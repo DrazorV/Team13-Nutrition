@@ -1,5 +1,6 @@
 package com.example.team13_nutrition;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
@@ -68,6 +69,8 @@ public class AddExercisesActivity extends AppCompatActivity {
                 Exercise exercise = MakeMap.exerciseMap.get(item.getName());
                 ExercisePerformance performance = new ExercisePerformance(item.getQuantity(), exercise);
                 Tab1.exercisePerformances.add(performance);
+                Intent it = new Intent(AddExercisesActivity.this, MainActivity.class);
+                startActivity(it);
                 //System.out.println("Added: " + performance.getExercise().getName());
             }
         }
