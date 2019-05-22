@@ -29,8 +29,8 @@ public class Tab1 extends Fragment {
     private boolean mUserSeen = false;
     private boolean mViewCreated = false;
     Set<WeightStatus> set2;
-    Set<FoodConsumption> foodConsumptions;
-    Set<ExercisePerformance> exercisePerformances;
+    public Set<FoodConsumption> foodConsumptions;
+    public Set<ExercisePerformance> exercisePerformances;
 
     /**
      * Called when the new created view is visible to user for the first time.
