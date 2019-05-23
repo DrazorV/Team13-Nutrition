@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Customer {
-    private static jobtype jobtype;
+    private JobType jobtype;
     private final String Username;
     private final String Name;
     private final String Surname;
@@ -31,6 +31,21 @@ public class Customer {
     private Set<ExercisePerformance> exercisePerformances;
     private Set<WeightStatus> weightStatuses;
     private Set<Nutrition_Goal> nutrition_goals;
+
+    public double PAL() {
+        double pal = 0;
+        if (jobtype.equals(JobType.Light)) {
+            pal = 1.4;
+        } else if (jobtype.equals(JobType.Normal)) {
+            pal = 1.6;
+            if (gender.equals("Female")) pal = pal - 0.1;
+        } else if (jobtype.equals(JobType.Intense)) {
+            pal = 1.7;
+            if (gender.equals("Female")) pal = pal - 0.2;
+        }
+        if (pal == 0) return 1.4;
+        return pal;
+    }
 
     public Customer(String Username, String password, String Name, String Surname, String gender, int age, double height, double weight, String goal, String job, double targetWeight) throws Exception {
         try {
@@ -56,35 +71,10 @@ public class Customer {
         setjobtype(job);
     }
 
-    public double PAL() {
-        double pal;
-        int pal_int = 0;
-        for (ExercisePerformance ep : exercisePerformances) {
-            if (jobtype.equals(Customer.jobtype.Light)) {
-                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) pal_int += 14;
-                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal))
-                    pal_int += 15;
-                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense))
-                    pal_int += 16;
-            } else if (jobtype.equals(Customer.jobtype.Normal)) {
-                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) pal_int += 16;
-                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal))
-                    pal_int += 17;
-                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense))
-                    pal_int += 18;
-                if (gender.equals("Female")) pal_int--;
-            } else {
-                if (ep.getExercise().getType().equals(Exercise.TypeSport.Light)) pal_int += 17;
-                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Normal))
-                    pal_int += 18;
-                else if (ep.getExercise().getType().equals(Exercise.TypeSport.Intense))
-                    pal_int += 19;
-                if (gender.equals("Female")) pal_int = pal_int - 2;
-            }
-        }
-        pal = (double) pal_int / (10 * exercisePerformances.size());
-        if (pal_int == 0) return 1.4;
-        return pal;
+    public void setjobtype(String job) {
+        if (job.equals("Light")) jobtype = JobType.Light;
+        else if (job.equals("Normal")) jobtype = JobType.Normal;
+        else jobtype = JobType.Intense;
     }
 
     public static void check(String characteristic) throws Exception {
@@ -122,11 +112,7 @@ public class Customer {
         else gender = "Male";
     }
 
-    public void setjobtype(String job) {
-        if (job.equals("Light")) jobtype = Customer.jobtype.Light;
-        else if (job.equals("Normal")) jobtype = Customer.jobtype.Normal;
-        else jobtype = Customer.jobtype.Intense;
-    }
+    public enum JobType {Light, Normal, Intense}
 
     public void setGoals(String goal, double target) throws WeightException {
         if (goal.equals("Maintain_Weight")) {
@@ -312,7 +298,5 @@ public class Customer {
 
         }
     }
-
-    public enum jobtype {Light, Normal, Intense}
 }
 

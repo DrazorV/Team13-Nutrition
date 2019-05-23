@@ -11,8 +11,8 @@
         android:roundIcon="@drawable/peach"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".SuggestedSportsActivity"></activity>
-        <activity android:name=".SuggestedFoodsActivity" />
+        <activity android:name=".old.SuggestedSportsActivity"></activity>
+        <activity android:name=".old.SuggestedFoodsActivity" />
         <activity android:name=".AddFoodActivity" />
         <activity android:name=".AddExercisesActivity" />
         <activity android:name=".ui.login.LoginActivity">

@@ -39,7 +39,7 @@ public class Tab2 extends Fragment {
         DecimalFormat df = new DecimalFormat("#.##");
         final AlertDialog dialogBuilder = new AlertDialog.Builder(getContext()).create();
         LayoutInflater inflater = this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        @SuppressLint("InflateParams") View dialogView = inflater.inflate(R.layout.custom_dialog, null);
         Nutrition_Goal activeGoal = null;
         Button button1 = dialogView.findViewById(R.id.buttonSubmit);
         Button button2 = dialogView.findViewById(R.id.buttonCancel);

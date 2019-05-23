@@ -41,7 +41,11 @@ public class ListViewExerciseAdapter extends ArrayAdapter<ListViewExerciseClass>
 
         CheckBox checkBox = listItem.findViewById(R.id.checkBox);
 
-        TextView quantity = listItem.findViewById(R.id.quantityEditText);
+        TextView duration = listItem.findViewById(R.id.quantityEditText);
+
+        TextView dr = listItem.findViewById(R.id.quantityTextView);
+
+        dr.setText("Min:");
 
         Spinner spinner = listItem.findViewById(R.id.spinner);
 
@@ -49,18 +53,15 @@ public class ListViewExerciseAdapter extends ArrayAdapter<ListViewExerciseClass>
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
 
-        checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(((CompoundButton) view).isChecked()){
-                    //System.out.println("Checked");
-                    currentItem.setChecked(true);
-                    checkBox.setChecked(true);
-                } else {
-                    //System.out.println("Un-Checked");
-                    currentItem.setChecked(false);
-                    checkBox.setChecked(false);
-                }
+        checkBox.setOnClickListener(view -> {
+            if (((CompoundButton) view).isChecked()) {
+                //System.out.println("Checked");
+                currentItem.setChecked(true);
+                checkBox.setChecked(true);
+            } else {
+                //System.out.println("Un-Checked");
+                currentItem.setChecked(false);
+                checkBox.setChecked(false);
             }
         });
 

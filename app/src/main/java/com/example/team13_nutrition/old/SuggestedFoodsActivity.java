@@ -1,4 +1,4 @@
-package com.example.team13_nutrition;
+package com.example.team13_nutrition.old;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.team13_nutrition.Food;
+import com.example.team13_nutrition.R;
 
 import java.util.ArrayList;
 //

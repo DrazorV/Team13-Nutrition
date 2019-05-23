@@ -36,18 +36,15 @@ public class AddFoodActivity extends AppCompatActivity {
         foodListView.setAdapter(foodAdapter);
 
         confirmFoodButton.setOnClickListener(v -> applyExercises());
-
     }
 
     private void loadFoods() {
-
         foodList = new ArrayList<>();
 
         for (String key : MakeMap.foodMap.keySet()) {
-            ListViewFoodClass added = new ListViewFoodClass(key, false, 1, "Breakfast");
+            ListViewFoodClass added = new ListViewFoodClass(key, false, 1, "BREAKFAST");
             foodList.add(added);
         }
-
     }
 
     private void applyExercises(){
@@ -56,27 +53,17 @@ public class AddFoodActivity extends AppCompatActivity {
         boolean hasChosen = false;
 
         for(ListViewFoodClass item : foodList){
-            //System.out.println(item.getName() + " + " + item.getQuantity() + " + " + item.isChecked());
             if(item.isChecked()){
                 hasChosen = true;
-                Food food = MakeMap.foodMap.get(item.getName());
-                String type = item.getMealType();
-                FoodConsumption consumption = new FoodConsumption(item.getQuantity(), type, food);
+                FoodConsumption consumption = new FoodConsumption(item.getQuantity(), item.getMealType(), MakeMap.foodMap.get(item.getName()));
                 Tab1.foodConsumptions.add(consumption);
                 Intent it = new Intent(AddFoodActivity.this, MainActivity.class);
                 it.putExtra("params", user);
                 startActivity(it);
-                //System.out.println("Added: " + performance.getExercise().getName());
             }
         }
-
-        if(hasChosen){
-
-        }
-        else{
+        if (!hasChosen)
             Toast.makeText(this, "No foods have been selected!", Toast.LENGTH_LONG).show();
-        }
-
     }
 
 }

@@ -1,13 +1,17 @@
-package com.example.team13_nutrition;
+package com.example.team13_nutrition.old;
+
+import com.example.team13_nutrition.Customer;
+import com.example.team13_nutrition.Exercise;
+import com.example.team13_nutrition.MakeMap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-class SuggestedFoodsPresenter {
+class SuggestedSportsPresenter {
 
 
-    ArrayList<Food> createList() {
+    ArrayList<Exercise> createList() {
         Map<String, Customer> c = MakeMap.customerMap;
         Map.Entry<String, Customer> entry = c.entrySet().iterator().next();
         String key = entry.getKey();
@@ -17,11 +21,10 @@ class SuggestedFoodsPresenter {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                 fs = customer.calculateFoodsAndExcercises();
             }
-            return (ArrayList<Food>) fs.get(0);
+            return (ArrayList<Exercise>) fs.get(1);
         } catch (Exception e) {
             return null;
         }
 
     }
-
 }

@@ -2,23 +2,16 @@ package com.example.team13_nutrition;
 
 public class ListViewFoodClass {
 
-    String name;
-    boolean checked;
-    int quantity;
-    String mealType;
+    private String name;
+    private boolean checked;
+    private int quantity;
+    private String mealType;
 
-    public ListViewFoodClass(String name, boolean checked, int quantity, String mealType){
+    ListViewFoodClass(String name, boolean checked, int quantity, String mealType) {
         this.name = name;
         this.checked = checked;
         this.quantity = quantity;
         this.mealType = mealType;
-    }
-
-    public ListViewFoodClass(){
-        this.name = "new";
-        this.checked = false;
-        this.quantity = 1;
-        this.mealType = "BREAKFAST";
     }
 
     public String getName() {
@@ -29,27 +22,23 @@ public class ListViewFoodClass {
         this.name = name;
     }
 
-    public boolean isChecked() {
+    boolean isChecked() {
         return checked;
     }
 
-    public void setChecked(boolean checked) {
+    void setChecked(boolean checked) {
         this.checked = checked;
     }
 
-    public int getQuantity() {
+    int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getMealType() {
+    String getMealType() {
         return mealType;
     }
 
-    public void setMealType(String mealType) {
+    void setMealType(String mealType) {
         this.mealType = mealType;
     }
 }

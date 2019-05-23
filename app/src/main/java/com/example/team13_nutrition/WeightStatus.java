@@ -8,7 +8,7 @@ public class WeightStatus {
     private double bmi;
     private Date date;
 
-    public WeightStatus(double weight, double bmr, double bmi) {
+    WeightStatus(double weight, double bmr, double bmi) {
         this.weight = weight;
         this.bmr = bmr;
         this.bmi = bmi;
@@ -27,7 +27,7 @@ public class WeightStatus {
         return bmi;
     }
 
-    public Date getDate() {
+    Date getDate() {
         return date;
     }
 }

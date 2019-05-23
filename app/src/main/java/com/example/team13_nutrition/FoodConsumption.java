@@ -11,8 +11,8 @@ public class FoodConsumption {
     public FoodConsumption(int quantity, String type, Food food) {
         this.quantity = quantity;
         this.food = food;
-        if (type.equals("Breakfast")) mealType = MealType.Breakfast;
-        else if (type.equals("Lunch")) mealType = MealType.Lunch;
+        if (type.equals("BREAKFAST")) mealType = MealType.Breakfast;
+        else if (type.equals("LUNCH")) mealType = MealType.Lunch;
         else mealType = MealType.Dinner;
         date = new Date();
     }

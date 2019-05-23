@@ -2,23 +2,16 @@ package com.example.team13_nutrition;
 
 public class ListViewExerciseClass {
 
-    String name;
-    boolean checked;
-    int quantity;
-    String intensity;
+    private String name;
+    private boolean checked;
+    private int duration;
+    private String intensity;
 
-    public ListViewExerciseClass(String name, boolean checked, int quantity, String intensity){
+    ListViewExerciseClass(String name, boolean checked, int duration, String intensity) {
         this.name = name;
         this.checked = checked;
-        this.quantity = quantity;
+        this.duration = duration;
         this.intensity = intensity;
-    }
-
-    public ListViewExerciseClass(){
-        this.name = "new";
-        this.checked = false;
-        this.quantity = 1;
-        this.intensity = "INTENSE";
     }
 
     public String getName() {
@@ -29,27 +22,23 @@ public class ListViewExerciseClass {
         this.name = name;
     }
 
-    public boolean isChecked() {
+    boolean isChecked() {
         return checked;
     }
 
-    public void setChecked(boolean checked) {
+    void setChecked(boolean checked) {
         this.checked = checked;
     }
 
-    public int getQuantity() {
-        return quantity;
+    int getDuration() {
+        return duration;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getIntensity() {
+    String getIntensity() {
         return intensity;
     }
 
-    public void setIntensity(String intensity) {
+    void setIntensity(String intensity) {
         this.intensity = intensity;
     }
 }

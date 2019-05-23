@@ -20,7 +20,7 @@ public class ListViewFoodAdapter extends ArrayAdapter<ListViewFoodClass> {
     private Context mContext;
     private ArrayList<ListViewFoodClass> itemList;
 
-    public ListViewFoodAdapter(@NonNull Context context, ArrayList<ListViewFoodClass> list){
+    ListViewFoodAdapter(@NonNull Context context, ArrayList<ListViewFoodClass> list) {
         super(context, 0 , list);
         mContext = context;
         itemList = list;
@@ -41,26 +41,21 @@ public class ListViewFoodAdapter extends ArrayAdapter<ListViewFoodClass> {
 
         CheckBox checkBox = listItem.findViewById(R.id.checkBox);
 
-        TextView quantity = listItem.findViewById(R.id.quantityEditText);
-
         Spinner spinner = listItem.findViewById(R.id.spinner);
 
         ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(parent.getContext(), R.array.diary_item_list_header_array, android.R.layout.simple_spinner_item);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
 
-        checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(((CompoundButton) view).isChecked()){
-                    //System.out.println("Checked");
-                    currentItem.setChecked(true);
-                    checkBox.setChecked(true);
-                } else {
-                    //System.out.println("Un-Checked");
-                    currentItem.setChecked(false);
-                    checkBox.setChecked(false);
-                }
+        checkBox.setOnClickListener(view -> {
+            if (((CompoundButton) view).isChecked()) {
+                //System.out.println("Checked");
+                currentItem.setChecked(true);
+                checkBox.setChecked(true);
+            } else {
+                //System.out.println("Un-Checked");
+                currentItem.setChecked(false);
+                checkBox.setChecked(false);
             }
         });
 

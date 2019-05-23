@@ -20,13 +20,13 @@
 
     <TextView
         android:id="@+id/quantityTextView"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_toLeftOf="@id/quantityEditText"
         android:text="Qt:"
         android:layout_toStartOf="@id/quantityEditText"
         android:textAllCaps="false"
-        android:textColor="@color/com_facebook_button_background_color_focused_disabled"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="19sp" />
 
@@ -44,7 +44,7 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="100dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content" />
 
     <CheckBox
