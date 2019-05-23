@@ -5,10 +5,10 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Patterns;
 
+import com.example.team13_nutrition.R;
 import com.example.team13_nutrition.data.LoginRepository;
 import com.example.team13_nutrition.data.Result;
 import com.example.team13_nutrition.data.model.LoggedInUser;
-import com.example.team13_nutrition.R;
 
 public class LoginViewModel extends ViewModel {
 
@@ -30,7 +30,7 @@ public class LoginViewModel extends ViewModel {
 
     public void login(String username, String password) {
         // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+        Result result = loginRepository.login(username, password);
 
         if (result instanceof Result.Success) {
             LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();

@@ -18,6 +18,7 @@ import com.example.team13_nutrition.Customer;
 import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.Nutrition_Goal;
 import com.example.team13_nutrition.R;
+import com.example.team13_nutrition.data.model.LoggedInUser;
 import com.example.team13_nutrition.exceptions.AgeException;
 import com.example.team13_nutrition.exceptions.HeightException;
 import com.example.team13_nutrition.exceptions.WeightException;
@@ -43,7 +44,7 @@ public class Tab2 extends Fragment {
         Nutrition_Goal activeGoal = null;
         Button button1 = dialogView.findViewById(R.id.buttonSubmit);
         Button button2 = dialogView.findViewById(R.id.buttonCancel);
-        String user = Objects.requireNonNull(getArguments()).getString("params");
+        String user = LoggedInUser.getUserId();
         Customer customer = MakeMap.customerMap.get(user);
 
         TextView name = view.findViewById(R.id.name);

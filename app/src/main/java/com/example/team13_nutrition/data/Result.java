@@ -1,13 +1,16 @@
 package com.example.team13_nutrition.data;
 
+import android.support.annotation.NonNull;
+
 /**
  * A generic class that holds a result success w/ data or an error exception.
  */
-public class Result<T> {
+public class Result {
     // hide the private constructor to limit subclass types (Success, Error)
     private Result() {
     }
 
+    @NonNull
     @Override
     public String toString() {
         if (this instanceof Result.Success) {
@@ -24,7 +27,7 @@ public class Result<T> {
     public final static class Success<T> extends Result {
         private T data;
 
-        public Success(T data) {
+        Success(T data) {
             this.data = data;
         }
 
@@ -34,14 +37,14 @@ public class Result<T> {
     }
 
     // Error sub-class
-    public final static class Error extends Result {
+    final static class Error extends Result {
         private Exception error;
 
-        public Error(Exception error) {
+        Error(Exception error) {
             this.error = error;
         }
 
-        public Exception getError() {
+        Exception getError() {
             return this.error;
         }
     }

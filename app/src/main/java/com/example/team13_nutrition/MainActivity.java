@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.team13_nutrition.data.model.LoggedInUser;
 import com.example.team13_nutrition.ui.main.CustomViewPager;
 import com.example.team13_nutrition.ui.main.SectionsPagerAdapter;
 import com.example.team13_nutrition.ui.main.Tab1;
@@ -22,17 +23,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String user = getIntent().getStringExtra("params");
+        String user = LoggedInUser.getUserId();
         CustomViewPager viewPager = findViewById(R.id.view_pager);
         TabLayout tabs = findViewById(R.id.tabs);
 
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        Bundle bundle = new Bundle();
-        bundle.putString("params", user);
         Tab1 t1 = new Tab1();
         Tab2 t2 = new Tab2();
-        t1.setArguments(bundle);
-        t2.setArguments(bundle);
 
         adapter.addFragment(t1, "Summary");
         adapter.addFragment(t2, "Profile");

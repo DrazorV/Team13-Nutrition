@@ -17,6 +17,7 @@ import com.example.team13_nutrition.FoodConsumption;
 import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.R;
 import com.example.team13_nutrition.WeightStatus;
+import com.example.team13_nutrition.data.model.LoggedInUser;
 
 import java.util.Objects;
 import java.util.Set;
@@ -38,7 +39,7 @@ public class Tab1 extends Fragment {
     @SuppressLint("SetTextI18n")
     protected void onViewCreatedFirstSight(View view) {
         if (mViewCreated) {
-            String user = Objects.requireNonNull(getArguments()).getString("params");
+            String user = LoggedInUser.getUserId();
             TextView name = view.findViewById(R.id.name2);
             TextView prog = view.findViewById(R.id.progr);
             name.setText(Objects.requireNonNull(MakeMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(MakeMap.customerMap.get(user)).getSurname());

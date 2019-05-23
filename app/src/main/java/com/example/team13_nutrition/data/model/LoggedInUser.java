@@ -5,15 +5,15 @@ package com.example.team13_nutrition.data.model;
  */
 public class LoggedInUser {
 
-    private String userId;
+    private static String userId;
     private String displayName;
 
     public LoggedInUser(String userId, String displayName) {
-        this.userId = userId;
+        LoggedInUser.userId = userId;
         this.displayName = displayName;
     }
 
-    public String getUserId() {
+    public static String getUserId() {
         return userId;
     }
 

@@ -1,5 +1,6 @@
 package com.example.team13_nutrition;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,12 +21,13 @@ public class ListViewExerciseAdapter extends ArrayAdapter<ListViewExerciseClass>
     private Context mContext;
     private ArrayList<ListViewExerciseClass> itemList;
 
-    public ListViewExerciseAdapter(@NonNull Context context, ArrayList<ListViewExerciseClass> list){
+    ListViewExerciseAdapter(@NonNull Context context, ArrayList<ListViewExerciseClass> list) {
         super(context, 0 , list);
         mContext = context;
         itemList = list;
     }
 
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -40,8 +42,6 @@ public class ListViewExerciseAdapter extends ArrayAdapter<ListViewExerciseClass>
         name.setText(currentItem.getName());
 
         CheckBox checkBox = listItem.findViewById(R.id.checkBox);
-
-        TextView duration = listItem.findViewById(R.id.quantityEditText);
 
         TextView dr = listItem.findViewById(R.id.quantityTextView);
 

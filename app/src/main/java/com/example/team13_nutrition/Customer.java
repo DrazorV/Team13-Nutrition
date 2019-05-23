@@ -32,22 +32,7 @@ public class Customer {
     private Set<WeightStatus> weightStatuses;
     private Set<Nutrition_Goal> nutrition_goals;
 
-    public double PAL() {
-        double pal = 0;
-        if (jobtype.equals(JobType.Light)) {
-            pal = 1.4;
-        } else if (jobtype.equals(JobType.Normal)) {
-            pal = 1.6;
-            if (gender.equals("Female")) pal = pal - 0.1;
-        } else if (jobtype.equals(JobType.Intense)) {
-            pal = 1.7;
-            if (gender.equals("Female")) pal = pal - 0.2;
-        }
-        if (pal == 0) return 1.4;
-        return pal;
-    }
-
-    public Customer(String Username, String password, String Name, String Surname, String gender, int age, double height, double weight, String goal, String job, double targetWeight) throws Exception {
+    Customer(String Username, String password, String Name, String Surname, String gender, int age, double height, double weight, String goal, String job, double targetWeight) throws Exception {
         try {
             check(Username);
             check(Surname);
@@ -71,15 +56,37 @@ public class Customer {
         setjobtype(job);
     }
 
-    public void setjobtype(String job) {
-        if (job.equals("Light")) jobtype = JobType.Light;
-        else if (job.equals("Normal")) jobtype = JobType.Normal;
-        else jobtype = JobType.Intense;
-    }
-
-    public static void check(String characteristic) throws Exception {
+    static void check(String characteristic) throws Exception {
         for (int i = 0; i < characteristic.length(); i++)
             if (!Character.isLetter(characteristic.charAt(i))) throw new NameException();
+    }
+
+    private static void checkPassword(String password) throws PasswordException {
+        if (password.length() < 7) throw new PasswordException();
+        int sum = 0;
+        boolean sum2 = false, sum3 = false;
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isLetter(password.charAt(i)))
+                sum++;
+            else if (Character.isDigit(password.charAt(i))) sum2 = !sum2;
+            else sum3 = !sum3;
+        }
+        if (sum < 5 || !sum2 || !sum3) throw new PasswordException();
+    }
+
+    double PAL() {
+        double pal = 0;
+        if (jobtype.equals(JobType.Light)) {
+            pal = 1.4;
+        } else if (jobtype.equals(JobType.Normal)) {
+            pal = 1.6;
+            if (gender.equals("Female")) pal = pal - 0.1;
+        } else if (jobtype.equals(JobType.Intense)) {
+            pal = 1.7;
+            if (gender.equals("Female")) pal = pal - 0.2;
+        }
+        if (pal == 0) return 1.4;
+        return pal;
     }
 
     public static void checkAge(int age) throws AgeException {
@@ -94,17 +101,10 @@ public class Customer {
         if (weight < 20 || weight > 200) throw new WeightException();
     }
 
-    public static void checkPassword(String password) throws PasswordException {
-        if (password.length() < 7) throw new PasswordException();
-        int sum = 0;
-        boolean sum2 = false, sum3 = false;
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isLetter(password.charAt(i)))
-                sum++;
-            else if (Character.isDigit(password.charAt(i))) sum2 = !sum2;
-            else sum3 = !sum3;
-        }
-        if (sum < 5 || !sum2 || !sum3) throw new PasswordException();
+    void setjobtype(String job) {
+        if (job.equals("Light")) jobtype = JobType.Light;
+        else if (job.equals("Normal")) jobtype = JobType.Normal;
+        else jobtype = JobType.Intense;
     }
 
     public void changeGender() {//for JUnit
@@ -172,7 +172,7 @@ public class Customer {
         this.weight = weight;
     }
 
-    public Nutrition_Goal.Nutrition_Goal_Type getGoals() {
+    Nutrition_Goal.Nutrition_Goal_Type getGoals() {
         return goals;
     }
 
@@ -205,15 +205,11 @@ public class Customer {
         return Username;
     }
 
-    public void addFoodConsumption(FoodConsumption fc) {
-        foodConsumptions.add(fc);
-    }
-
-    public void addExcercisePerformance(ExercisePerformance ep) {
+    void addExcercisePerformance(ExercisePerformance ep) {
         exercisePerformances.add(ep);
     }
 
-    public double BMR(double w) throws Exception {
+    double BMR(double w) {
         double[] lm = {17.7, 15.1, 11.5, 11.9, 8.4};
         double[] lf = {13.4, 14.8, 8.3, 9.2, 9.8};
         int[] bm = {657, 692, 873, 700, 821};
@@ -240,7 +236,7 @@ public class Customer {
         return w / (height * height);
     }
 
-    public double calories() throws Exception {
+    public double calories() {
         Nutrition_Goal activeGoal = null;
         for (Nutrition_Goal value : nutrition_goals) {
             if (value.isActive()) {
@@ -274,8 +270,8 @@ public class Customer {
         if (targetweight == weight) return null;
         else {
             //case1
-            ArrayList<Food> foods = FoodsAndExcercises.getFoods();
-            ArrayList<Exercise> exercises = FoodsAndExcercises.getExercises();
+            ArrayList<Food> foods = FoodsAndExercises.getFoods();
+            ArrayList<Exercise> exercises = FoodsAndExercises.getExercises();
             double neededCallories = calories();
             if (neededCallories < calories()) {
                 foods.stream().sorted(Comparator.comparing(Food::getCalories));

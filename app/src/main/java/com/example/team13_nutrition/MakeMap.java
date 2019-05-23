@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class MakeMap {
     public static Map<String, Customer> customerMap = new HashMap<>();
-    public static Map<String, Food> foodMap = new HashMap<>();
-    public static Map<String, Exercise> exerciseMap = new HashMap<>();
+    static Map<String, Food> foodMap = new HashMap<>();
+    static Map<String, Exercise> exerciseMap = new HashMap<>();
     //
 
 
@@ -45,7 +45,7 @@ public class MakeMap {
 
         for (int i = 0; i < 16; i++) {
             foodMap.put(ff[i].getName(), ff[i]);
-            FoodsAndExcercises.addFood(ff[i]);
+            FoodsAndExercises.addFood(ff[i]);
         }
     }
 
@@ -69,7 +69,7 @@ public class MakeMap {
 
         for (int i = 0; i < 15; i++) {
             exerciseMap.put(exc[i].getName(), exc[i]);
-            FoodsAndExcercises.addExcercise(exc[i]);
+            FoodsAndExercises.addExcercise(exc[i]);
         }
     }
 
