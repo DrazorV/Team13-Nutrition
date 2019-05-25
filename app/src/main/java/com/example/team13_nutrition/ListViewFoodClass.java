@@ -30,6 +30,10 @@ public class ListViewFoodClass {
         this.checked = checked;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     int getQuantity() {
         return quantity;
     }

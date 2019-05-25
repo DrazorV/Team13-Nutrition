@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -39,6 +40,8 @@ public class ListViewFoodAdapter extends ArrayAdapter<ListViewFoodClass> {
         TextView name = listItem.findViewById(R.id.listItemNameTextView);
         name.setText(currentItem.getName());
 
+        EditText editText = listItem.findViewById(R.id.quantityEditText);
+
         CheckBox checkBox = listItem.findViewById(R.id.checkBox);
 
         Spinner spinner = listItem.findViewById(R.id.spinner);
@@ -52,6 +55,7 @@ public class ListViewFoodAdapter extends ArrayAdapter<ListViewFoodClass> {
                 //System.out.println("Checked");
                 currentItem.setChecked(true);
                 checkBox.setChecked(true);
+                currentItem.setQuantity(Integer.parseInt(editText.getText().toString()));
             } else {
                 //System.out.println("Un-Checked");
                 currentItem.setChecked(false);
@@ -63,7 +67,6 @@ public class ListViewFoodAdapter extends ArrayAdapter<ListViewFoodClass> {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 currentItem.setMealType(parent.getItemAtPosition(position).toString());
-                //System.out.println(currentItem.getMealType());
             }
 
             @Override

@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -43,6 +44,8 @@ public class ListViewExerciseAdapter extends ArrayAdapter<ListViewExerciseClass>
 
         CheckBox checkBox = listItem.findViewById(R.id.checkBox);
 
+        EditText editText = listItem.findViewById(R.id.quantityEditText);
+
         TextView dr = listItem.findViewById(R.id.quantityTextView);
 
         dr.setText("Min:");
@@ -58,6 +61,7 @@ public class ListViewExerciseAdapter extends ArrayAdapter<ListViewExerciseClass>
                 //System.out.println("Checked");
                 currentItem.setChecked(true);
                 checkBox.setChecked(true);
+                currentItem.setDuration(Integer.parseInt(editText.getText().toString()));
             } else {
                 //System.out.println("Un-Checked");
                 currentItem.setChecked(false);
@@ -69,7 +73,6 @@ public class ListViewExerciseAdapter extends ArrayAdapter<ListViewExerciseClass>
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 currentItem.setIntensity(parent.getItemAtPosition(position).toString());
-                System.out.println(currentItem.getIntensity());
             }
 
             @Override

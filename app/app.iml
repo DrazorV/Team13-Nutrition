@@ -138,6 +138,7 @@
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-messenger:4.42.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:cardview-v7:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:10.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.nisrulz:stackedhorizontalprogressbar:1.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-common:4.42.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-login:4.42.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-applinks:4.42.0@aar" level="project" />
@@ -186,6 +187,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:customview:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:swiperefreshlayout:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.jjoe64:graphview:4.2.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.PhilJay:MPAndroidChart:v3.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-media-compat:28.0.0@aar" level="project" />
   </component>
 </module>

@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.team13_nutrition.Customer;
@@ -18,9 +17,18 @@ import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.R;
 import com.example.team13_nutrition.WeightStatus;
 import com.example.team13_nutrition.data.model.LoggedInUser;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+
+import github.nisrulz.stackedhorizontalprogressbar.StackedHorizontalProgressBar;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -53,16 +61,24 @@ public class Tab1 extends Fragment {
                 totalFood += (v.getFood().getCalories() * v.getQuantity());
             for (ExercisePerformance v : exercisePerformances)
                 totalExercise += (v.getExercise().getLoss_callories() * (v.getDuration() / 60) * v.getConstant());
-            ProgressBar progressBar = view.findViewById(R.id.progressBar);
-            try {
-                int cal = (int) customer.calories();
-                progressBar.setMax(cal);
-                int Sum = (int) (totalFood - totalExercise);
-                progressBar.setProgress(Sum);
-                prog.setText(Sum + "/" + cal);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            StackedHorizontalProgressBar progressBar = view.findViewById(R.id.progressBar);
+
+            int cal = (int) customer.calories();
+            progressBar.setMax(cal);
+            int Sum = (int) (totalFood - totalExercise);
+            progressBar.setProgress(Sum);
+            prog.setText(Sum + "/" + cal);
+            PieChart chart = view.findViewById(R.id.chart);
+            List<PieEntry> entries = new ArrayList<>();
+            entries.add(new PieEntry((int) (customer.getWeight() * 4), "Protein"));
+            entries.add(new PieEntry((int) (cal * 0.5), "Carbohydrate"));
+            entries.add(new PieEntry(cal - (int) (cal * 0.5) - (int) (customer.getWeight() * 4), "Fat"));
+            PieDataSet set = new PieDataSet(entries, "");
+            set.setColors(ColorTemplate.COLORFUL_COLORS);
+            PieData data = new PieData(set);
+            chart.setCenterText("Nutrients");
+            chart.setData(data);
+            chart.invalidate();
         }
     }
 

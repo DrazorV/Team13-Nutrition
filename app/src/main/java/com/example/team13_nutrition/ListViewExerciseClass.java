@@ -14,6 +14,10 @@ public class ListViewExerciseClass {
         this.intensity = intensity;
     }
 
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
     public String getName() {
         return name;
     }
