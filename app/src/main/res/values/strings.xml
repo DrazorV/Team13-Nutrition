@@ -75,7 +75,6 @@
         <item>Breakfast</item>
         <item>Lunch</item>
         <item>Dinner</item>
-        <item>Snacks</item>
     </string-array>
 
     <!-- Add Entry List Exercise Items -->
@@ -152,8 +151,8 @@
         <item>BREAKFAST</item>
         <item>LUNCH</item>
         <item>DINNER</item>
-        <item>SNACKS</item>
     </string-array>
+
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

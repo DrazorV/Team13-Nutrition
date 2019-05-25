@@ -1,10 +1,13 @@
 package com.example.team13_nutrition.ui.main;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +15,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.team13_nutrition.Customer;
+import com.example.team13_nutrition.DayStatus;
 import com.example.team13_nutrition.ExercisePerformance;
 import com.example.team13_nutrition.FoodConsumption;
+import com.example.team13_nutrition.MainActivity;
 import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.R;
 import com.example.team13_nutrition.WeightStatus;
@@ -24,9 +29,13 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import github.nisrulz.stackedhorizontalprogressbar.StackedHorizontalProgressBar;
 
@@ -40,10 +49,13 @@ public class Tab1 extends Fragment {
     Set<WeightStatus> set2;
     public static Set<FoodConsumption> foodConsumptions;
     public static Set<ExercisePerformance> exercisePerformances;
+    public static Set<DayStatus> dayStatuses;
+    int totalProteins, totalCarbs, totalFats, totalExercise;
 
     /**
      * Called when the new created view is visible to user for the first time.
      */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("SetTextI18n")
     protected void onViewCreatedFirstSight(View view) {
         if (mViewCreated) {
@@ -55,10 +67,10 @@ public class Tab1 extends Fragment {
             exercisePerformances = Objects.requireNonNull(customer).getExercisePerformances();
             set2 = customer.getWeightStatuses();
 
-            int totalProteins = 0;
-            int totalCarbs = 0;
-            int totalFats = 0;
-            int totalExercise = 0;
+            totalProteins = 0;
+            totalCarbs = 0;
+            totalFats = 0;
+            totalExercise = 0;
 
 
             for (FoodConsumption v : foodConsumptions) {
@@ -123,6 +135,18 @@ public class Tab1 extends Fragment {
             fats.setMax(Fat);
             fats.setProgress(totalFats * 9);
             fats2.setText((totalFats * 9) + "/" + Fat);
+
+            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+            Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+
+            int delayInHour = hour < 6 ? 6 - hour : 24 - (hour - 6);
+
+            System.out.println("Current Hour: " + hour);
+            System.out.println("Comuted Delay for next 5 AM: " + delayInHour);
+
+            scheduler.scheduleAtFixedRate(new MyTask(), delayInHour, 24, TimeUnit.HOURS);
         }
     }
 
@@ -173,9 +197,20 @@ public class Tab1 extends Fragment {
     /**
      * Called when the visible state to user has been changed.
      */
+
     protected void onUserVisibleChanged(boolean visible) {
         if (visible) {
             onViewCreatedFirstSight(getView());
+        }
+    }
+
+    private class MyTask implements Runnable {
+        @Override
+        public void run() {
+            DayStatus dayStatus = new DayStatus(totalProteins, totalCarbs, totalFats, totalExercise);
+            dayStatuses.add(dayStatus);
+            Intent it = new Intent(getActivity(), MainActivity.class);
+            startActivity(it);
         }
     }
 }
