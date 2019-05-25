@@ -43,7 +43,7 @@
                 <FrameLayout
                     android:id="@+id/tmp2"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="450dp"
                     android:baselineAligned="false"
                     android:orientation="vertical">
 
@@ -54,45 +54,6 @@
                             android:layout_height="match_parent" />
 
                 </FrameLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/com_facebook_button_login_background_color"
-                            android:text="Calories"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="30sp" />
-
-                        <TextView
-                            android:id="@+id/progr"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="30sp" />
-
-                        <github.nisrulz.stackedhorizontalprogressbar.StackedHorizontalProgressBar
-                            android:id="@+id/progressBar"
-                            style="?android:attr/progressBarStyleHorizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginBottom="20dp"
-                            android:gravity="center"
-                            android:indeterminate="false"
-                            android:max="4000"
-                            android:progressDrawable="@drawable/stacked_horizontal_progress" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

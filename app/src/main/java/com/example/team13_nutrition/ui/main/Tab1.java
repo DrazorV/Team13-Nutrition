@@ -1,6 +1,7 @@
 package com.example.team13_nutrition.ui.main;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,14 +22,11 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-
-import github.nisrulz.stackedhorizontalprogressbar.StackedHorizontalProgressBar;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -49,36 +47,54 @@ public class Tab1 extends Fragment {
         if (mViewCreated) {
             String user = LoggedInUser.getUserId();
             TextView name = view.findViewById(R.id.name2);
-            TextView prog = view.findViewById(R.id.progr);
             name.setText(Objects.requireNonNull(MakeMap.customerMap.get(user)).getName() + " " + Objects.requireNonNull(MakeMap.customerMap.get(user)).getSurname());
             customer = MakeMap.customerMap.get(user);
             foodConsumptions = Objects.requireNonNull(customer).getFoodConsumptions();
             exercisePerformances = Objects.requireNonNull(customer).getExercisePerformances();
             set2 = customer.getWeightStatuses();
-            double totalFood = 0;
-            double totalExercise = 0;
-            for (FoodConsumption v : foodConsumptions)
-                totalFood += (v.getFood().getCalories() * v.getQuantity());
+
+            int totalProteins = 0;
+            int totalCarbs = 0;
+            int totalFats = 0;
+            int totalExercise = 0;
+
+
+            for (FoodConsumption v : foodConsumptions) {
+                totalProteins += (v.getFood().getProtein() * v.getQuantity());
+                totalCarbs += (v.getFood().getCarbohydrates() * v.getQuantity());
+                totalFats += (v.getFood().getFat() * v.getQuantity());
+            }
+
             for (ExercisePerformance v : exercisePerformances)
                 totalExercise += (v.getExercise().getLoss_callories() * (v.getDuration() / 60) * v.getConstant());
-            StackedHorizontalProgressBar progressBar = view.findViewById(R.id.progressBar);
 
             int cal = (int) customer.calories();
-            progressBar.setMax(cal);
-            int Sum = (int) (totalFood - totalExercise);
-            progressBar.setProgress(Sum);
-            prog.setText(Sum + "/" + cal);
             PieChart chart = view.findViewById(R.id.chart);
             List<PieEntry> entries = new ArrayList<>();
-            entries.add(new PieEntry((int) (customer.getWeight() * 4), "Protein"));
-            entries.add(new PieEntry((int) (cal * 0.5), "Carbohydrate"));
-            entries.add(new PieEntry(cal - (int) (cal * 0.5) - (int) (customer.getWeight() * 4), "Fat"));
+
+            int remainingCal = cal + totalExercise - totalProteins * 4 - totalCarbs * 4 - totalFats * 9;
+
+            if (remainingCal > 0) entries.add(new PieEntry(remainingCal, "Remaining Calories"));
+            if (totalProteins > 0) entries.add(new PieEntry(totalProteins * 4, "Proteins"));
+            if (totalCarbs > 0) entries.add(new PieEntry(totalCarbs * 4, "Carbs"));
+            if (totalFats > 0) entries.add(new PieEntry(totalFats * 9, "Fats"));
+
             PieDataSet set = new PieDataSet(entries, "");
-            set.setColors(ColorTemplate.COLORFUL_COLORS);
+            set.setColors(Color.GRAY, Color.parseColor("#9ACD32"), Color.parseColor("#20B2AA"), Color.parseColor("#FA8072"));
             PieData data = new PieData(set);
-            chart.setCenterText("Nutrients");
+            data.setValueTextSize(20);
+            data.setValueTextColor(Color.BLACK);
+            chart.setCenterText("Total Calories: " + (cal + totalExercise));
+            chart.setHoleColor(Color.parseColor("#FF5722"));
+            chart.setCenterTextSize(20);
             chart.setData(data);
             chart.invalidate();
+
+            int Carbs = (int) (cal * 0.5);
+            int Protein = (int) (customer.getWeight() * 4);
+            int Fat = cal - Carbs - Protein;
+
+
         }
     }
 

@@ -26,22 +26,22 @@ public class MakeMap {
 
     public static void MakeFoodMap() { //source -> https://www.nutritionvalue.org/
         Food[] ff = new Food[16];
-        ff[0] = new Food("apple", 52, 14, 85.56, 0.2, 0.3);
-        ff[1] = new Food("chicken", 158, 4.1, 57.41, 18, 18); //100gr
-        ff[2] = new Food("rice", 130, 28, 68.44, 0.3, 2.7);
-        ff[3] = new Food("beef", 240, 0.6, 58.69, 15, 25);
-        ff[4] = new Food("beans", 139, 25, 63.08, 0.4, 9.7);
-        ff[5] = new Food("pork", 297, 0, 52.75, 21, 26);
-        ff[6] = new Food("banana", 89, 23, 74.91, 0.3, 1.1);
-        ff[7] = new Food("spaghetti", 121, 16, 73.16, 3.6, 5.8);
-        ff[8] = new Food("fish", 162, 0, 69.63, 7.2, 23);
-        ff[9] = new Food("tomato", 18, 3.9, 94.52, 0.2, 0.9);
-        ff[10] = new Food("cucumber", 12, 2.2, 96.73, 0.2, 0.6);
-        ff[11] = new Food("olive oil", 884, 0, 0, 100, 0);
-        ff[12] = new Food("feta cheese", 264, 4.1, 55.22, 21, 14);
-        ff[13] = new Food("bread", 267, 49, 35.2, 3.2, 11);
-        ff[14] = new Food("lettuce", 15, 2.9, 94.98, 0.2, 1.4);
-        ff[15] = new Food("sausage", 230, 2.6, 60.97, 17, 15);
+        ff[0] = new Food("apple", 59, 14, 85.56, 0.2, 0.3);
+        ff[1] = new Food("chicken", 250.4, 4.1, 57.41, 18, 18); //100gr
+        ff[2] = new Food("rice", 125.5, 28, 68.44, 0.3, 2.7);
+        ff[3] = new Food("beef", 237.4, 0.6, 58.69, 15, 25);
+        ff[4] = new Food("beans", 142.4, 25, 63.08, 0.4, 9.7);
+        ff[5] = new Food("pork", 293.0, 0, 52.75, 21, 26);
+        ff[6] = new Food("banana", 99.1, 23, 74.91, 0.3, 1.1);
+        ff[7] = new Food("spaghetti", 119.6, 16, 73.16, 3.6, 5.8);
+        ff[8] = new Food("fish", 156.8, 0, 69.63, 7.2, 23);
+        ff[9] = new Food("tomato", 21.0, 3.9, 94.52, 0.2, 0.9);
+        ff[10] = new Food("cucumber", 13.0, 2.2, 96.73, 0.2, 0.6);
+        ff[11] = new Food("olive oil", 900.0, 0, 0, 100, 0);
+        ff[12] = new Food("feta cheese", 261.4, 4.1, 55.22, 21, 14);
+        ff[13] = new Food("bread", 268.8, 49, 35.2, 3.2, 11);
+        ff[14] = new Food("lettuce", 19.0, 2.9, 94.98, 0.2, 1.4);
+        ff[15] = new Food("sausage", 223.4, 2.6, 60.97, 17, 15);
 
         for (int i = 0; i < 16; i++) {
             foodMap.put(ff[i].getName(), ff[i]);
