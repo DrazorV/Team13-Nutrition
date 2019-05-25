@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>20</y>
+      <w>230</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>Tab2
+--
+name:TextView
+age:TextView
+height:TextView
+gender:TextView
+bmi:TextView
+target:TextView
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>20</y>
+      <w>360</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes>Customer
+--
+-Username:String
+-password:String
+-Name:String
+-Surname:String
+-gender:String
+-height:double
+-weight:double
+-age:int
+--
++check(characteristic:String)
++checkPassword(password:String)
++PAL()
++checkAge(age:int)
++checkWeight(weight:double)
++setJobType(job:String)
++changegender()
++SetGoals(goal:String,target:double)
++BMR(w:double)
++addExcercisePerformance(ep:ExcercisePerformance)
++calculatefoodsandexcercises()
++BMI(w:double)
++getNutritonGoals()
++getExcercisePerformancess()
++getHeight()
++setHeight(height:double)
++getFoodConsumptions()
++getAge()
++setAge(age:int)
++getWeight()
++setWeight(weight:double)
++getGoals()
++getWeightStatuses()
++getGender()
++getName()
++getPassword()
++setPassword(password:String)
++getSurname()
++getUsername()
++addExcercisePerformance()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>40</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>220.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
