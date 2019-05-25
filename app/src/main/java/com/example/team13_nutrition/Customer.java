@@ -74,7 +74,7 @@ public class Customer {
         if (sum < 5 || !sum2 || !sum3) throw new PasswordException();
     }
 
-    double PAL() {
+    public double PAL() {
         double pal = 0;
         if (jobtype.equals(JobType.Light)) {
             pal = 1.4;

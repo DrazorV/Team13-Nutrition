@@ -28,6 +28,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import github.nisrulz.stackedhorizontalprogressbar.StackedHorizontalProgressBar;
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -84,17 +86,43 @@ public class Tab1 extends Fragment {
             PieData data = new PieData(set);
             data.setValueTextSize(20);
             data.setValueTextColor(Color.BLACK);
-            chart.setCenterText("Total Calories: " + (cal + totalExercise));
+            chart.setCenterText("Calories: " + (totalProteins * 4 + totalCarbs * 4 + totalFats * 9) + "/" + (cal + totalExercise));
             chart.setHoleColor(Color.parseColor("#FF5722"));
             chart.setCenterTextSize(20);
             chart.setData(data);
+            chart.getDescription().setEnabled(false);
             chart.invalidate();
 
-            int Carbs = (int) (cal * 0.5);
-            int Protein = (int) (customer.getWeight() * 4);
-            int Fat = cal - Carbs - Protein;
 
+            StackedHorizontalProgressBar carbs = view.findViewById(R.id.carbs);
+            TextView carbs2 = view.findViewById(R.id.carbstxt);
+            StackedHorizontalProgressBar proteins = view.findViewById(R.id.proteins);
+            TextView proteins2 = view.findViewById(R.id.prottxt);
+            StackedHorizontalProgressBar fats = view.findViewById(R.id.fats);
+            TextView fats2 = view.findViewById(R.id.fattxt);
 
+            int Carb;
+            int Protein;
+            int Fat;
+
+            if (customer.PAL() < 1.5) {
+                Carb = (int) ((cal + totalExercise) * 0.5);
+                Protein = (int) (customer.getWeight() * 4);
+                Fat = cal + totalExercise - Carb - Protein;
+            } else {
+                Fat = (int) ((cal + totalExercise) * 0.2);
+                Protein = (int) (customer.getWeight() * 1.5 * 4);
+                Carb = cal + totalExercise - Fat - Protein;
+            }
+            carbs.setMax(Carb);
+            carbs.setProgress(totalCarbs * 4);
+            carbs2.setText((totalCarbs * 4) + "/" + Carb);
+            proteins.setMax(Protein);
+            proteins.setProgress(totalProteins * 4);
+            proteins2.setText((totalProteins * 4) + "/" + Protein);
+            fats.setMax(Fat);
+            fats.setProgress(totalFats * 9);
+            fats2.setText((totalFats * 9) + "/" + Fat);
         }
     }
 
