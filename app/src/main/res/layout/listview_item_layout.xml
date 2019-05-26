@@ -11,6 +11,7 @@
         android:layout_height="50dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
+        android:layout_weight="3"
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:text="TextView"
@@ -22,39 +23,43 @@
         android:id="@+id/quantityTextView"
         android:layout_width="40dp"
         android:layout_height="50dp"
+        android:layout_toStartOf="@id/quantityEditText"
         android:layout_toLeftOf="@id/quantityEditText"
+        android:layout_weight="1"
         android:text="Qt:"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textAlignment="center"
-        android:layout_toStartOf="@id/quantityEditText"
         android:textSize="19sp" />
 
     <EditText
         android:id="@+id/quantityEditText"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_weight="1"
         android:background="@android:color/transparent"
         android:ems="1"
-        android:textAlignment="center"
         android:inputType="number"
         android:text="1"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="130dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_weight="3" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="0dp"
+        android:layout_weight="1"
         android:scaleX="1.8"
-        android:layout_marginStart="10dp"
         android:scaleY="1.8" />
 
 </LinearLayout>
