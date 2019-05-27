@@ -151,7 +151,7 @@ public class Tab1 extends Fragment {
             int delayInHour = hour < 6 ? 6 - hour : 24 - (hour - 6);
 
             System.out.println("Current Hour: " + hour);
-            System.out.println("Comuted Delay for next 5 AM: " + delayInHour);
+            System.out.println("Commuted Delay for next 5 AM: " + delayInHour);
 
             scheduler.scheduleAtFixedRate(new MyTask(), delayInHour, 24, TimeUnit.HOURS);
 
@@ -221,33 +221,32 @@ public class Tab1 extends Fragment {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private void createSuggestedFoodList(){
+    private void createSuggestedFoodList() {
         suggestedFoodList = new ArrayList<>();
-        int remainingCarbs = maxCarbs - totalCarbs*4;
-        int remainingFats = maxFats - totalFats*9;
-        int remainingProteins = maxProteins - totalProteins*4;
+        int remainingCarbs = maxCarbs - totalCarbs * 4;
+        int remainingFats = maxFats - totalFats * 9;
+        int remainingProteins = maxProteins - totalProteins * 4;
         SuggestedFoodClass added;
-        if(remainingCal <= 0 || remainingCarbs <=0 || remainingFats <= 0 || remainingProteins <= 0){
+        if (remainingCal <= 0 || remainingCarbs <= 0 || remainingFats <= 0 || remainingProteins <= 0) {
             added = new SuggestedFoodClass("None", 0, 0, 0, 0);
             suggestedFoodList.add(added);
-        }
-        else {
+        } else {
             for (String key : MakeMap.foodMap.keySet()) {
                 Food food = MakeMap.foodMap.get(key);
-                double foodFats = food.getFat();
+                double foodFats = Objects.requireNonNull(food).getFat();
                 double foodProteins = food.getProtein();
                 double foodCarbs = food.getCarbohydrates();
-                if(remainingCarbs/(foodCarbs*4)>0 && remainingFats/(foodFats*9)>0 && remainingProteins/(foodProteins*4)>0){
+                if (remainingCarbs / (foodCarbs * 4) > 0 && remainingFats / (foodFats * 9) > 0 && remainingProteins / (foodProteins * 4) > 0) {
 
-                    double qC = remainingCarbs/(foodCarbs*4);
-                    double qF = remainingCarbs/(foodFats*9);
-                    double qP = remainingCarbs/(foodProteins*4);
-                    int quantity = Integer.min((int)qC, (int)qF);
-                    if(qP < quantity)
-                        quantity = Integer.min((int)qC, (int)qP);
-                    if(quantity > 5)
+                    double qC = remainingCarbs / (foodCarbs * 4);
+                    double qF = remainingCarbs / (foodFats * 9);
+                    double qP = remainingCarbs / (foodProteins * 4);
+                    int quantity = Integer.min((int) qC, (int) qF);
+                    if (qP < quantity)
+                        quantity = Integer.min((int) qC, (int) qP);
+                    if (quantity > 5)
                         quantity = 5;
-                    added = new SuggestedFoodClass(food.getName(), quantity, foodFats*quantity*9, foodProteins*quantity*4, foodCarbs*quantity*4);
+                    added = new SuggestedFoodClass(food.getName(), quantity, foodFats * quantity * 9, foodProteins * quantity * 4, foodCarbs * quantity * 4);
                     suggestedFoodList.add(added);
                     System.out.println(added.getFoodName());
                 }//if
