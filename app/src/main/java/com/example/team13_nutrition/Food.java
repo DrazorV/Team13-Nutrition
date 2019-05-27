@@ -50,20 +50,5 @@ public class Food {
         this.calories = calories;
     }
 
-    public void setCarbohydrates(double carbohydrates) {
-        this.carbohydrates = carbohydrates;
-    }
-
-    public void setLiquids(double liquids) {
-        this.liquids = liquids;
-    }
-
-    public void setFat(double fat) {
-        this.fat = fat;
-    }
-
-    public void setProtein(double protein) {
-        this.protein = protein;
-    }
 }
 
