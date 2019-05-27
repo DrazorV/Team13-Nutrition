@@ -150,7 +150,13 @@
             <ListView
                 android:id="@+id/suggested_food_listView"
                 android:layout_width="match_parent"
-                android:layout_height="500dp" />
+                android:layout_height="450dp" />
+
+            <TextView
+                android:id="@+id/noteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Note: All food quantities refer to 100gr of each food except for olive oil, which is measured per 10gr!" />
 
 
         </LinearLayout>
