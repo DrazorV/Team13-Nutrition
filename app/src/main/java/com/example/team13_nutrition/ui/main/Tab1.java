@@ -239,8 +239,8 @@ public class Tab1 extends Fragment {
                 if (remainingCarbs / (foodCarbs * 4) > 0 && remainingFats / (foodFats * 9) > 0 && remainingProteins / (foodProteins * 4) > 0) {
 
                     double qC = remainingCarbs / (foodCarbs * 4);
-                    double qF = remainingCarbs / (foodFats * 9);
-                    double qP = remainingCarbs / (foodProteins * 4);
+                    double qF = remainingFats / (foodFats * 9);
+                    double qP = remainingProteins / (foodProteins * 4);
                     int quantity = Integer.min((int) qC, (int) qF);
                     if (qP < quantity)
                         quantity = Integer.min((int) qC, (int) qP);
@@ -248,7 +248,6 @@ public class Tab1 extends Fragment {
                         quantity = 5;
                     added = new SuggestedFoodClass(food.getName(), quantity, foodFats * quantity * 9, foodProteins * quantity * 4, foodCarbs * quantity * 4);
                     suggestedFoodList.add(added);
-                    System.out.println(added.getFoodName());
                 }//if
             }//for
         }//else
