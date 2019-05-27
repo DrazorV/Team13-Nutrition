@@ -8,10 +8,11 @@
 
     <TextView
         android:id="@+id/foodNameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:text="food name"
-        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +23,8 @@
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
         android:text="Quantity:"
+        android:textColor="@color/black"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/foodNameTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,27 +36,33 @@
         android:layout_marginLeft="7dp"
         android:layout_marginTop="2dp"
         android:text="Proteins:"
+        android:textColor="@color/black"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/foodNameTextView"
         app:layout_constraintTop_toBottomOf="@+id/foodQuantityTextView" />
 
     <TextView
         android:id="@+id/foodQuantity"
-        android:layout_width="wrap_content"
+        android:layout_width="25dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:text="1"
+        android:textColor="@color/black"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/foodQuantityTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/foodProteins"
-        android:layout_width="wrap_content"
+        android:layout_width="25dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
         android:text="1"
+        android:textColor="@color/black"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/foodProteinsTextView"
         app:layout_constraintTop_toBottomOf="@+id/foodQuantity" />
 
@@ -64,6 +73,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:text="Carbohydrates:"
+        android:textColor="@color/black"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/foodQuantity"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,6 +86,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="2dp"
         android:text="Fat:"
+        android:textSize="9sp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/foodProteins"
         app:layout_constraintTop_toBottomOf="@+id/foodCarbohydratesTextView" />
 
@@ -85,6 +98,8 @@
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
         android:text="1"
+        android:textColor="@color/black"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/foodCarbohydratesTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,6 +111,8 @@
         android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
         android:text="1"
+        android:textColor="@color/black"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/foodFatTextView"
         app:layout_constraintTop_toBottomOf="@+id/foodCarbohydratesTextView" />
 </android.support.constraint.ConstraintLayout>
