@@ -10,6 +10,8 @@
         android:id="@+id/foodNameTextView"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:text="food name"
         android:textColor="@color/black"
         android:textSize="20sp"

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.team13_nutrition.data.model.LoggedInUser;
+import com.example.team13_nutrition.ui.login.LoginActivity;
 import com.example.team13_nutrition.ui.main.CustomViewPager;
 import com.example.team13_nutrition.ui.main.SectionsPagerAdapter;
 import com.example.team13_nutrition.ui.main.Tab1;
@@ -67,5 +68,25 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Action Item", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
+    private long mBackPressed;
+
+    @Override
+    public void onBackPressed()
+    {
+        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis())
+        {
+            super.onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("EXIT", true);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(getBaseContext(), "Tap back button in order to exit", Toast.LENGTH_SHORT).show(); }
+
+        mBackPressed = System.currentTimeMillis();
     }
 }
