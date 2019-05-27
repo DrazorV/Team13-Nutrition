@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>150</y>
+      <w>340</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>AddExcercisesActivity
+--
++searchView:SeacrchView
++foodListView:ListView
++confirmExcerciseButton:Button
+--
+-loadExcercises()
+-applyExcercises()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>160</y>
+      <w>380</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ListViewExcerciseAdapter
+--
+-mContext:Context
+--
++getView(position:int,convertView:View,parent:ViewGroup)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>30</y>
+      <w>300</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ArrayAdapter&lt;ListVeiwExcerciseClass&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>890</x>
+      <y>50</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>440</y>
+      <w>410</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>ListVeiwExcerciseClass
+--
+-name:String
+-checked:boolean
+-duration:int
+-intensity:String
+--
++getName()
++getQuantity()
++getMealType()
++ischecked()
++setName(name:String)
++setQuantity(quantity:int)
++setMealType(mealType:String)
++setChecked(checked:boolean)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>230</y>
+      <w>30</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=*
+</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>170</y>
+      <w>280</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>260.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>250</y>
+      <w>280</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>260.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>250</y>
+      <w>30</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=1
+</panel_attributes>
+    <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>470</y>
+      <w>260</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>MakeMap
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>720</y>
+      <w>220</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>Food
+--
+-name:String
+-calories:double
+-carbonhydrates:double
+-liquids:double
+-fat:double
+-protein:double
+--
++getName()
++getCalories()
++getCarbonhydrtes()
++geLiquids()
++getFat()
++getProtein()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>530</y>
+      <w>30</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=*
+</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>740</y>
+      <w>260</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Excercise
+--
+-name:String
+-loss_calories:double
+--
++getName()
++getLossCalories()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>490</y>
+      <w>160</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+m1=*
+</panel_attributes>
+    <additional_attributes>140.0;250.0;140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
