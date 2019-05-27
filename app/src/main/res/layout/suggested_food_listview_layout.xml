@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/foodNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="food name"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/foodQuantityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:text="Quantity:"
+        app:layout_constraintStart_toEndOf="@+id/foodNameTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/foodProteinsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="2dp"
+        android:text="Proteins:"
+        app:layout_constraintStart_toEndOf="@+id/foodNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/foodQuantityTextView" />
+
+    <TextView
+        android:id="@+id/foodQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:text="1"
+        app:layout_constraintStart_toEndOf="@+id/foodQuantityTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/foodProteins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:text="1"
+        app:layout_constraintStart_toEndOf="@+id/foodProteinsTextView"
+        app:layout_constraintTop_toBottomOf="@+id/foodQuantity" />
+
+    <TextView
+        android:id="@+id/foodCarbohydratesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Carbohydrates:"
+        app:layout_constraintStart_toEndOf="@+id/foodQuantity"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/foodFatTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="2dp"
+        android:text="Fat:"
+        app:layout_constraintStart_toEndOf="@+id/foodProteins"
+        app:layout_constraintTop_toBottomOf="@+id/foodCarbohydratesTextView" />
+
+    <TextView
+        android:id="@+id/foodCarbohydrates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:text="1"
+        app:layout_constraintStart_toEndOf="@+id/foodCarbohydratesTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/foodFat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:text="1"
+        app:layout_constraintStart_toEndOf="@+id/foodFatTextView"
+        app:layout_constraintTop_toBottomOf="@+id/foodCarbohydratesTextView" />
+</android.support.constraint.ConstraintLayout>

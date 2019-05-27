@@ -1,6 +1,7 @@
 package com.example.team13_nutrition.ui.main;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -12,15 +13,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.team13_nutrition.Customer;
 import com.example.team13_nutrition.DayStatus;
 import com.example.team13_nutrition.ExercisePerformance;
+import com.example.team13_nutrition.Food;
 import com.example.team13_nutrition.FoodConsumption;
 import com.example.team13_nutrition.MainActivity;
 import com.example.team13_nutrition.MakeMap;
 import com.example.team13_nutrition.R;
+import com.example.team13_nutrition.SuggestedFoodAdapter;
+import com.example.team13_nutrition.SuggestedFoodClass;
 import com.example.team13_nutrition.WeightStatus;
 import com.example.team13_nutrition.data.model.LoggedInUser;
 import com.github.mikephil.charting.charts.PieChart;
@@ -50,11 +55,17 @@ public class Tab1 extends Fragment {
     public static Set<FoodConsumption> foodConsumptions;
     public static Set<ExercisePerformance> exercisePerformances;
     public static Set<DayStatus> dayStatuses;
-    int totalProteins, totalCarbs, totalFats, totalExercise;
+    ArrayList<SuggestedFoodClass> suggestedFoodList;
+    SuggestedFoodAdapter suggestedFoodAdapter;
+    int totalProteins, totalCarbs, totalFats, totalExercise, remainingCal;
+    int maxCarbs;
+    int maxProteins;
+    int maxFats;
 
     /**
      * Called when the new created view is visible to user for the first time.
      */
+    @TargetApi(Build.VERSION_CODES.N)
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("SetTextI18n")
     protected void onViewCreatedFirstSight(View view) {
@@ -86,7 +97,7 @@ public class Tab1 extends Fragment {
             PieChart chart = view.findViewById(R.id.chart);
             List<PieEntry> entries = new ArrayList<>();
 
-            int remainingCal = cal + totalExercise - totalProteins * 4 - totalCarbs * 4 - totalFats * 9;
+            remainingCal = cal + totalExercise - totalProteins * 4 - totalCarbs * 4 - totalFats * 9;
 
             if (remainingCal > 0) entries.add(new PieEntry(remainingCal, "Remaining Calories"));
             if (totalProteins > 0) entries.add(new PieEntry(totalProteins * 4, "Proteins"));
@@ -113,28 +124,24 @@ public class Tab1 extends Fragment {
             StackedHorizontalProgressBar fats = view.findViewById(R.id.fats);
             TextView fats2 = view.findViewById(R.id.fattxt);
 
-            int Carb;
-            int Protein;
-            int Fat;
-
             if (customer.PAL() < 1.5) {
-                Carb = (int) ((cal + totalExercise) * 0.5);
-                Protein = (int) (customer.getWeight() * 4);
-                Fat = cal + totalExercise - Carb - Protein;
+                maxCarbs = (int) ((cal + totalExercise) * 0.5);
+                maxProteins = (int) (customer.getWeight() * 4);
+                maxFats = cal + totalExercise - maxCarbs - maxProteins;
             } else {
-                Fat = (int) ((cal + totalExercise) * 0.2);
-                Protein = (int) (customer.getWeight() * 1.5 * 4);
-                Carb = cal + totalExercise - Fat - Protein;
+                maxFats = (int) ((cal + totalExercise) * 0.2);
+                maxProteins = (int) (customer.getWeight() * 1.5 * 4);
+                maxCarbs = cal + totalExercise - maxFats - maxProteins;
             }
-            carbs.setMax(Carb);
+            carbs.setMax(maxCarbs);
             carbs.setProgress(totalCarbs * 4);
-            carbs2.setText((totalCarbs * 4) + "/" + Carb);
-            proteins.setMax(Protein);
+            carbs2.setText((totalCarbs * 4) + "/" + maxCarbs);
+            proteins.setMax(maxProteins);
             proteins.setProgress(totalProteins * 4);
-            proteins2.setText((totalProteins * 4) + "/" + Protein);
-            fats.setMax(Fat);
+            proteins2.setText((totalProteins * 4) + "/" + maxProteins);
+            fats.setMax(maxFats);
             fats.setProgress(totalFats * 9);
-            fats2.setText((totalFats * 9) + "/" + Fat);
+            fats2.setText((totalFats * 9) + "/" + maxFats);
 
             ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
@@ -147,10 +154,16 @@ public class Tab1 extends Fragment {
             System.out.println("Comuted Delay for next 5 AM: " + delayInHour);
 
             scheduler.scheduleAtFixedRate(new MyTask(), delayInHour, 24, TimeUnit.HOURS);
+
+            createSuggestedFoodList();
+            ListView suggestedFoodListView = view.findViewById(R.id.suggested_food_listView);
+            suggestedFoodAdapter = new SuggestedFoodAdapter(view.getContext(), suggestedFoodList);
+            suggestedFoodListView.setAdapter(suggestedFoodAdapter);
         }
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
@@ -174,12 +187,14 @@ public class Tab1 extends Fragment {
         mUserSeen = false;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void tryViewCreatedFirstSight() {
         if (mUserSeen && mViewCreated) {
             onViewCreatedFirstSight(getView());
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("SetTextI18n")
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         mViewCreated = true;
@@ -198,11 +213,47 @@ public class Tab1 extends Fragment {
      * Called when the visible state to user has been changed.
      */
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     protected void onUserVisibleChanged(boolean visible) {
         if (visible) {
             onViewCreatedFirstSight(getView());
         }
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void createSuggestedFoodList(){
+        suggestedFoodList = new ArrayList<>();
+        int remainingCarbs = maxCarbs - totalCarbs*4;
+        int remainingFats = maxFats - totalFats*9;
+        int remainingProteins = maxProteins - totalProteins*4;
+        SuggestedFoodClass added;
+        if(remainingCal <= 0 || remainingCarbs <=0 || remainingFats <= 0 || remainingProteins <= 0){
+            added = new SuggestedFoodClass("None", 0, 0, 0, 0);
+            suggestedFoodList.add(added);
+        }
+        else {
+            for (String key : MakeMap.foodMap.keySet()) {
+                Food food = MakeMap.foodMap.get(key);
+                double foodFats = food.getFat();
+                double foodProteins = food.getProtein();
+                double foodCarbs = food.getCarbohydrates();
+                if(remainingCarbs/(foodCarbs*4)>0 && remainingFats/(foodFats*9)>0 && remainingProteins/(foodProteins*4)>0){
+
+                    double qC = remainingCarbs/(foodCarbs*4);
+                    double qF = remainingCarbs/(foodFats*9);
+                    double qP = remainingCarbs/(foodProteins*4);
+                    int quantity = Integer.min((int)qC, (int)qF);
+                    if(qP < quantity)
+                        quantity = Integer.min((int)qC, (int)qP);
+                    if(quantity > 5)
+                        quantity = 5;
+                    added = new SuggestedFoodClass(food.getName(), quantity, foodFats*quantity*9, foodProteins*quantity*4, foodCarbs*quantity*4);
+                    suggestedFoodList.add(added);
+                    System.out.println(added.getFoodName());
+                }//if
+            }//for
+        }//else
+    }//create
 
     private class MyTask implements Runnable {
         @Override
