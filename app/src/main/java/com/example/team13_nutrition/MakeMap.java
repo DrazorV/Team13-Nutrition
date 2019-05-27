@@ -37,7 +37,7 @@ public class MakeMap {
         ff[8] = new Food("fish", 156.8, 0, 69.63, 7.2, 23);
         ff[9] = new Food("tomato", 21.0, 3.9, 94.52, 0.2, 0.9);
         ff[10] = new Food("cucumber", 13.0, 2.2, 96.73, 0.2, 0.6);
-        ff[11] = new Food("olive oil", 900.0, 0, 0, 100, 0);
+        ff[11] = new Food("olive oil", 90.0, 0, 0, 10, 0); //10gr
         ff[12] = new Food("feta cheese", 261.4, 4.1, 55.22, 21, 14);
         ff[13] = new Food("bread", 268.8, 49, 35.2, 3.2, 11);
         ff[14] = new Food("lettuce", 19.0, 2.9, 94.98, 0.2, 1.4);
